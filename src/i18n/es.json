@@ -1,0 +1,62 @@
+{
+  "brand": {
+    "name": "Market Lens",
+    "subtitle": "Análisis de mercados",
+    "project": "MITSUI · Proyecto académico",
+    "scope": "Demostración académica",
+    "notice": "No es asesoría financiera."
+  },
+  "navigation": {
+    "research": "Investigación",
+    "evaluation": "Evaluación",
+    "laboratory": "Laboratorio",
+    "overview": "Panorama",
+    "dataTargets": "Datos y objetivos",
+    "eda": "Análisis exploratorio",
+    "preprocessing": "Preparación",
+    "models": "Modelos",
+    "results": "Resultados",
+    "metrics": "Métricas",
+    "prediction": "Predicción"
+  },
+  "shell": {
+    "navigation": "Navegación principal",
+    "toggle": "Alternar navegación",
+    "close": "Cerrar navegación",
+    "skip": "Saltar al contenido"
+  },
+  "pages": {
+    "overview": {
+      "title": "Panorama",
+      "description": "Propósito y alcance del proyecto académico de predicción de retornos relativos."
+    },
+    "dataTargets": {
+      "title": "Datos y objetivos",
+      "description": "Estructura del dataset y selección de cuatro comparaciones entre instrumentos económicos."
+    },
+    "eda": {
+      "title": "Análisis exploratorio",
+      "description": "Hallazgos del análisis exploratorio de los datos financieros."
+    },
+    "preprocessing": {
+      "title": "Preparación",
+      "description": "Limpieza, disponibilidad temporal y preparación diferenciada de entradas."
+    },
+    "models": {
+      "title": "Modelos",
+      "description": "Modelos de referencia, temporales y alternativas predictivas examinadas."
+    },
+    "results": {
+      "title": "Resultados",
+      "description": "Interpretación de las predicciones y límites del desempeño obtenido."
+    },
+    "metrics": {
+      "title": "Métricas",
+      "description": "Comparación de errores, R^2, acierto de signo y tiempos de entrenamiento."
+    },
+    "prediction": {
+      "title": "Predicción",
+      "description": "Laboratorio académico para probar los modelos con entradas compatibles."
+    }
+  }
+}

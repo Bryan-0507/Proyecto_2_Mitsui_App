@@ -1,5 +1,5 @@
 {
-  "name": "template-project-web",
+  "name": "relative-lab-app",
   "version": "0.1.0",
   "private": true,
   "packageManager": "pnpm@10.33.0",
@@ -18,8 +18,11 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
+    "@fontsource/ibm-plex-sans": "^5.3.0",
+    "@gsap/react": "^2.1.2",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.4.0",
+    "gsap": "^3.15.0",
     "lucide-react": "^1.48.0",
     "next": "16.3.7",
     "react": "19.3.0",

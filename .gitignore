@@ -41,3 +41,10 @@ yarn-error.log*
 next-env.d.ts
 
 .idea/
+# Local model/data artifacts; import from the EDA source of truth
+/artifacts/
+
+# Local agent instructions and review memory
+/AGENTS.md
+/CLAUDE.md
+/docs/research/

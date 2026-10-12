@@ -1,73 +1,52 @@
-# Next.js Starter Template
+# Market Lens
 
-This is a comprehensive starter template for modern web applications built with Next.js. It's designed to be used as a starting point for any new web project requiring Next.js, providing a solid foundation with essential development tools and best practices pre-configured.
+Next.js scaffold for the academic MITSUI commodity prediction project. Market Lens is the selected project name, not a claim of affiliation with MITSUI or a financial company.
 
-## What's Included
+## Run
 
-- **Next.js 16.3** - App Router, Turbopack (default bundler for dev and build)
-- **React 19.3**
-- **TypeScript 7** - Native `tsc` for type checking, with TypeScript 6 kept side-by-side for tooling (see below)
-- **Tailwind CSS 4.3** - CSS-first config via `@tailwindcss/postcss`, no `tailwind.config`
-- **shadcn/ui** - `base-nova` style on [Base UI](https://base-ui.com) primitives, `cn` class merging, lucide icons
-- **ESLint 9** - Flat config with `eslint-config-next`
-- **Husky** - Git hooks for automated quality checks
-- **Commitlint** - Conventional commit message linting
+Requirements: Node >=22.12 and pnpm 10.33.
 
-## Requirements
-
-- Node.js `>= 22.12` (required by commitlint 21)
-- pnpm 10 (pinned via `packageManager`)
-
-## Getting Started
-
-### Installation
-
-```bash
-# Install dependencies
-pnpm install
-
-# Setup git hooks (required for pre-commit and commit-msg validation)
-pnpm run setup:hooks
+```sh
+pnpm install --frozen-lockfile
+pnpm dev --hostname 127.0.0.1 --port 3100
+pnpm validate
+pnpm build
 ```
 
-### Adding UI components
+## Visual direction
 
-```bash
-pnpm dlx shadcn@latest add button
+Market is the selected design: locally served IBM Plex Sans, cool gray surfaces, blue accents and a compact sidebar inspired by financial analysis apps. Open http://127.0.0.1:3100/. All eight project pages remain empty Server Components with individual metadata. Temporary proposals, sample chart, selector and unused fonts have been removed.
+
+## Structure
+
+```text
+src/app/                 Route entries, metadata, root layout, globals.css
+src/features/shell/      Shared sidebar/header UI, hooks and types
+src/features/shared/     Cross-feature navigation and metadata
+src/features/<feature>/  Prepared components/hooks/types directories
+src/components/ui/       Official shadcn Base UI components
+src/i18n/es.json          Central Spanish copy
+public/figures/           Lossless WebP assets and provenance manifest
+artifacts/               Local ignored model/data/contract snapshots
+scripts/import-artifacts.py   Repeatable transfer from the EDA repo
 ```
 
-Components are generated in `src/components/ui` using Base UI primitives (`@base-ui/react`). Theme tokens live in `src/app/globals.css`.
+No backend, auth, live metrics, prediction form or financial recommendation has been implemented. API modules and data-fetching hooks should be added only when the actual backend contract is agreed.
 
-## TypeScript setup
+## Import project artifacts
 
-TypeScript 7 does not ship a JavaScript compiler API yet, which `typescript-eslint` (used by `eslint-config-next`) and the Next.js editor plugin still need. Both versions are installed through npm aliases:
+Use the existing EDA virtual environment, which contains Pillow. Sources are only read. The script copies final model weights and selected evaluation/contracts, not experimental checkpoints, into the private artifacts directory. Hashes are verified and symlinks are materialized.
 
-| Package name | Resolves to | Used by |
-|---|---|---|
-| `@typescript/native` | `typescript@7` | `tsc` binary: `pnpm typecheck` and `next build` |
-| `typescript` | `@typescript/typescript6` | ESLint, shadcn CLI, editor (`tsc6` binary) |
-
-Once TypeScript 7.1 ships its API and `typescript-eslint` supports it, drop the alias and install `typescript@^7` directly.
-
-## Why ESLint 9
-
-`eslint-config-next` depends on `eslint-plugin-react`, `eslint-plugin-import` and `eslint-plugin-jsx-a11y`, which do not support ESLint 10 yet. Stay on ESLint 9 until `eslint-config-next` supports it.
-
-## Quality Assurance Features
-
-### Git Hooks (Husky)
-- **Pre-commit hook**: Runs linting and type checking before commits
-- **Commit-msg hook**: Validates commit messages using conventional commit format
-
-**Setup hooks after cloning:**
-```bash
-pnpm run setup:hooks
-# or manually:
-./setup-hooks.sh
+```sh
+/Users/bryan/Documents/DataScience/Proyecto_2_EDA_Data_Science/.venv/bin/python scripts/import-artifacts.py --source /Users/bryan/Documents/DataScience/Proyecto_2_EDA_Data_Science
 ```
 
-### Scripts
-- `pnpm run validate` - Runs both linting and type checking
-- `pnpm run typecheck` - Generates Next.js route types, then runs TypeScript type checking
-- `pnpm run lint` - ESLint code linting
-- `pnpm run setup:hooks` - Setup Husky git hooks
+Models are not public and cannot execute in a JavaScript runtime. artifacts/python contains the minimal project module snapshot required by trusted serialized objects. A Python process must add that directory to its module path and import src before loading our joblib files, to register the historical module aliases. Connecting and testing full inference is a separate task. Never load untrusted joblib/pickle files. The external LSTM is isolated as a third-party reference, not a model trained by the team.
+
+Graphics are converted to lossless WebP without changing dimensions or decoded pixels. Existing metrics and rounds are retained separately. EDA graphic accessibility review is still required before displaying them; approved modeling graphs retain their original encoding, labels and accessible markers.
+
+See docs/scaffold-design.md for routes, architecture and cleanup boundaries. No commits are made automatically.
+
+## Font provenance
+
+IBM Plex Sans is bundled locally through Fontsource; retain its included license notices. This is a licensed font choice inspired by financial analysis interfaces, not a claim that TradingView uses this font.
