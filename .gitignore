@@ -48,3 +48,8 @@ next-env.d.ts
 /AGENTS.md
 /CLAUDE.md
 /docs/research/
+
+# Local Python runtime and interpreter caches
+/.venv/
+__pycache__/
+*.pyc
