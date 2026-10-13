@@ -1,4 +1,28 @@
 {
+  "preparation": {
+    "title": "Preparación",
+    "intro": "Del dato original a la entrada del modelo: conservar la secuencia, tratar los problemas y utilizar solo información disponible.",
+    "commonTitle": "Primero, una base común",
+    "commonDescription": "Ruta de los modelos propios. Los archivos originales permanecen intactos.",
+    "steps": [
+      {"title": "Conservar la secuencia", "description": "Mantenemos todas las filas y el orden de date_id, incluso cuando faltan mediciones."},
+      {"title": "Excluir GOLD", "description": "Retiramos sus cinco columnas por falta de cobertura. Quedan 552 predictoras; los futuros de oro e IAU se conservan."},
+      {"title": "Validar precios", "description": "Aperturas o cierres fuera del mínimo y máximo se dejan como faltantes, sin inventar un precio."},
+      {"title": "Alinear los targets", "description": "Unimos los cuatro objetivos por date_id y agregamos historia del target únicamente cuando ya puede conocerse."},
+      {"title": "Separar en el tiempo", "description": "Validamos en bloques consecutivos. La selección y las transformaciones se ajustan dentro del entrenamiento."}
+    ],
+    "branchesTitle": "Después, la entrada cambia según el modelo",
+    "branchesDescription": "No aplicamos el mismo tratamiento a todos los algoritmos.",
+    "branches": [
+      {"title": "Regresión lineal", "description": "Predictores seleccionados y valores completos.", "steps": ["Seleccionar por asociación absoluta de Spearman", "Recortar extremos si la configuración lo indica", "Rellenar con la mediana y marcar las ausencias", "Estandarizar con estadísticas del entrenamiento"], "reason": "El relleno permite calcular la regresión; los indicadores conservan información sobre qué valores faltaban."},
+      {"title": "LightGBM", "description": "Predictores seleccionados, sin rellenar faltantes.", "steps": ["Seleccionar por asociación absoluta de Spearman", "Recortar extremos si la configuración lo indica", "Conservar faltantes y escalas originales"], "reason": "Los árboles pueden manejar valores ausentes y no necesitan estandarización como parte de esta preparación."},
+      {"title": "Modelos temporales", "description": "Historia del propio target, no las 552 predictoras.", "steps": ["Conservar la serie completa y sus huecos", "Utilizar solo etiquetas históricas disponibles", "Actualizar el estado sin volver a ajustar parámetros"], "reason": "Una etiqueta necesita que termine su horizonte para conocerse. Por eso no usamos automáticamente el target de la fila anterior."}
+    ],
+    "externalTitle": "La LSTM externa sigue otra ruta",
+    "externalDescription": "Reproducimos la preparación del autor desde train.csv original, no desde nuestra base limpia.",
+    "externalSteps": ["2064 características derivadas", "Escalado y recorte del autor", "Reducción a 100 componentes", "Ventanas de 20 observaciones anteriores"],
+    "externalNote": "Se calculan retornos, variabilidad y comparaciones entre instrumentos; los faltantes derivados se rellenan con cero. El escalado, la reducción y los pesos ya estaban ajustados: aquí no reentrenamos la red."
+  },
   "brand": {
     "name": "Market Lens",
     "subtitle": "Análisis de mercados",
