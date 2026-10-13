@@ -19,8 +19,7 @@ export const navigationGroups: {
   {
     label: copy.navigation.evaluation,
     items: [
-      { id: "results", href: "/results", label: copy.navigation.results },
-      { id: "metrics", href: "/metrics", label: copy.navigation.metrics },
+      { id: "metrics", href: "/metrics", label: copy.navigation.results },
     ],
   },
   {

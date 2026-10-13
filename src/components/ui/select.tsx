@@ -62,7 +62,7 @@ function SelectContent({
   sideOffset = 4,
   align = "center",
   alignOffset = 0,
-  alignItemWithTrigger = true,
+  alignItemWithTrigger = false,
   ...props
 }: SelectPrimitive.Popup.Props &
   Pick<
@@ -121,12 +121,12 @@ function SelectItem({
       )}
       {...props}
     >
-      <SelectPrimitive.ItemText className="flex flex-1 shrink-0 gap-2 whitespace-nowrap">
+      <SelectPrimitive.ItemText data-slot="select-item-text" className="min-w-0 flex-1 whitespace-normal break-words">
         {children}
       </SelectPrimitive.ItemText>
       <SelectPrimitive.ItemIndicator
         render={
-          <span className="pointer-events-none absolute right-2 flex size-4 items-center justify-center" />
+          <span data-slot="select-item-indicator" className="pointer-events-none col-start-2 flex size-4 shrink-0 items-center justify-center" />
         }
       >
         <CheckIcon className="pointer-events-none" />

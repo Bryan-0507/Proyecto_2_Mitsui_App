@@ -1,0 +1,9 @@
+export type MetricRow = { target: string; model: string; rmse: number; mae: number; r2: number; sign: number | null; seconds: number | null; n: number };
+export type MetricData = { initial: MetricRow[]; final: MetricRow[]; totals: { model: string; search: number; fit: number; total: number }[] };
+export type ReferenceKey = "temporal" | "cero" | "media" | "evaluationMean";
+export type R2Point = { id:number; real:number|null; temporal:number|null; cero:number|null; media:number|null };
+export type R2Data = { points:R2Point[]; n:number };
+export type FeatureCandidate = { k:number; clip:boolean; rmse:number; foldRmse:number[]; foldN:number[] };
+export type FeatureSearch = { target:string; selectedK:number; selectedClip:boolean; candidates:FeatureCandidate[]; folds:{start:number; end:number; n:number}[] };
+export type SpearmanStability = {target:string; feature:string; eligible:number; periods:{start:number; end:number; n:number; rho:number}[]};
+export type SignFindingData = {target:string; n:number; positive:number; negative:number; majority:number; models:{model:string; correct:number; accuracy:number}[]};
