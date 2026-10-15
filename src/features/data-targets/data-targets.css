@@ -1,0 +1,81 @@
+.dt-screen { gap:40px; }
+.dt-section { display:flex; flex-direction:column; gap:16px; }
+.dt-section > header h2 { font-size:1.375rem; font-weight:500; }
+.dt-section > header p { margin-top:4px; color:var(--muted-foreground); max-width:80ch; line-height:1.5; }
+.dt-card { min-width:0; --card-spacing:24px; border-radius:var(--radius); box-shadow:none; }
+.dt-stack { display:flex; flex-direction:column; gap:16px; }
+.dt-card h3 { font-size:1rem; font-weight:500; }
+.dt-card h4 { font-size:.9375rem; font-weight:500; }
+.dt-card p,.dt-card td { font-size:.875rem; line-height:1.6; }
+.dt-card th { white-space:normal; }
+.dt-card td { white-space:normal; }
+.dt-note { font-size:.8125rem; line-height:1.5; color:var(--muted-foreground); margin-top:12px; }
+.dt-stack .dt-note { margin-top:0; }
+.dt-file { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.8125rem; white-space:nowrap !important; }
+.dt-kind { gap:4px; }
+.dt-versions { display:flex; flex-direction:column; gap:12px; }
+.dt-versions h3 { font-size:1rem; font-weight:500; }
+.dt-versions ol { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-top:1px solid var(--border); }
+.dt-versions li { display:flex; flex-direction:column; gap:8px; padding:16px 20px 0 0; }
+.dt-versions li + li { padding-left:20px; border-left:1px solid var(--border); }
+.dt-versions h4 { font-size:.9375rem; font-weight:500; }
+.dt-versions p { font-size:.875rem; line-height:1.6; color:var(--muted-foreground); }
+.dt-versions dl { display:flex; flex-wrap:wrap; gap:4px 20px; }
+.dt-versions dl div { display:flex; flex-direction:column-reverse; }
+.dt-versions dd { margin:0; font-size:1.5rem; line-height:1.2; color:var(--primary); font-variant-numeric:tabular-nums; }
+.dt-versions dt { font-size:.8125rem; color:var(--muted-foreground); }
+.dt-step { display:inline-grid; place-items:center; width:24px; height:24px; border:1px solid var(--primary); border-radius:999px; color:var(--primary); font-size:.8125rem; font-variant-numeric:tabular-nums; }
+.dt-targets { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.dt-targets li { min-width:0; display:flex; }
+.dt-targets li > * { flex:1; }
+.dt-target-head { display:flex; gap:8px; margin-bottom:8px; }
+.dt-pair { display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); gap:12px; align-items:start; }
+.dt-instrument { display:flex; flex-direction:column; align-items:flex-start; gap:6px; min-width:0; }
+.dt-instrument-label { font-size:.75rem !important; color:var(--muted-foreground); }
+.dt-instrument p:last-child { color:var(--muted-foreground); }
+.dt-versus { display:grid; place-items:center; width:32px; height:32px; margin-top:22px; border:1px solid var(--border); border-radius:999px; color:var(--muted-foreground); }
+.dt-versus svg { width:16px; height:16px; }
+.dt-code { margin-top:16px; padding-top:12px; border-top:1px solid var(--border); font-size:.75rem !important; color:var(--muted-foreground); font-family:ui-monospace,SFMono-Regular,Menlo,monospace; overflow-wrap:anywhere; }
+.dt-code span { font-family:var(--app-font); margin-right:6px; }
+.dt-two { display:grid; grid-template-columns:minmax(0,6fr) minmax(0,5fr); gap:16px; align-items:start; }
+.dt-flow { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.dt-flow li { display:flex; flex-direction:column; gap:6px; }
+.dt-flow li > div { display:flex; align-items:center; justify-content:space-between; }
+.dt-arrow { width:16px; height:16px; color:var(--muted-foreground); }
+.dt-flow p { color:var(--muted-foreground); }
+.dt-reads { display:flex; flex-direction:column; gap:12px; margin-top:8px; }
+.dt-reads li { display:grid; grid-template-columns:20px minmax(0,1fr); gap:12px; align-items:start; }
+.dt-reads svg { width:20px; height:20px; color:var(--primary); margin-top:2px; }
+.dt-reads p { color:var(--muted-foreground); }
+.dt-not { border-left:3px solid var(--chart-2); padding-left:12px; }
+.dt-not p { margin-top:4px; }
+.dt-details summary { cursor:pointer; color:var(--primary); font-size:.875rem; min-height:44px; display:flex; align-items:center; }
+.dt-copy { display:flex; flex-direction:column; gap:12px; }
+.dt-copy p { font-size:.9375rem; line-height:1.6; max-width:60ch; }
+.dt-timeline { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:8px; }
+.dt-timeline li { display:flex; flex-direction:column; align-items:flex-start; gap:4px; border:1px dashed var(--border); border-radius:var(--radius); padding:10px 8px; font-size:.75rem; color:var(--muted-foreground); }
+.dt-timeline li[data-edge=true] { border:2px solid var(--primary); color:var(--foreground); }
+.dt-timeline svg { width:16px; height:16px; color:var(--primary); }
+.dt-id { font-size:.8125rem; font-variant-numeric:tabular-nums; color:var(--foreground); }
+@media(max-width:1023px) { .dt-two,.dt-targets { grid-template-columns:1fr; } .dt-versions ol { grid-template-columns:1fr; } .dt-versions li,.dt-versions li + li { padding:16px 0; border-left:0; border-bottom:1px solid var(--border); } }
+@media(max-width:640px) {
+  .dt-screen { gap:32px; }
+  .dt-card { --card-spacing:16px; }
+  .dt-pair { grid-template-columns:1fr; }
+  .dt-versus { margin:0; transform:rotate(90deg); }
+  .dt-flow { grid-template-columns:1fr; }
+  .dt-arrow { transform:rotate(90deg); }
+  .dt-timeline { grid-template-columns:1fr; }
+  .dt-timeline li { flex-direction:row; align-items:center; gap:8px; }
+}
+.dt-card td:first-child { white-space:nowrap; }
+.dt-copy h3 { font-size:1rem; font-weight:500; margin-top:8px; }
+.dt-lags { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 16px; max-width:420px; }
+.dt-lags li { display:flex; justify-content:space-between; gap:8px; border-bottom:1px solid var(--border); padding-bottom:6px; font-size:.875rem; }
+.dt-lags li span:first-child { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.8125rem; }
+@media(max-width:640px) { .dt-lags { grid-template-columns:1fr; } }
+@media(max-width:640px) {
+  .dt-files thead { display:none; }
+  .dt-files tr { display:grid; gap:6px; justify-items:start; padding:12px 0; }
+  .dt-files td { padding:0; }
+}

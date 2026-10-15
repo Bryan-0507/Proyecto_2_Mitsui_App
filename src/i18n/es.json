@@ -620,5 +620,247 @@
       "sourceHref": "https://github.com/Hayden1629/mitsui_commodity/tree/357e8352e7eff9ac10b54d992e61ac6564be8034/FINAL_LSTM",
       "attribution": "No atribuimos a este repositorio un puesto certificado en la competencia. Si menciona inspiración en otras soluciones, eso no define su autoría ni su resultado."
     }
+  },
+  "dataTargets": {
+    "title": "Datos y objetivos",
+    "intro": "Qué información tenemos, qué intentamos predecir y cómo interpretar el resultado.",
+    "dataset": {
+      "title": "Qué información tenemos",
+      "intro": "El reto entrega cuatro archivos. Cada uno cumple una función distinta.",
+      "tableCaption": "Archivos del dataset y su función",
+      "columns": {
+        "file": "Archivo",
+        "kind": "Tipo",
+        "content": "Qué contiene",
+        "size": "Tamaño"
+      },
+      "kinds": {
+        "predictors": "Predictoras",
+        "labels": "Etiquetas",
+        "metadata": "Metadata",
+        "kaggle": "Evaluación Kaggle"
+      },
+      "files": [
+        {
+          "name": "train.csv",
+          "kind": "predictors",
+          "content": "Observaciones históricas de las variables predictoras: precios, volúmenes y tipos de cambio.",
+          "size": "1961 observaciones y 557 predictoras"
+        },
+        {
+          "name": "train_labels.csv",
+          "kind": "labels",
+          "content": "Las respuestas históricas que los modelos aprenden a predecir.",
+          "size": "1961 observaciones y 424 targets"
+        },
+        {
+          "name": "target_pairs.csv",
+          "kind": "metadata",
+          "content": "El instrumento o par de instrumentos y el lag de cada target.",
+          "size": "424 targets"
+        },
+        {
+          "name": "test.csv",
+          "kind": "kaggle",
+          "content": "Entradas de evaluación de la competencia. No es la prueba interna con la que calculamos nuestras métricas.",
+          "size": "134 observaciones"
+        }
+      ],
+      "idNote": "date_id es un identificador ordenado, no una fecha de calendario.",
+      "versionsTitle": "Tres niveles de datos",
+      "versions": [
+        {
+          "title": "Dataset original",
+          "figures": [
+            [
+              "1961",
+              "observaciones"
+            ],
+            [
+              "557",
+              "predictoras"
+            ],
+            [
+              "424",
+              "targets"
+            ]
+          ],
+          "description": "Lo que entrega la competencia."
+        },
+        {
+          "title": "Preparado para EDA",
+          "figures": [
+            [
+              "552",
+              "predictoras"
+            ]
+          ],
+          "description": "Excluimos las cinco columnas del instrumento US_Stock_GOLD porque su cobertura termina antes que la de las demás."
+        },
+        {
+          "title": "Usado por cada modelo",
+          "figures": [],
+          "description": "No todos los modelos usan las mismas variables. La regresión lineal y LightGBM seleccionan un subconjunto de predictoras, los modelos temporales usan solo la historia del target y la LSTM externa parte del train.csv original. El detalle está en Preparación y Modelos."
+        }
+      ]
+    },
+    "targets": {
+      "title": "Los cuatro targets",
+      "intro": "Elegimos instrumentos que la audiencia puede reconocer. No son necesariamente los targets más fáciles de predecir ni los más representativos del mercado.",
+      "crossNote": "Muchos targets cruzan mercados: la clasificación que usamos no implica que los dos instrumentos pertenezcan al mismo mercado.",
+      "lag": "Lag",
+      "against": "frente a",
+      "a": "Instrumento A",
+      "b": "Instrumento B",
+      "datasetName": "Nombre en el dataset",
+      "cards": [
+        {
+          "id": "target_225",
+          "title": "ExxonMobil frente a futuros de oro JPX",
+          "a": {
+            "name": "ExxonMobil (XOM)",
+            "kind": "Acción de EE. UU.",
+            "description": "Empresa del sector energético. Su acción no es el precio del petróleo."
+          },
+          "b": {
+            "name": "Futuros de oro JPX",
+            "kind": "Futuros",
+            "description": "Contratos sobre el oro negociados en Japan Exchange Group."
+          }
+        },
+        {
+          "id": "target_19",
+          "title": "Futuros de oro JPX frente a USD/JPY",
+          "a": {
+            "name": "Futuros de oro JPX",
+            "kind": "Futuros",
+            "description": "Contratos sobre el oro negociados en Japan Exchange Group."
+          },
+          "b": {
+            "name": "USD/JPY",
+            "kind": "Divisa",
+            "description": "Relación entre el dólar estadounidense y el yen japonés."
+          }
+        },
+        {
+          "id": "target_105",
+          "title": "ETF IAU frente a cobre LME",
+          "a": {
+            "name": "ETF IAU",
+            "kind": "ETF",
+            "description": "Fondo que cotiza en bolsa y está vinculado al oro. No es lo mismo que los futuros de oro."
+          },
+          "b": {
+            "name": "Cobre LME",
+            "kind": "Metal LME",
+            "description": "LME es un mercado de metales, no una empresa."
+          }
+        },
+        {
+          "id": "target_410",
+          "title": "EUR/USD frente a aluminio LME",
+          "a": {
+            "name": "EUR/USD",
+            "kind": "Divisa",
+            "description": "Relación entre el euro y el dólar estadounidense."
+          },
+          "b": {
+            "name": "Aluminio LME",
+            "kind": "Metal LME",
+            "description": "Mismo mercado de metales, otro metal."
+          }
+        }
+      ]
+    },
+    "meaning": {
+      "title": "Qué representa el target",
+      "intro": "Cada target compara dos instrumentos, A y B, con la diferencia de sus retornos logarítmicos. Un retorno logarítmico mide el cambio proporcional de un instrumento.",
+      "stepsLabel": "Cómo se construye el target",
+      "steps": [
+        {
+          "title": "Cambio de A",
+          "description": "Se mide el cambio proporcional de A."
+        },
+        {
+          "title": "Cambio de B",
+          "description": "Se mide el cambio proporcional de B."
+        },
+        {
+          "title": "Resta",
+          "description": "Se resta el retorno de B al de A."
+        }
+      ],
+      "readTitle": "Cómo leer el resultado",
+      "reads": [
+        {
+          "title": "Positivo",
+          "description": "A tuvo mayor retorno relativo que B."
+        },
+        {
+          "title": "Negativo",
+          "description": "B tuvo mayor retorno relativo que A."
+        },
+        {
+          "title": "Cero",
+          "description": "Ambos tuvieron el mismo retorno logarítmico."
+        }
+      ],
+      "notTitle": "Qué no es",
+      "not": "No equivale al precio futuro, al camino completo del precio ni a un porcentaje exacto de ganancia. Tampoco supone que el instrumento favorecido haya subido.",
+      "exampleTitle": "Ejemplo con números inventados",
+      "exampleCaption": "Dos instrumentos que suben la misma cantidad de unidades",
+      "exampleColumns": {
+        "instrument": "Instrumento",
+        "before": "Antes",
+        "after": "Después",
+        "absolute": "Cambio absoluto",
+        "proportional": "Cambio proporcional"
+      },
+      "exampleRows": [
+        [
+          "Instrumento 1",
+          "1100",
+          "1200",
+          "+100",
+          "cerca de 9 %"
+        ],
+        [
+          "Instrumento 2",
+          "100",
+          "200",
+          "+100",
+          "100 %"
+        ]
+      ],
+      "exampleNote": "Ambos aumentan 100 unidades, pero el segundo tiene un cambio proporcional mayor. El target compara cambios proporcionales como estos.",
+      "modelNote": "El modelo estima esta comparación cuando los valores futuros todavía no se conocen.",
+      "detailSummary": "Ver definición técnica",
+      "detail": "El retorno logarítmico de un instrumento entre dos momentos es el logaritmo natural del precio final dividido entre el precio inicial. El target es el retorno logarítmico de A menos el de B. En la competencia algunos targets son el retorno de un solo instrumento; los cuatro que usamos son diferencias."
+    },
+    "lag": {
+      "title": "Qué significa el lag",
+      "intro": "El lag forma parte de la definición del target y determina su horizonte. No es la cantidad de observaciones históricas que recibe el modelo.",
+      "single": "Un target produce un único resultado relativo, no una predicción por cada paso.",
+      "known": "Por eso el resultado de una fila no puede usarse como dato conocido hasta que pasa su horizonte.",
+      "ours": "Lags de nuestros cuatro targets",
+      "timelineLabel": "Pasos entre la fila de entrada y el momento en que se conoce su resultado",
+      "timelineTitle": "Ejemplo conceptual con lag 3",
+      "timelineNote": "Los números son identificadores de fila, no fechas ni días. Los extremos exactos del cambio los define la competencia; este esquema solo muestra cuándo el resultado puede conocerse.",
+      "rowLabel": "Fila",
+      "ids": [
+        100,
+        101,
+        102,
+        103,
+        104
+      ],
+      "stages": [
+        "Fila de entrada",
+        "En espera",
+        "En espera",
+        "En espera",
+        "Resultado conocido"
+      ]
+    }
   }
 }
