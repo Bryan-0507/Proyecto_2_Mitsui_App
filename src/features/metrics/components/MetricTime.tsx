@@ -17,7 +17,8 @@ export function MetricTime({ rows }: { rows:MetricRow[] }) {
 }
 export function MetricTotals({ totals }: { totals:MetricData["totals"] }) {
   const max=Math.max(...totals.map(r=>r.total))*1.2;
+  const step=210/totals.length;
   return <div className="metrics-plot" tabIndex={0} aria-label={copy.metrics.scroll}><svg viewBox="0 0 620 310" role="img" aria-label={copy.metrics.labels.totals}><title>{copy.metrics.labels.totals}</title>
     {[0,1,2,3,4].map(i=><g key={i}><line x1={180+340*i/4} x2={180+340*i/4} y1={25} y2={240} stroke="var(--border)"/><text x={180+340*i/4} y={265} textAnchor="middle">{formatMetric(max*i/4)}</text></g>)}
-    {totals.map((r,i)=><g key={r.model}><text x={166} y={69+i*70} textAnchor="end">{names[r.model as keyof typeof names]}</text><rect x={180} y={48+i*70} width={r.total/max*340} height={32} fill="var(--primary)"/><text x={188+r.total/max*340} y={69+i*70}>{formatMetric(r.total)}</text></g>)}<text x={350} y={295} textAnchor="middle">{copy.metrics.seconds}</text></svg></div>;
+    {totals.map((r,i)=><g key={r.model}><text x={166} y={30+step*(i+.5)+5} textAnchor="end">{names[r.model as keyof typeof names]}</text><rect x={180} y={30+step*(i+.5)-16} width={r.total/max*340} height={32} fill="var(--primary)"/><text x={188+r.total/max*340} y={30+step*(i+.5)+5}>{formatMetric(r.total)}</text></g>)}<text x={350} y={295} textAnchor="middle">{copy.metrics.seconds}</text></svg></div>;
 }

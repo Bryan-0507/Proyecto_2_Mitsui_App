@@ -19,6 +19,19 @@
 .pr-step-panel p:last-child { font-size:1rem; line-height:1.65; max-width:70ch; }
 
 .pr-routes { display:flex; flex-direction:column; gap:16px; }
+.pr-input-details { border-top:1px solid var(--border); min-width:0; }
+.pr-input-details summary { cursor:pointer; color:var(--primary); font-size:.9375rem; padding:12px 0; }
+.pr-input-detail-content { display:flex; flex-direction:column; gap:16px; padding:8px 0 16px; font-size:.9375rem; line-height:1.6; }
+.pr-input-target { width:min(100%,380px); }
+.pr-input-target [data-slot=select-trigger] { width:100%; }
+.pr-input-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 32px; list-style:none; }
+.pr-input-list li { display:flex; flex-direction:column; gap:4px; padding:12px 0; border-bottom:1px solid var(--border); min-width:0; overflow-wrap:anywhere; }
+.pr-input-list small,.pr-input-provenance { font-size:.8125rem; color:var(--muted-foreground); }
+.pr-indicator-list { padding-left:20px; list-style:disc; overflow-wrap:anywhere; color:var(--muted-foreground); }
+.pr-temporal-inputs { display:flex; flex-wrap:wrap; gap:24px; }
+.pr-temporal-inputs div { display:flex; gap:8px; align-items:baseline; }
+.pr-temporal-inputs dd { color:var(--primary); font-weight:600; }
+@media(max-width:640px) { .pr-input-list { grid-template-columns:1fr; } }
 .pr-route-tab { display:inline-flex; align-items:center; gap:8px; }
 .pr-route-tab svg { width:16px; height:16px; }
 .pr-route { display:flex; flex-direction:column; gap:24px; container-type:inline-size; }

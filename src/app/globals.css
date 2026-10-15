@@ -87,6 +87,10 @@
 .metrics-controls { display:flex; flex-wrap:wrap; align-items:end; gap:20px; }
 .metrics-controls > div { display:flex; flex-direction:column; gap:8px; }
 .metrics-controls label { font-size:.8125rem; color:var(--muted-foreground); }
+.performance-charts { display:flex; flex-direction:column; gap:24px; }
+.performance-charts[hidden] { display:none; }
+.metrics-controls > div { min-width:0; max-width:100%; }
+.metrics-controls > [data-slot=button] { min-height:36px; }
 .metrics-scope { font-size:.8125rem; line-height:1.6; color:var(--muted-foreground); max-width:900px; }
 .metrics-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,504px),1fr)); gap:24px; }
 .metrics-grid > * { min-width:0; }

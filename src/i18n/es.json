@@ -1,5 +1,22 @@
 {
   "preparation": {
+    "modelInputs": {
+      "title":"Consultar las entradas del modelo",
+      "selected":"{n} variables seleccionadas antes del tratamiento de faltantes. La lista corresponde al modelo final guardado, no a cada bloque de validación.",
+      "indicators":"La regresión lineal añade {n} indicadores binarios de ausencia para las siguientes variables. Son entradas adicionales, no otras variables seleccionadas por Spearman:",
+      "noIndicators":"Este modelo no añade indicadores binarios de ausencia.",
+      "historyFeature":"Historial del target · desfase adicional {offset}",
+      "historyNote":"El desfase indicado se suma al horizonte ({lag}) más una posición. Así se utilizan únicamente etiquetas ya conocidas en el origen de predicción.",
+      "temporal":"{model} utiliza el historial disponible del target seleccionado, no las columnas de precios como predictoras externas. Solo admite etiquetas conocidas: la última corresponde al origen menos el horizonte ({lag}) menos una posición.",
+      "temporalTerms":["AR: valores anteriores","I: diferenciaciones","MA: errores anteriores"],
+      "temporalNote":"Estos valores describen el orden del modelo, no el horizonte de predicción ni tres variables predictoras. La diferenciación representa trabajar con cambios de la serie.",
+      "external":"Cada observación se transforma a {components} componentes mediante PCA a partir de {engineered} características derivadas. La red recibe una secuencia de {window} observaciones estrictamente anteriores al origen, con 100 componentes por observación.",
+      "externalShared":"Las entradas son compartidas por los cuatro targets consultados. La red externa genera 424 salidas y la aplicación recupera la correspondiente al target seleccionado. Los componentes combinan características: no equivalen a 100 instrumentos seleccionados individualmente.",
+      "source":"Fuente: selector aprendido y configuración de los modelos congelados utilizados por la aplicación. Consulta descriptiva, sin nuevos entrenamientos.",
+      "externalSource":"Fuente: contrato de preprocesamiento, catálogo de características y configuración de la LSTM externa importada. No fue entrenada por nuestro equipo.",
+      "markets":{"US_Stock":"Acciones de EE. UU.","JPX":"Futuros JPX","LME":"Metales LME","FX":"Divisas"},
+      "measures":{"_adj_open":"apertura ajustada","_adj_high":"máximo ajustado","_adj_low":"mínimo ajustado","_adj_close":"cierre ajustado","_adj_volume":"volumen negociado","_Open":"apertura","_High":"máximo","_Low":"mínimo","_Close":"cierre","_Volume":"volumen negociado"}
+    },
     "tabsLabel": "Nivel de preparación",
     "tabs": {"general": "General", "specific": "Específico"},
     "title": "Preparación",
@@ -148,6 +165,11 @@
     }
   },
   "metrics": {
+    "algorithmLabel":"Algoritmo",
+    "allAlgorithms":"Todos los algoritmos",
+    "hideCharts":"Ocultar gráficas de rendimiento",
+    "showCharts":"Mostrar gráficas de rendimiento",
+    "externalTimeUnavailable":"No disponemos de tiempos de entrenamiento comparables para la LSTM externa.",
     "spearmanFinding": {
       "title":"La asociación inicial no siempre se mantuvo",
       "subtitle":"Spearman · misma característica en cuatro períodos",
