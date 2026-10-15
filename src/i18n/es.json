@@ -882,5 +882,107 @@
         "Desarrollar una aplicación que integre las predicciones, la comparación de modelos y sus limitaciones para comunicar los resultados del proyecto."
       ]
     }
+  },
+  "overview": {
+    "eyebrow": "MITSUI&CO. Commodity Prediction Challenge",
+    "title": "¿Qué instrumento rinde más en proporción?",
+    "lead": "Estudiamos cómo cambia proporcionalmente un instrumento económico frente a otro. No intentamos predecir su precio, sino la diferencia entre sus retornos.",
+    "readTitle": "Cómo se lee la comparación",
+    "cases": [
+      {
+        "sign": "Positivo",
+        "situation": "A sube más que B",
+        "meaning": "A tuvo mayor retorno relativo."
+      },
+      {
+        "sign": "Negativo",
+        "situation": "B sube más que A",
+        "meaning": "B tuvo mayor retorno relativo."
+      },
+      {
+        "sign": "Positivo",
+        "situation": "Ambos caen, pero A cae menos",
+        "meaning": "A también tuvo mayor retorno relativo."
+      }
+    ],
+    "readNote": "Es una comparación económica entre instrumentos, no una recomendación de inversión.",
+    "scopeTitle": "Alcance",
+    "scopeText": "El dataset contiene 424 targets. Seleccionamos cuatro, uno por cada mercado identificado, con instrumentos familiares para la audiencia.",
+    "scopeCount": "424 targets en el dataset, 4 en el proyecto",
+    "markets": [
+      {
+        "name": "Acciones estadounidenses",
+        "example": "ExxonMobil frente a oro"
+      },
+      {
+        "name": "Futuros japoneses (JPX)",
+        "example": "Oro frente a dólar/yen"
+      },
+      {
+        "name": "Metales de London Metal Exchange (LME)",
+        "example": "Oro (IAU) frente a cobre"
+      },
+      {
+        "name": "Divisas (FX)",
+        "example": "Euro/dólar frente a aluminio"
+      }
+    ],
+    "scopeNote": "Un target por mercado no representa al mercado completo.",
+    "scopeLink": "Ver los datos y los cuatro targets",
+    "journeyTitle": "Recorrido del trabajo",
+    "steps": [
+      {
+        "title": "Comprender los datos",
+        "description": "Exploramos su estructura, calidad y relaciones.",
+        "links": [
+          [
+            "/data-targets",
+            "Datos y objetivos"
+          ],
+          [
+            "/eda",
+            "Análisis exploratorio"
+          ]
+        ]
+      },
+      {
+        "title": "Preparar la información",
+        "description": "Usamos solo datos disponibles en cada momento.",
+        "links": [
+          [
+            "/preprocessing",
+            "Preparación"
+          ]
+        ]
+      },
+      {
+        "title": "Comparar modelos",
+        "description": "Regresión lineal, modelos temporales, LightGBM y una LSTM externa.",
+        "links": [
+          [
+            "/models",
+            "Modelos"
+          ]
+        ]
+      },
+      {
+        "title": "Consultar y probar",
+        "description": "Revisamos resultados y probamos predicciones históricas.",
+        "links": [
+          [
+            "/metrics",
+            "Resultados"
+          ],
+          [
+            "/prediction",
+            "Predicción"
+          ]
+        ]
+      }
+    ],
+    "findingsTitle": "Qué encontramos",
+    "findings": "Los modelos no mostraron una ventaja consistente frente a predicciones simples, como usar cero o la media del entrenamiento. El R^2 y el acierto del signo indican una señal predictiva limitada.",
+    "findingsScope": "Sirven para estudiar el problema y contrastar enfoques; no respaldan su uso para decisiones financieras.",
+    "findingsLink": "Ver resultados"
   }
 }
