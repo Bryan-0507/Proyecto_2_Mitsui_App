@@ -2,7 +2,6 @@
 import { Card,CardHeader,CardTitle,CardDescription,CardContent,CardAction,CardFooter } from "@/components/ui/card";
 import { Select,SelectTrigger,SelectValue,SelectContent,SelectGroup,SelectItem } from "@/components/ui/select";
 import { Field,FieldLabel } from "@/components/ui/field";
-import { Table,TableHeader,TableBody,TableRow,TableHead,TableCell } from "@/components/ui/table";
 import copy from "@/i18n/es.json";
 import type { R2Data } from "../types";
 import { useR2Finding } from "../hooks/useR2Finding";
@@ -34,7 +33,6 @@ export function R2Finding({data}:{data:R2Data}) {
           <span><svg viewBox="0 0 32 12" aria-hidden="true"><path d="M0 6H32" stroke="var(--primary)" strokeWidth="2.5" strokeDasharray="6 4"/></svg>{t.options[view.selected]}</span>
         </div>
       </div>
-      {view.selected === "evaluationMean" && <p className="r2-reference-note" role="status">{t.meanWarning}</p>}
       <div className="r2-chart" tabIndex={0} aria-label={t.scroll}>
         <svg viewBox="0 0 1000 210" role="img" aria-label={`${t.subtitle}. ${t.options[view.selected]}: RMSE ${formatMetric(view.rmse)}, R^2 ${formatMetric(view.r2)}`}>
           <title>{t.title}</title><text x="72" y="20" fill="var(--muted-foreground)" fontSize="13">{t.yAxis}</text>
@@ -51,7 +49,6 @@ export function R2Finding({data}:{data:R2Data}) {
     <CardFooter className="r2-footer">
       <dl className="r2-metrics" aria-live="polite">{[[t.rmse,view.rmse],[t.r2,view.r2],[t.dispersion,view.dispersion]].map(([label,value])=><div key={label}><dt>{label}</dt><dd>{formatMetric(value as number)}</dd></div>)}</dl>
       <div className="r2-meta"><p className="r2-scope">{t.scope}</p>
-      <details className="r2-detail"><summary>{t.detail}</summary><div className="flex flex-col gap-3 pt-3"><p>{t.scaleNote}</p><p>{t.formula}</p><p>{t.dispersionNote}</p><p>{t.source}</p><Table><TableHeader><TableRow><TableHead>{t.id}</TableHead><TableHead>{t.real}</TableHead><TableHead>{t.options[view.selected]}</TableHead></TableRow></TableHeader><TableBody>{view.values.map(p=><TableRow key={p.id}><TableCell>{p.id}</TableCell><TableCell>{p.real === null ? "-" : formatMetric(p.real)}</TableCell><TableCell>{p.prediction === null ? "-" : formatMetric(p.prediction)}</TableCell></TableRow>)}</TableBody></Table></div></details>
       </div>
     </CardFooter>
   </Card>;

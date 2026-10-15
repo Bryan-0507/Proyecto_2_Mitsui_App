@@ -21,6 +21,7 @@ export function ModelRoutes() {
       <div className="pr-route-head">
         <h3>{route.title}</h3>
         <p>{route.description}</p>
+        <p className="pr-input-summary">{t.inputSummaries[i]}</p>
       </div>
       <ol className="pr-pipeline" aria-label={t.pipelineLabel.replace("{model}", route.title)}>
         <li data-kind="base"><route.baseIcon aria-hidden="true" /><span>{route.base}</span><ArrowRight className="pr-arrow" aria-hidden="true" /></li>

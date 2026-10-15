@@ -21,7 +21,7 @@ export function ModelsScreen() {
       <Tabs.Panel value="linear" className="eda-panel"><LinearPanel /></Tabs.Panel>
       <Tabs.Panel value="temporal" className="eda-panel"><TemporalPanel /></Tabs.Panel>
       <Tabs.Panel value="boosting" className="eda-panel"><BoostingPanel /></Tabs.Panel>
+      <Tabs.Panel value="external" className="eda-panel"><ExternalModel /></Tabs.Panel>
     </Tabs.Root>
-    <ExternalModel />
   </section>;
 }

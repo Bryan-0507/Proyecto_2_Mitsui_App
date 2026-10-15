@@ -1,5 +1,7 @@
 {
   "preparation": {
+    "tabsLabel": "Nivel de preparación",
+    "tabs": {"general": "General", "specific": "Específico"},
     "title": "Preparación",
     "intro": "Del dato original a la entrada del modelo: conservar la secuencia, tratar los problemas y utilizar solo información disponible.",
     "commonTitle": "Primero, una base común",
@@ -13,6 +15,7 @@
     ],
     "branchesTitle": "Después, la entrada cambia según el modelo",
     "branchesDescription": "No aplicamos el mismo tratamiento a todos los algoritmos.",
+    "inputSummaries": ["Entrada: 8 o 16 predictoras seleccionadas, más indicadores de ausencia cuando corresponde.", "Entrada: 32 predictoras seleccionadas, con sus faltantes y escalas originales.", "Entrada: solo la historia disponible del target; no usa las 552 predictoras.", "Entrada: 100 componentes por observación, en ventanas de 20 observaciones anteriores."],
     "branches": [
       {"title": "Regresión lineal", "description": "Predictores seleccionados y valores completos.", "steps": ["Seleccionar por asociación absoluta de Spearman", "Recortar extremos si la configuración lo indica", "Rellenar con la mediana y marcar las ausencias", "Estandarizar con estadísticas del entrenamiento"], "reason": "El relleno permite calcular la regresión; los indicadores conservan información sobre qué valores faltaban."},
       {"title": "LightGBM", "description": "Predictores seleccionados, sin rellenar faltantes.", "steps": ["Seleccionar por asociación absoluta de Spearman", "Recortar extremos si la configuración lo indica", "Conservar faltantes y escalas originales"], "reason": "Los árboles pueden manejar valores ausentes y no necesitan estandarización como parte de esta preparación."},
@@ -190,8 +193,7 @@
   "options": {
     "temporal": "ARIMA(1,1,2)",
     "cero": "Predecir cero",
-    "media": "Media del entrenamiento",
-    "evaluationMean": "Media del período evaluado"
+    "media": "Media del entrenamiento"
   },
   "meanWarning": "Referencia calculada después de observar los resultados; no disponible para predecir.",
   "scope": "IDs 1832 a 1960 de train.csv · 117 observaciones válidas · comparación retrospectiva, no prueba independiente.",
@@ -208,7 +210,7 @@
   "id": "dateId",
   "formula": "R^2 = 1 - (error cuadrático del modelo / error cuadrático de la media del período). Cerca de cero: errores similares. Negativo: mayor error que esa referencia. Positivo: menor error.",
   "dispersionNote": "Dispersión: desviación estándar poblacional de las 117 etiquetas evaluadas. No es un intervalo de incertidumbre.",
-  "help": "Orden por dateId, huecos sin interpolar y escala fija al cambiar de referencia. Valores reales con línea continua y puntos; predicción con línea discontinua. Mismas observaciones para todas las métricas. Cero y media del entrenamiento proceden de la evaluación guardada; la media del período se calcula solo para explicar R^2."
+  "help": "Orden por dateId, huecos sin interpolar y escala fija al cambiar de referencia. Valores reales con línea continua y puntos; predicción con línea discontinua. Mismas observaciones para todas las métricas. Cero y media del entrenamiento proceden de la evaluación guardada. R^2 utiliza la media del período evaluado en su definición matemática, no como una opción de predicción."
 },
     "signFinding": {
       "title":"Acierto del signo",
@@ -244,9 +246,10 @@
     "labels":{"rmse":"RMSE","mae":"MAE","r2":"R^2","sign":"Acierto del signo","time":"Tiempo frente a error","totals":"Tiempo total por familia"},
     "errorNote":"Menor es mejor. Escala original del target, no porcentaje de error.", "r2Note":"Mayor es mejor. Un valor negativo indica peor resultado que la media de los valores reales evaluados.", "signNote":"Referencia: signo de la media de entrenamiento. Cero no es una apuesta direccional.",
     "finalScope":"IDs 1832 a 1960 de train.csv. Comparación retrospectiva posterior a la frontera de etiquetas del autor, con presupuestos de información distintos. No es una prueba independiente.", "initialScope":"IDs 1569 a 1960 de train.csv. Benchmark inicial guardado; separado de las variantes posteriores.", "sample":"observaciones válidas por modelo", "source":"Fuente: resultados guardados, sin reentrenamiento ni modificación de métricas.", "table":"Consultar valores", "model":"Modelo", "n":"n", "seconds":"Segundos", "search":"Búsqueda", "fit":"Ajuste final", "total":"Total", "timeNote":"Una medición por ajuste. Incluye guardado y comprobación de recarga; no es tiempo puro de entrenamiento.", "totalsNote":"Suma de búsqueda y ajuste de los cuatro targets, solo en la ronda inicial. No representa todas las iteraciones. No hay tiempos equivalentes de la LSTM externa.", "why":"Criterios del gráfico", "close":"Cerrar explicación", "basis":"Basado en las guías del curso de visualización, teoría del color y visualizaciones estáticas y dinámicas.",
-    "help":{"errors":"Barras desde cero y valores explícitos. Comparamos modelos del mismo target y período; no ordenamos errores de mercados distintos.","r2":"Barras divergentes con cero visible y etiquetas. R^2 no se explica por la escala pequeña del target.","sign":"Escala fija de 0 a 100 %. Referencia disponible, no 50 % automáticamente. No mide rentabilidad ni magnitud del cambio.","time":"Dispersión con segundos y RMSE en ejes separados. Puntos etiquetados, sin unir modelos ni sugerir causalidad. Referencia de error de la media.","totals":"Barras desde cero en segundos. Búsqueda y ajuste desglosados en la tabla. Total de cuatro targets de la ronda inicial."}
+    "help":{"errors":"Barras desde cero y valores explícitos. Comparamos modelos del mismo target y período; no ordenamos errores de mercados distintos.","r2":"Barras divergentes con cero visible y etiquetas. R^2 no se explica por la escala pequeña del target.","sign":"Escala fija de 0 a 100 %. Referencia disponible, no 50 % automáticamente. No mide rentabilidad ni magnitud del cambio.","time":"Dispersión con segundos y RMSE en ejes separados. Puntos etiquetados, sin unir modelos ni sugerir causalidad. Referencia de error de la media.","totals":"Barras desde cero en segundos. Cada total suma la búsqueda de parámetros y el ajuste de los cuatro targets de la ronda inicial; no representa todas las iteraciones del proyecto."}
   },
   "eda": {
+    "exploreOutliers": "Explorar el gráfico de valores atípicos",
     "title": "Análisis exploratorio",
     "intro": "De la distribución de los datos a las relaciones que merecen ponerse a prueba.",
     "tabsLabel": "Hallazgos del análisis exploratorio",
@@ -329,16 +332,17 @@
   },
   "models": {
     "title": "Modelos",
-    "intro": "Comparamos tres enfoques propios, regresión lineal, modelos temporales y LightGBM, junto con una referencia externa, una LSTM publicada.",
-    "tabsLabel": "Modelos propios",
+    "intro": "Tres enfoques propios y una referencia externa. Cada uno pone a prueba una forma distinta de aprovechar el historial.",
+    "tabsLabel": "Enfoques comparados",
     "tabs": {
       "linear": "Regresión lineal",
       "temporal": "Modelos temporales",
-      "boosting": "LightGBM"
+      "boosting": "LightGBM",
+      "external": "LSTM externa"
     },
     "whyTitle": "Por qué lo incorporamos",
     "howTitle": "Cómo funciona",
-    "configTitle": "Configuración utilizada",
+    "configTitle": "Configuración y búsqueda de parámetros",
     "moreDetail": "Ver más detalle",
     "visualTitle": "Representación",
     "conceptual": "Ejemplo conceptual",
@@ -351,7 +355,7 @@
     "linear": {
       "name": "Regresión lineal",
       "why": "Es nuestro baseline, es decir, un modelo sencillo de referencia para comprobar si enfoques más complejos aportan una mejora.",
-      "how": "Toma las variables de entrada, asigna un peso a cada una y las suma junto con un valor constante para estimar el target. Durante el entrenamiento ajusta los pesos para que la suma de los errores al cuadrado sea lo más pequeña posible. Ese método se llama mínimos cuadrados ordinarios: elegir los pesos que dejan el menor error total al cuadrado en los datos de entrenamiento.",
+      "how": "Multiplica cada predictor por un peso aprendido y suma sus aportes. Ajusta esos pesos minimizando los errores al cuadrado en el entrenamiento: ese procedimiento se llama mínimos cuadrados ordinarios.",
       "flowLabel": "Etapas de la regresión lineal",
       "flow": [
         {
@@ -418,22 +422,23 @@
           "8"
         ]
       ],
-      "detail": "La regresión es lineal y no tiene regularización, es decir, no penaliza pesos grandes. Se compararon seis configuraciones por target: 8, 16 o 32 predictores, conservando los extremos o recortándolos a los percentiles 1 y 99. Se eligió la de menor RMSE de validación. No se ajustaron hiperparámetros internos de la regresión, porque no los tiene."
+      "detail": "La regresión es lineal y no tiene regularización, es decir, no penaliza pesos grandes. Se compararon seis configuraciones por target: 8, 16 o 32 predictores, conservando los extremos o recortándolos a los percentiles 1 y 99. Se eligió la de menor RMSE de validación. Mantuvimos fija la configuración de la regresión; la búsqueda se centró en la cantidad de predictores y el tratamiento de extremos."
     },
     "temporal": {
       "name": "Modelos temporales",
+      "partsTitle": "Qué significan AR, I y MA",
       "why": "Los incorporamos para compararlos con una familia estudiada en clase y evaluar cuánto aporta la historia del propio target.",
       "how": "Usan únicamente la historia del target, sin las demás variables. Tomamos ARIMA como ejemplo y lo separamos en tres piezas.",
       "parts": [
         {
           "name": "AR",
           "title": "Valores pasados",
-          "description": "Usa valores históricos de la serie."
+          "description": "Usa la historia reciente. Si el modelo trabaja con cambios entre valores, utiliza los cambios anteriores."
         },
         {
           "name": "I",
           "title": "Diferencias",
-          "description": "Trabaja con los cambios entre observaciones consecutivas en lugar de los niveles, cuando corresponde."
+          "description": "Resta a cada valor el anterior para conocer cuánto cambió. Por ejemplo, pasar de 10 a 10,8 produce un cambio de +0,8."
         },
         {
           "name": "MA",
@@ -441,7 +446,7 @@
           "description": "Usa los errores que el propio modelo cometió antes. No equivale a calcular una media móvil simple de los datos."
         }
       ],
-      "example": "Ejemplo: ARIMA(1,1,2) usa 1 valor pasado, 1 diferencia y 2 errores pasados.",
+      "example": "En ARIMA(1,1,2), primero calculamos cuánto cambió cada valor respecto al anterior. Luego estimamos el siguiente cambio usando el último cambio conocido y los dos errores anteriores del modelo.",
       "orderNote": "El orden del modelo no es el horizonte del target ni la cantidad de predicciones. La aplicación solicita una sola predicción.",
       "flowLabel": "Etapas de un modelo temporal",
       "flow": [
@@ -459,7 +464,7 @@
         },
         {
           "title": "Predicción",
-          "description": "Una sola estimación. El cambio estimado se suma al último valor observado."
+          "description": "Para volver al valor de la serie, sumamos los cambios estimados al último valor conocido."
         }
       ],
       "sequenceTitle": "Ejemplo conceptual de valores y cambios",
@@ -504,12 +509,12 @@
         [
           "target_19",
           "ARIMA(1,1,2)",
-          "1 valor pasado, 1 diferencia y 2 errores pasados."
+          "Calcula cambios entre valores y usa el último cambio y dos errores anteriores."
         ],
         [
           "target_105",
           "MA(2)",
-          "Solo 2 errores pasados."
+          "Ajusta una referencia constante con dos errores anteriores."
         ],
         [
           "target_410",
@@ -522,7 +527,7 @@
     },
     "boosting": {
       "name": "LightGBM",
-      "why": "Lo consideramos candidato a partir de experiencias documentadas de participantes de la misma competencia. Esos antecedentes motivaron probarlo; no garantizan que sea mejor en nuestro proyecto.",
+      "why": "Participantes de la competencia documentaron buenos resultados con árboles potenciados. Eso motivó probar LightGBM, sin asumir que repetiría sus resultados.",
       "sources": [
         {
           "label": "Publicación de dhue123, puesto 26",
@@ -535,7 +540,7 @@
       ],
       "sourceNote": "Según el registro de nuestra investigación, Morim reportó pruebas con LSTM y otras redes sin mejora en su validación.",
       "how": "LightGBM construye árboles de decisión uno después de otro. Cada árbol aprende a corregir lo que aún falla en la predicción acumulada. La tasa de aprendizaje controla cuánto de esa corrección se aplica.",
-      "illustrative": "Ejemplo ilustrativo con números inventados. No son resultados de nuestros modelos.",
+      "illustrative": "Ejemplo conceptual con números inventados. Seguimos la rama Sí; los aportes ya incluyen la tasa de aprendizaje.",
       "stepLabel": "Iteración",
       "stepOf": "{step} de {total}",
       "previous": "Anterior",
@@ -550,7 +555,7 @@
       "treeTitle": "Árbol {number}",
       "yes": "Sí",
       "no": "No",
-      "leafLabel": "Hoja",
+      "leafLabel": "Aporte",
       "applied": "Aplicado",
       "pendingTree": "Pendiente",
       "usedLeaf": "Hoja que recibe este ejemplo",
@@ -563,7 +568,7 @@
       "noMoreTrees": "Sin más árboles en el ejemplo",
       "scaleLabel": "Posición del valor real y de la predicción acumulada",
       "scaleAria": "Valor real {actual} y predicción acumulada {prediction}",
-      "disclaimer": "El error restante no llega necesariamente a cero. Con datos nuevos, más árboles tampoco garantizan una mejora.",
+      "disclaimer": "Más árboles no garantizan mejorar la predicción con datos nuevos.",
       "configCaption": "Parámetros del benchmark visible",
       "parameters": [
         [
@@ -602,11 +607,38 @@
       "detail": "Un árbol pequeño con pocas hojas aporta correcciones sencillas. Muchos árboles pequeños con una tasa de aprendizaje baja suman cambios graduales a la predicción."
     },
     "externalSection": {
+      "memory": {
+        "label": "Cómo usa la memoria una LSTM",
+        "intro": "Una misma capa recorre 20 observaciones y actualiza su memoria.",
+        "previous": "Anterior",
+        "next": "Siguiente",
+        "memoryRail": "Memoria que se transporta y actualiza",
+        "sequenceLabel": "Inicio, pasos intermedios y final de la misma ventana",
+        "positions": ["Primera", "Intermedias", "Última"],
+        "cell": "LSTM",
+        "keep": "Qué conservar del pasado",
+        "update": "Qué incorporar de la entrada",
+        "output": "Resumen final → predicción",
+        "outputNote": "Las capas finales producen 424 valores; consultamos nuestros cuatro targets.",
+        "scope": "Esquema simplificado de una red: no son tres capas ni activaciones observadas. La referencia promedia cinco redes entrenadas por el autor.",
+        "steps": [
+          {"title": "1. Recibir la historia", "description": "Cada observación aporta 100 componentes. La red lee la primera y comienza a construir su estado interno, sin recibir datos futuros ni memorizar literalmente las filas."},
+          {"title": "2. Actualizar la memoria", "description": "Las compuertas aprendidas regulan qué información anterior conservar y qué información nueva incorporar. Así actualiza su memoria en cada observación, sin guardarlo todo."},
+          {"title": "3. Utilizar el resumen", "description": "Al terminar la ventana, las capas finales usan el resumen de salida para predecir. Se actualiza el estado interno, no los pesos: no hay reentrenamiento."}
+        ]
+      },
+      "detailsTitle": "Procedencia y configuración publicada",
       "title": "Externo",
       "model": "LSTM publicada",
-      "provenance": "Modelo de un tercero. Usamos sus pesos publicados; no la entrenamos ni la modificamos.",
-      "why": "La incorporamos para contrastar nuestro acercamiento con una implementación pública que incluía pesos y preparación reproducible.",
-      "how": "Una LSTM es una red neuronal que lee una secuencia en orden y mantiene una representación resumida del historial. Esa representación conserva información útil del pasado, pero no recuerda todo perfectamente.",
+      "provenance": "Modelo del repositorio de Hayden1629. Nuestro equipo reprodujo su preparación e integró la inferencia con los pesos publicados; no diseñó ni entrenó esta LSTM.",
+      "why": "La incorporamos como referencia externa porque publica pesos y preparación reproducible, y su repositorio reúne antecedentes de soluciones del top 5 de la competencia.",
+      "referencesNote": "El archivo de referencias del repositorio enlaza la solución ZLF del quinto puesto y una publicación del tercer puesto. Esta conexión motivó revisar su implementación; no demuestra que esta LSTM reproduzca esas soluciones ni sus resultados.",
+      "references": [
+        {"label": "Referencias declaradas por el repositorio", "href": "https://github.com/Hayden1629/mitsui_commodity/blob/357e8352e7eff9ac10b54d992e61ac6564be8034/winner_writeups.txt"},
+        {"label": "ZLF: solución del quinto puesto", "href": "https://www.kaggle.com/competitions/mitsui-commodity-prediction-challenge/writeups/zlf-solution-of-the-mitsui-commodity-predict"},
+        {"label": "Publicación del tercer puesto, conservada en el repositorio", "href": "https://github.com/Hayden1629/mitsui_commodity/blob/357e8352e7eff9ac10b54d992e61ac6564be8034/hayden_notebooks/third_place.md"}
+      ],
+      "how": "Lee las observaciones en orden y conserva un resumen aprendido del historial para predecir. Esta referencia produce 424 salidas; consultamos únicamente nuestros cuatro targets.",
       "ensemble": "La referencia combina cinco redes con la misma arquitectura y semillas distintas, y promedia sus predicciones. No son cinco familias de modelos.",
       "flowLabel": "Etapas de la LSTM publicada",
       "flow": [
@@ -653,7 +685,7 @@
           "name": "train.csv",
           "kind": "predictors",
           "role": "Predictoras",
-          "content": "Precios, volúmenes y tipos de cambio históricos.",
+          "content": "Precios, volúmenes (cantidad de acciones o contratos negociados) y tipos de cambio históricos.",
           "stat": "1961 × 557",
           "statLabel": "observaciones × predictoras"
         },
@@ -669,7 +701,7 @@
           "name": "target_pairs.csv",
           "kind": "metadata",
           "role": "Metadata",
-          "content": "Qué instrumentos compara cada target y con qué lag.",
+          "content": "Describe cómo se calculan las etiquetas: qué instrumentos compara cada target y qué horizonte utiliza.",
           "stat": "424",
           "statLabel": "targets descritos"
         },
@@ -789,6 +821,8 @@
       "notes": "El mercado asignado no implica que ambos instrumentos pertenezcan a él. Conservamos los lags originales porque forman parte de la definición del target."
     },
     "reading": {
+      "tableHint": "Desliza la tabla para ver todas las columnas.",
+      "timelineDetail": "Ver ejemplo del horizonte",
       "meaningTitle": "Qué representa",
       "equationLabel": "Fórmula del target",
       "equation": {
@@ -851,7 +885,7 @@
       "lagIntro": "El lag define el horizonte del target, no cuántas observaciones históricas recibe el modelo. Cada target produce un único resultado.",
       "lagKnown": "Para una fila t, el target usa los valores de t + 1 y t + lag + 1. Por eso su resultado no puede usarse como dato conocido hasta que llega la fila t + lag + 1.",
       "timelineLabel": "Pasos entre la fila de entrada y el momento en que se conoce su resultado",
-      "timelineNote": "Los números son identificadores de fila, no fechas ni días.",
+      "timelineNote": "Ejemplo con t = 100 y lag = 3: se compara el valor de la fila 101 con el de la 104. Los números son identificadores de fila, no fechas ni días.",
       "rowLabel": "Fila",
       "ids": [
         100,
@@ -871,20 +905,34 @@
     "objectives": {
       "title": "Objetivos del proyecto",
       "generalTitle": "Objetivo general",
-      "general": "Evaluar y comparar alternativas de predicción para los cuatro targets seleccionados del MITSUI&CO. Commodity Prediction Challenge, mediante la preparación de datos, la construcción de modelos y su validación temporal, para identificar su desempeño fuera de muestra y comunicar los resultados y sus limitaciones.",
+      "general": "Evaluar la capacidad predictiva de los modelos para cuatro targets del MITSUI&CO. Commodity Prediction Challenge, mediante la preparación de datos y la comparación temporal con referencias simples, para determinar sus mejoras y limitaciones.",
       "specificTitle": "Objetivos específicos",
       "specific": [
-        "Analizar la bibliografía sobre predicción de retornos y evaluación de series temporales para fundamentar la selección de variables, modelos, métricas y método de validación.",
-        "Diagnosticar la calidad, disponibilidad y estructura temporal de los datos, y evaluar las transformaciones necesarias para preparar los cuatro targets y sus predictores.",
-        "Construir, evaluar y contrastar modelos de referencia y alternativas predictivas para cada target mediante una validación que respete el orden temporal y utilice métricas comparables.",
-        "Desarrollar una aplicación que integre las predicciones, la comparación de modelos y sus limitaciones para comunicar los resultados del proyecto."
+        "Contrastar los enfoques de predicción mediante la revisión de bibliografía y soluciones documentadas de la competencia, para justificar los modelos, las métricas y la evaluación seleccionados.",
+        "Analizar la calidad y las relaciones de los datos mediante estadísticas descriptivas, gráficos y correlaciones, para justificar la preparación de los cuatro targets y sus predictores.",
+        "Comparar la regresión lineal, LightGBM y los modelos temporales con referencias simples y una LSTM externa mediante RMSE, MAE, R^2, acierto del signo y tiempos disponibles, para determinar sus ventajas y limitaciones por target.",
+        "Resolver la consulta de predicciones históricas y la comparación de modelos mediante una aplicación interactiva con selección de target e identificador, para facilitar la exploración de los resultados y sus límites."
+      ],
+      "evidenceTitle": "Cómo comprobamos su cumplimiento",
+      "evidenceNote": "Cada objetivo se vincula con evidencia verificable. Cumplirlos no exige alcanzar un R^2 determinado ni demostrar utilidad financiera.",
+      "evidence": [
+        {"title": "Criterios fundamentados", "description": "Fuentes identificadas y justificaciones de las familias, métricas y reglas de evaluación, consultables en Modelos y en el informe."},
+        {"title": "Decisiones trazables", "description": "Diagnósticos de ausencias, extremos y asociaciones; exclusión de las cinco columnas de GOLD y preparación diferenciada por familia, consultables en EDA y Preparación."},
+        {"title": "Comparación por target", "description": "Cuatro métricas sobre las mismas observaciones de cada target y referencias simples. Los tiempos conservan su alcance original; no se inventa un tiempo de entrenamiento para la LSTM externa. Evidencia disponible en Resultados."},
+        {"title": "Consulta funcional", "description": "La aplicación permite seleccionar los cuatro targets, consultar los cuatro procedimientos y contrastar sus salidas históricas. La comprobación funcional cubre 16 combinaciones de target y procedimiento; no equivale a probar rentabilidad."}
       ]
     }
   },
   "overview": {
+    "animationLabel": "Ilustración animada de instrumentos bursátiles. No representa datos ni predicciones del proyecto.",
+    "animationPause": "Pausar animación",
+    "animationPlay": "Reproducir animación",
+    "animationError": "La ilustración no se pudo cargar.",
     "eyebrow": "MITSUI&CO. Commodity Prediction Challenge",
     "title": "¿Qué instrumento rinde más en proporción?",
     "lead": "Estudiamos cómo cambia proporcionalmente un instrumento económico frente a otro. No intentamos predecir su precio, sino la diferencia entre sus retornos.",
+    "questionTitle": "La pregunta del proyecto",
+    "question": "¿La información histórica permite anticipar cuál de dos instrumentos tendrá un mayor retorno relativo? Comparamos distintas formas de modelarlo y examinamos cuánto aportan frente a referencias sencillas.",
     "readTitle": "Cómo se lee la comparación",
     "cases": [
       {

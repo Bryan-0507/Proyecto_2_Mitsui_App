@@ -2,7 +2,6 @@
 import { Card,CardHeader,CardTitle,CardDescription,CardAction,CardContent,CardFooter } from "@/components/ui/card";
 import { Select,SelectTrigger,SelectValue,SelectContent,SelectGroup,SelectItem } from "@/components/ui/select";
 import { Field,FieldLabel } from "@/components/ui/field";
-import { Table,TableHeader,TableRow,TableHead,TableBody,TableCell } from "@/components/ui/table";
 import copy from "@/i18n/es.json";
 import type { SpearmanStability } from "../types";
 import { useSpearmanFinding } from "../hooks/useSpearmanFinding";
@@ -27,6 +26,6 @@ export function SpearmanFinding({data}:{data:SpearmanStability[]}) {
         </svg>
       </div><p className="spearman-scroll-note">{t.scroll}</p>
     </CardContent>
-    <CardFooter className="r2-footer"><p>{t.conclusion}</p><div className="r2-meta"><p className="r2-scope">{t.scope}</p><details className="r2-detail"><summary>{t.detail}</summary><div className="flex flex-col gap-3 pt-3"><p>{t.meaning}</p><p>{feature.definition}</p><p>{t.selection.replace("{n}",String(view.selected.eligible))}</p><p>{t.limit}</p><p>{t.source} {view.selected.feature}</p><Table><TableHeader><TableRow><TableHead>{t.period}</TableHead><TableHead>IDs</TableHead><TableHead>n</TableHead><TableHead>{t.axis}</TableHead></TableRow></TableHeader><TableBody>{view.selected.periods.map((p,i)=><TableRow key={p.start}><TableCell>{labels[i]}</TableCell><TableCell>{p.start} a {p.end}</TableCell><TableCell>{p.n}</TableCell><TableCell>{p.rho.toFixed(6)}</TableCell></TableRow>)}</TableBody></Table></div></details></div></CardFooter>
+    <CardFooter className="r2-footer"><p>{t.conclusion}</p><div className="r2-meta"><p className="r2-scope">{t.scope}</p></div></CardFooter>
   </Card>;
 }

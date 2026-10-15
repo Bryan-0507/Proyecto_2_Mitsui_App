@@ -2,7 +2,6 @@
 import { Card,CardHeader,CardTitle,CardDescription,CardAction,CardContent,CardFooter } from "@/components/ui/card";
 import { Select,SelectTrigger,SelectValue,SelectContent,SelectGroup,SelectItem } from "@/components/ui/select";
 import { Field,FieldLabel } from "@/components/ui/field";
-import { Table,TableHeader,TableRow,TableHead,TableBody,TableCell } from "@/components/ui/table";
 import copy from "@/i18n/es.json";
 import type { FeatureSearch } from "../types";
 import { usePredictorFinding } from "../hooks/usePredictorFinding";
@@ -31,11 +30,6 @@ export function PredictorFinding({data}:{data:FeatureSearch[]}) {
     <CardFooter className="r2-footer">
       <p aria-live="polite">{t.result.replace("{k}",String(view.best.k)).replace("{rmse}",formatMetric(view.best.rmse))}</p>
       <div className="r2-meta"><p className="r2-scope">{t.scope}</p>
-        <details className="r2-detail"><summary>{t.detail}</summary><div className="flex flex-col gap-3 pt-3">
-          <p>{t.countNote}</p><p>{t.clipNote}</p><p>{t.limits}</p><p>{t.source}</p>
-          <Table><TableHeader><TableRow><TableHead>{copy.metrics.target}</TableHead><TableHead>{t.selected}</TableHead><TableHead>{t.clip}</TableHead></TableRow></TableHeader><TableBody>{data.map(row=><TableRow key={row.target}><TableCell>{targets[row.target as keyof typeof targets].label} · {row.target}</TableCell><TableCell>{row.selectedK}</TableCell><TableCell>{row.selectedClip ? t.withClip : t.withoutClip}</TableCell></TableRow>)}</TableBody></Table>
-          <Table><TableHeader><TableRow><TableHead>{t.predictors}</TableHead><TableHead>{t.clip}</TableHead><TableHead>{t.axis}</TableHead>{view.search.folds.map(f=><TableHead key={f.start}>{f.start} a {f.end}<br/>n = {f.n}</TableHead>)}</TableRow></TableHeader><TableBody>{view.search.candidates.map(c=><TableRow key={`${c.k}-${c.clip}`}><TableCell>{c.k}</TableCell><TableCell>{c.clip ? t.withClip : t.withoutClip}</TableCell><TableCell>{formatMetric(c.rmse)}</TableCell>{c.foldRmse.map((value,i)=><TableCell key={i}>{formatMetric(value)}</TableCell>)}</TableRow>)}</TableBody></Table>
-        </div></details>
       </div>
     </CardFooter>
   </Card>;

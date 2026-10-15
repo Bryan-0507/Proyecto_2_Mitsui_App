@@ -16,8 +16,8 @@ export function BoostingPanel() {
   const view = useBoostingStep();
   return <ModelLayout name={b.name}
     why={<><p>{b.why}</p>
-      <ul className="models-links">{b.sources.map((s) => <li key={s.href}><a href={s.href} target="_blank" rel="noopener noreferrer">{s.label}<ExternalLink aria-hidden="true" /><span className="sr-only"> (se abre en una pestaña nueva)</span></a></li>)}</ul>
-      <p className="models-note">{b.sourceNote}</p></>}
+      <MoreDetail label={t.sourcesTitle}><ul className="models-links">{b.sources.map((s) => <li key={s.href}><a href={s.href} target="_blank" rel="noopener noreferrer">{s.label}<ExternalLink aria-hidden="true" /><span className="sr-only"> (se abre en una pestaña nueva)</span></a></li>)}</ul>
+      <p className="models-note">{b.sourceNote}</p></MoreDetail></>}
     how={<p>{b.how}</p>}
     config={<>
       <Table><TableCaption>{b.configCaption}</TableCaption>
@@ -25,8 +25,8 @@ export function BoostingPanel() {
           {b.parameters.map(([name, value]) => <TableRow key={name}><TableHead>{name}</TableHead><TableCell>{value}</TableCell></TableRow>)}
           {b.minLeafRows.map(([targets, value]) => <TableRow key={targets}><TableHead>{b.minLeaf} ({targets})</TableHead><TableCell>{value}</TableCell></TableRow>)}
         </TableBody></Table>
-      <MoreDetail><p>{b.detail}</p>
-        <ul className="models-params">{b.parameters.map(([name, , help]) => <li key={name}>{name}: {help}</li>)}<li>{b.minLeaf}: {b.minLeafHelp}</li></ul></MoreDetail></>}
+      <p className="models-note">{b.detail}</p>
+      <ul className="models-params">{b.parameters.map(([name, , help]) => <li key={name}>{name}: {help}</li>)}<li>{b.minLeaf}: {b.minLeafHelp}</li></ul></>}
     visual={<>
       <p className="models-note">{b.illustrative}</p>
       <div className="models-stepper">
@@ -59,8 +59,6 @@ export function BoostingPanel() {
       <dl className="models-stats">
         <div><dt>{b.stats.actual}</dt><dd>{formatValue(view.actual)}</dd></div>
         <div><dt>{b.stats.prediction}</dt><dd>{formatValue(view.prediction)}</dd></div>
-        <div><dt>{b.stats.correction}</dt><dd data-tone={view.nextCorrection === null ? undefined : signTone(view.nextCorrection)}>{view.nextCorrection === null ? b.noMoreTrees : formatSigned(view.nextCorrection)}</dd></div>
-        <div><dt>{b.stats.remaining}</dt><dd>{formatValue(view.remaining)}</dd></div>
       </dl>
       <p className="models-note">{b.disclaimer}</p></>} />;
 }

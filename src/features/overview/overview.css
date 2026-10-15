@@ -1,54 +1,16 @@
-.ov-screen { gap:24px; }
-.ov-hero { position:relative; display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:32px; align-items:center; padding:32px; background:linear-gradient(100deg, var(--primary-soft) 0%, #f5f8fd 75%); border:1px solid #c3d4ec; border-radius:var(--radius); box-shadow:var(--shadow-card); overflow:hidden; }
-.ov-eyebrow { font-size:.8125rem; color:var(--primary); margin-bottom:12px; }
-.ov-hero h1 { color:var(--primary-strong); font-size:clamp(1.875rem,3vw,2.5rem); font-weight:600; letter-spacing:-.025em; line-height:1.15; max-width:18ch; }
-.ov-lead { margin-top:16px; font-size:1.0625rem; line-height:1.6; color:#33445c; max-width:56ch; }
-.ov-card { min-width:0; --card-spacing:24px; border-radius:var(--radius); box-shadow:var(--shadow-card); }
-.ov-stack { display:flex; flex-direction:column; gap:16px; }
-.ov-screen h2 { font-size:1.25rem; font-weight:500; }
-.ov-card h2 { font-size:1rem; }
-.ov-muted { color:var(--muted-foreground); }
-.ov-note { font-size:.8125rem; line-height:1.5; color:var(--muted-foreground); }
-.ov-cases { display:flex; flex-direction:column; }
-.ov-cases li { display:grid; grid-template-columns:20px minmax(0,1fr) auto; gap:16px; align-items:start; padding:12px 0; border-top:1px solid var(--border); font-size:.875rem; line-height:1.5; }
-.ov-cases li:first-child { border-top:0; padding-top:0; }
-.ov-cases svg { width:20px; height:20px; margin-top:1px; }
-.ov-cases li { color:var(--foreground); }
-.ov-cases li[data-tone=positive] svg { color:var(--positive); }
-.ov-cases li[data-tone=negative] svg { color:var(--negative); }
-.ov-sign { font-size:.8125rem; font-weight:600; white-space:nowrap; }
-.ov-cases li[data-tone=positive] .ov-sign { color:var(--positive); }
-.ov-cases li[data-tone=negative] .ov-sign { color:var(--negative); }
-.ov-section { display:flex; flex-direction:column; gap:16px; padding:24px; background:var(--surface-panel); border:1px solid var(--border); border-radius:var(--radius); }
-.ov-section h2 { color:var(--primary-strong); font-weight:600; }
-.ov-section p { line-height:1.6; }
-.ov-scope { display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:32px; align-items:start; }
-.ov-scope > div { display:flex; flex-direction:column; gap:16px; align-items:flex-start; }
-.ov-count { color:var(--primary); font-variant-numeric:tabular-nums; }
-.ov-markets { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
-.ov-markets li { display:grid; grid-template-columns:20px minmax(0,1fr); gap:16px; padding:16px; background:var(--card); font-size:.875rem; line-height:1.5; }
-.ov-markets svg { width:20px; height:20px; color:var(--primary); }
-.ov-steps { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
-.ov-steps li { display:flex; flex-direction:column; gap:8px; padding:16px; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-card); }
-.ov-steps h3 { font-size:.9375rem; font-weight:500; }
-.ov-steps p { font-size:.875rem; }
-.ov-step { display:inline-grid; place-items:center; width:24px; height:24px; border:1px solid var(--primary); border-radius:999px; color:var(--primary); font-size:.8125rem; }
-.ov-step-links { display:flex; flex-direction:column; align-items:flex-start; margin-top:auto; }
-.ov-link { display:inline-flex; align-items:center; gap:4px; min-height:44px; color:var(--primary); font-size:.875rem; text-decoration:underline; text-underline-offset:3px; }
-.ov-link svg { width:14px; height:14px; }
-.ov-link:focus-visible { outline:2px solid var(--ring); outline-offset:2px; }
-.ov-findings { display:grid; grid-template-columns:24px minmax(0,1fr); gap:16px; padding:24px; background:#fbf4ea; border:1px solid #e4cfb2; border-radius:var(--radius); box-shadow:var(--shadow-card); }
-.ov-findings h2 { color:#5c3a14; font-weight:600; }
-.ov-findings > svg { width:24px; height:24px; color:var(--chart-2); }
-.ov-findings > div { display:flex; flex-direction:column; gap:8px; align-items:flex-start; }
-.ov-findings p { line-height:1.6; max-width:80ch; }
-@media(max-width:1023px) {
-  .ov-hero,.ov-scope { grid-template-columns:1fr; }
-  .ov-steps { grid-template-columns:repeat(2,minmax(0,1fr)); }
-}
-@media(max-width:640px) {
-  .ov-screen { gap:32px; }
-  .ov-markets,.ov-steps { grid-template-columns:1fr; }
-  .ov-hero,.ov-section { padding:16px; }
-  .ov-findings { grid-template-columns:1fr; padding:16px; }
-}
+.ov-screen { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); gap:40px; align-items:center; padding-top:48px; padding-bottom:40px; }
+.ov-introduction { display:flex; flex-direction:column; gap:32px; min-width:0; }
+.ov-opening { display:flex; flex-direction:column; align-items:flex-start; gap:20px; }
+.ov-eyebrow { font-size:.875rem; color:var(--muted-foreground); }
+.ov-opening h1 { color:var(--primary-strong); font-size:clamp(2rem,3.2vw,3rem); font-weight:600; letter-spacing:-.025em; line-height:1.15; max-width:24ch; }
+.ov-lead { font-size:1.0625rem; line-height:1.7; color:var(--muted-foreground); max-width:66ch; }
+.ov-question { display:flex; flex-direction:column; align-items:flex-start; gap:16px; max-width:72ch; border-top:1px solid var(--border); padding-top:32px; }
+.ov-question h2 { font-size:1.25rem; font-weight:600; }
+.ov-question p { line-height:1.7; }
+.ov-visual { position:relative; width:100%; max-width:500px; margin:0 auto; aspect-ratio:1; }
+.ov-animation-canvas { width:100%; height:100%; pointer-events:none; }
+.ov-animation-canvas svg { display:block; width:100%; height:100%; }
+.ov-animation-control { position:absolute; right:8px; bottom:8px; }
+.ov-animation-error { position:absolute; inset:0; display:grid; place-items:center; color:var(--muted-foreground); font-size:.875rem; text-align:center; }
+@media(max-width:1023px) { .ov-screen { grid-template-columns:1fr; gap:24px; } .ov-introduction { max-width:76ch; } .ov-visual { max-width:380px; } }
+@media(max-width:767px) { .ov-screen { gap:24px; padding-top:32px; } .ov-opening { gap:16px; } .ov-visual { max-width:320px; } }

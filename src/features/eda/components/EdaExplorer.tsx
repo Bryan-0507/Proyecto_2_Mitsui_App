@@ -60,13 +60,15 @@ export function EdaExplorer() {
           <ChartData name={`${view.market}-missing`} headers={[text.start,text.end,text.absent,text.cells,text.missing]}
             rows={market.coverage.blocks.map((b)=>[b.start,b.end,b.missing,b.cells,b.percentage])}/>
         </ChartPanel>
+        <section className="eda-outlier-summary"><h2>{text.outliers}</h2><p>{text.outlierFinding}</p></section>
+        <details className="eda-support"><summary>{text.exploreOutliers}</summary>
         <ChartPanel title={text.outliers} description={`${example.outlier}. ${text.outlierDescription}`} kind="outliers" source={qualitySource}>
           <div className="eda-plot-summary"><p>{fill(text.outlierSummary,{count:market.quality.count,n:market.quality.n,percentage:numeric(market.quality.percentage)})}</p>
             <div className="eda-legend"><span><i className="eda-legend-circle"/>{text.ordinary}</span><span><i className="eda-legend-diamond"/>{text.candidate}</span></div></div>
           <OutlierPlot market={market} ids={view.provenance.ids}/><p className="eda-selection">{text.outlierFinding}</p>
           <ChartData name={`${view.market}-outliers`} headers={[text.dateId,text.value,text.classification]}
             rows={market.quality.points.map((p)=>[p.id,p.value,p.outlier?text.yes:text.no])}/>
-        </ChartPanel>
+        </ChartPanel></details>
       </Tabs.Panel>
       <Tabs.Panel value="relationships" className="eda-panel">
         <div className="eda-narrative"><div><h2>{text.relationsTitle}</h2><p>{text.relationsIntro}</p></div></div>

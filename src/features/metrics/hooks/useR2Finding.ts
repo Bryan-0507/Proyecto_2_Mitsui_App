@@ -8,7 +8,7 @@ export function useR2Finding(data:R2Data) {
     const valid = data.points.filter(p => p.real !== null);
     const mean = valid.reduce((s,p) => s+p.real!,0)/valid.length;
     const variance = valid.reduce((s,p) => s+(p.real!-mean)**2,0)/valid.length;
-    const values = data.points.map(p => ({...p, prediction:p.real === null ? null : selected === "evaluationMean" ? mean : p[selected]}));
+    const values = data.points.map(p => ({...p, prediction:p.real === null ? null : p[selected]}));
     const mse = values.filter(p => p.real !== null).reduce((s,p) => s+(p.real!-p.prediction!)**2,0)/valid.length;
     const limit = Math.max(...valid.map(p => Math.abs(p.real!)), ...data.points.flatMap(p => [p.temporal ?? 0,p.media ?? 0].map(Math.abs)),Math.abs(mean))*1.12;
     const x = (id:number) => 72+(id-1832)/128*888;
@@ -20,7 +20,7 @@ export function useR2Finding(data:R2Data) {
     return {values, mean, rmse:Math.sqrt(mse), r2:1-mse/variance, dispersion:Math.sqrt(variance), limit, x,y, realPath:makePath("real"), predictionPath:makePath("prediction")};
   },[data,selected]);
   function changeSelected(value:unknown) {
-    if (value === "temporal" || value === "cero" || value === "media" || value === "evaluationMean") setSelected(value);
+    if (value === "temporal" || value === "cero" || value === "media") setSelected(value);
   }
   return {selected,changeSelected,...analysis};
 }

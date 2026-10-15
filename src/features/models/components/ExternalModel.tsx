@@ -1,25 +1,16 @@
-import { Brain, Filter, ListOrdered, Network, Target } from "lucide-react";
 import { ExternalLink } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import copy from "@/i18n/es.json";
-import { ModelFlow } from "./ModelFlow";
+import { LstmMemory } from "./LstmMemory";
+import { ModelLayout } from "./ModelLayout";
 
-const x = copy.models.externalSection, t = copy.models;
+const x = copy.models.externalSection;
 
 export function ExternalModel() {
-  return <section className="models-external" aria-labelledby="models-external-title">
-    <header><h2 id="models-external-title">{x.title}</h2></header>
-    <div className="models-grid">
-      <Card className="models-card models-card-external"><CardHeader><CardTitle><h3>{x.model}</h3></CardTitle></CardHeader>
-        <CardContent className="models-text">
-          <p className="models-provenance">{x.provenance}</p>
-          <section><h3>{t.whyTitle}</h3><p>{x.why}</p></section>
-          <section><h3>{t.howTitle}</h3><p>{x.how}</p><p>{x.ensemble}</p></section>
-          <p><a href={x.sourceHref} target="_blank" rel="noopener noreferrer">{x.sourceLabel}<ExternalLink aria-hidden="true" /><span className="sr-only"> (se abre en una pestaña nueva)</span></a></p>
-          <p className="models-note">{x.attribution}</p>
-        </CardContent></Card>
-      <Card className="models-card models-card-external models-visual"><CardHeader><CardTitle><h3>{t.visualTitle}</h3></CardTitle></CardHeader>
-        <CardContent className="models-visual-content"><ModelFlow label={x.flowLabel} steps={x.flow} icons={[ListOrdered, Brain, Filter, Network, Target]} /></CardContent></Card>
-    </div>
-  </section>;
+  return <ModelLayout name={x.model} configLabel={x.detailsTitle}
+    why={<><p>{x.why}</p><p className="models-note">{x.provenance}</p></>}
+    how={<p>{x.how}</p>}
+    config={<><p>{x.ensemble}</p><p><a href={x.sourceHref} target="_blank" rel="noopener noreferrer">{x.sourceLabel}<ExternalLink aria-hidden="true" /><span className="sr-only"> (se abre en una pestaña nueva)</span></a></p>
+      <p>{x.referencesNote}</p><ul className="models-links">{x.references.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noopener noreferrer">{source.label}<ExternalLink aria-hidden="true" /><span className="sr-only"> (se abre en una pestaña nueva)</span></a></li>)}</ul>
+      <p className="models-note">{x.attribution}</p></>}
+    visual={<LstmMemory />} />;
 }
