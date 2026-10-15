@@ -1,4 +1,4 @@
-import { CircleCheck, Hourglass, LogIn } from "lucide-react";
+import { CircleCheck, Flag, Hourglass, LogIn } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import copy from "@/i18n/es.json";
 import { targetPairs } from "../data";
@@ -16,8 +16,8 @@ export function LagSection() {
       <Card className="dt-card"><CardContent className="dt-stack">
         <h3>{t.timelineTitle}</h3>
         <ol className="dt-timeline" aria-label={t.timelineLabel}>{t.ids.map((id, i) => {
-          const Icon = i === 0 ? LogIn : i === last ? CircleCheck : Hourglass;
-          return <li key={id} data-edge={i === 0 || i === last}>
+          const Icon = i === 0 ? LogIn : i === 1 ? Flag : i === last ? CircleCheck : Hourglass;
+          return <li key={id} data-kind={i === 0 ? "entry" : i === 1 || i === last ? "edge" : "wait"}>
             <Icon aria-hidden="true" /><span className="dt-id">{t.rowLabel} {id}</span><span>{t.stages[i]}</span>
           </li>;
         })}</ol>

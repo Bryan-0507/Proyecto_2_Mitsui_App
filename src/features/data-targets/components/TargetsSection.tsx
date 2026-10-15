@@ -24,6 +24,7 @@ export function TargetsSection() {
         <CardHeader>
           <div className="dt-target-head"><Badge>{card.id}</Badge><Badge variant="outline">{t.lag} {meta.lag}</Badge></div>
           <CardTitle><h3>{card.title}</h3></CardTitle>
+          <p className="dt-market">{t.market}: {card.market}</p>
         </CardHeader>
         <CardContent>
           <div className="dt-pair">

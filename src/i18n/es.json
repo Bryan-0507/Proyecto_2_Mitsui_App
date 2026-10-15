@@ -403,7 +403,7 @@
           "8"
         ]
       ],
-      "detail": "La regresión es lineal y no tiene regularización, es decir, no penaliza pesos grandes. La búsqueda comparó cuántos predictores usar y si recortar valores extremos. No ajustó hiperparámetros internos de la regresión, porque no los tiene."
+      "detail": "La regresión es lineal y no tiene regularización, es decir, no penaliza pesos grandes. Se compararon seis configuraciones por target: 8, 16 o 32 predictores, conservando los extremos o recortándolos a los percentiles 1 y 99. Se eligió la de menor RMSE de validación. No se ajustaron hiperparámetros internos de la regresión, porque no los tiene."
     },
     "temporal": {
       "name": "Modelos temporales",
@@ -503,7 +503,7 @@
         ]
       ],
       "configNote": "ARIMA no fue seleccionado para todos los targets.",
-      "detail": "Los candidatos se compararon con validación temporal: se ajusta con el pasado y se evalúa en bloques posteriores. No hay que confundir estacionariedad, que la serie mantenga un comportamiento estable en el tiempo, con estacionalidad, que ciertos patrones se repitan por periodos."
+      "detail": "Se compararon AR, MA, ARMA y ARIMA con órdenes p y q de 0 a 2 y diferenciación d de 0 o 1: 26 configuraciones por target, elegidas por RMSE de validación temporal. No se habilitó SARIMA porque el criterio exigía una periodicidad repetida en al menos dos bloques completos de 100 posiciones y no había evidencia suficiente; eso no demuestra ausencia de estacionalidad. Estacionariedad significa que ciertas propiedades de la serie se mantienen estables; estacionalidad es un patrón que se repite con una periodicidad identificable."
     },
     "boosting": {
       "name": "LightGBM",
@@ -662,7 +662,7 @@
         {
           "name": "test.csv",
           "kind": "kaggle",
-          "content": "Entradas de evaluación de la competencia. No es la prueba interna con la que calculamos nuestras métricas.",
+          "content": "Entradas de evaluación de la competencia, con la columna is_scored que indica si la fila puntúa. No es la prueba interna con la que calculamos nuestras métricas.",
           "size": "134 observaciones"
         }
       ],
@@ -706,8 +706,8 @@
     },
     "targets": {
       "title": "Los cuatro targets",
-      "intro": "Elegimos instrumentos que la audiencia puede reconocer. No son necesariamente los targets más fáciles de predecir ni los más representativos del mercado.",
-      "crossNote": "Muchos targets cruzan mercados: la clasificación que usamos no implica que los dos instrumentos pertenezcan al mismo mercado.",
+      "intro": "Organizamos el modelado alrededor de los cuatro mercados del dataset y elegimos comparaciones con instrumentos familiares para la audiencia. No son necesariamente los targets más fáciles de predecir ni representan el comportamiento completo de sus mercados.",
+      "crossNote": "Cada comparación puede cruzar mercados: el mercado asignado no implica que ambos instrumentos pertenezcan a él. Conservamos los lags originales porque forman parte de la definición del target, no porque sean los horizontes óptimos.",
       "lag": "Lag",
       "against": "frente a",
       "a": "Instrumento A",
@@ -720,13 +720,14 @@
           "a": {
             "name": "ExxonMobil (XOM)",
             "kind": "Acción de EE. UU.",
-            "description": "Empresa del sector energético. Su acción no es el precio del petróleo."
+            "description": "Empresa de petróleo y gas. Su acción no equivale al precio del petróleo: también refleja el desempeño y las expectativas sobre la empresa."
           },
           "b": {
             "name": "Futuros de oro JPX",
             "kind": "Futuros",
-            "description": "Contratos sobre el oro negociados en Japan Exchange Group."
-          }
+            "description": "Futuros estándar de oro negociados en Japan Exchange Group."
+          },
+          "market": "Acciones de EE. UU."
         },
         {
           "id": "target_19",
@@ -734,13 +735,14 @@
           "a": {
             "name": "Futuros de oro JPX",
             "kind": "Futuros",
-            "description": "Contratos sobre el oro negociados en Japan Exchange Group."
+            "description": "Futuros estándar de oro negociados en Japan Exchange Group."
           },
           "b": {
             "name": "USD/JPY",
             "kind": "Divisa",
             "description": "Relación entre el dólar estadounidense y el yen japonés."
-          }
+          },
+          "market": "Futuros JPX"
         },
         {
           "id": "target_105",
@@ -748,13 +750,14 @@
           "a": {
             "name": "ETF IAU",
             "kind": "ETF",
-            "description": "Fondo que cotiza en bolsa y está vinculado al oro. No es lo mismo que los futuros de oro."
+            "description": "Fondo que busca reflejar el comportamiento del oro físico. No es lo mismo que los futuros de oro."
           },
           "b": {
             "name": "Cobre LME",
             "kind": "Metal LME",
             "description": "LME es un mercado de metales, no una empresa."
-          }
+          },
+          "market": "Metales LME"
         },
         {
           "id": "target_410",
@@ -768,9 +771,11 @@
             "name": "Aluminio LME",
             "kind": "Metal LME",
             "description": "Mismo mercado de metales, otro metal."
-          }
+          },
+          "market": "Divisas"
         }
-      ]
+      ],
+      "market": "Mercado asignado"
     },
     "meaning": {
       "title": "Qué representa el target",
@@ -806,7 +811,7 @@
         }
       ],
       "notTitle": "Qué no es",
-      "not": "No equivale al precio futuro, al camino completo del precio ni a un porcentaje exacto de ganancia. Tampoco supone que el instrumento favorecido haya subido.",
+      "not": "No equivale al precio futuro, al camino completo del precio ni a un porcentaje exacto de ganancia. Un resultado positivo no exige que A haya subido: si ambos bajaron, puede indicar que A perdió proporcionalmente menos que B.",
       "exampleTitle": "Ejemplo con números inventados",
       "exampleCaption": "Dos instrumentos que suben la misma cantidad de unidades",
       "exampleColumns": {
@@ -814,7 +819,8 @@
         "before": "Antes",
         "after": "Después",
         "absolute": "Cambio absoluto",
-        "proportional": "Cambio proporcional"
+        "proportional": "Cambio proporcional",
+        "log": "Retorno logarítmico"
       },
       "exampleRows": [
         [
@@ -822,30 +828,32 @@
           "1100",
           "1200",
           "+100",
-          "cerca de 9 %"
+          "9,09 %",
+          "0,087"
         ],
         [
           "Instrumento 2",
           "100",
           "200",
           "+100",
-          "100 %"
+          "100 %",
+          "0,693"
         ]
       ],
-      "exampleNote": "Ambos aumentan 100 unidades, pero el segundo tiene un cambio proporcional mayor. El target compara cambios proporcionales como estos.",
+      "exampleNote": "Ambos aumentan 100 unidades, pero el segundo tiene un cambio proporcional mayor. El retorno logarítmico no es exactamente un porcentaje: se parecen cuando el cambio es pequeño y difieren cuando es grande.",
       "modelNote": "El modelo estima esta comparación cuando los valores futuros todavía no se conocen.",
       "detailSummary": "Ver definición técnica",
-      "detail": "El retorno logarítmico de un instrumento entre dos momentos es el logaritmo natural del precio final dividido entre el precio inicial. El target es el retorno logarítmico de A menos el de B. En la competencia algunos targets son el retorno de un solo instrumento; los cuatro que usamos son diferencias."
+      "detail": "Retorno de A = ln(valor final de A / valor inicial de A), y lo mismo para B. Target = retorno de A menos retorno de B. Para una observación t, el proyecto reconstruye el target con los valores de t + 1 y t + lag + 1. En la competencia algunos targets son el retorno de un solo instrumento; los cuatro que usamos son diferencias."
     },
     "lag": {
       "title": "Qué significa el lag",
       "intro": "El lag forma parte de la definición del target y determina su horizonte. No es la cantidad de observaciones históricas que recibe el modelo.",
       "single": "Un target produce un único resultado relativo, no una predicción por cada paso.",
-      "known": "Por eso el resultado de una fila no puede usarse como dato conocido hasta que pasa su horizonte.",
+      "known": "Para una fila t, el target usa los valores de t + 1 y t + lag + 1. Por eso su resultado no puede usarse como dato conocido hasta que llega la fila t + lag + 1.",
       "ours": "Lags de nuestros cuatro targets",
       "timelineLabel": "Pasos entre la fila de entrada y el momento en que se conoce su resultado",
       "timelineTitle": "Ejemplo conceptual con lag 3",
-      "timelineNote": "Los números son identificadores de fila, no fechas ni días. Los extremos exactos del cambio los define la competencia; este esquema solo muestra cuándo el resultado puede conocerse.",
+      "timelineNote": "Los números son identificadores de fila, no fechas ni días.",
       "rowLabel": "Fila",
       "ids": [
         100,
@@ -855,11 +863,23 @@
         104
       ],
       "stages": [
-        "Fila de entrada",
-        "En espera",
-        "En espera",
-        "En espera",
-        "Resultado conocido"
+        "Fila t: entrada",
+        "Valor inicial, t + 1",
+        "Intermedio",
+        "Intermedio",
+        "Valor final, t + lag + 1"
+      ]
+    },
+    "objectives": {
+      "title": "Objetivos del proyecto",
+      "generalTitle": "Objetivo general",
+      "general": "Evaluar y comparar alternativas de predicción para los cuatro targets seleccionados del MITSUI&CO. Commodity Prediction Challenge, mediante la preparación de datos, la construcción de modelos y su validación temporal, para identificar su desempeño fuera de muestra y comunicar los resultados y sus limitaciones.",
+      "specificTitle": "Objetivos específicos",
+      "specific": [
+        "Analizar la bibliografía sobre predicción de retornos y evaluación de series temporales para fundamentar la selección de variables, modelos, métricas y método de validación.",
+        "Diagnosticar la calidad, disponibilidad y estructura temporal de los datos, y evaluar las transformaciones necesarias para preparar los cuatro targets y sus predictores.",
+        "Construir, evaluar y contrastar modelos de referencia y alternativas predictivas para cada target mediante una validación que respete el orden temporal y utilice métricas comparables.",
+        "Desarrollar una aplicación que integre las predicciones, la comparación de modelos y sus limitaciones para comunicar los resultados del proyecto."
       ]
     }
   }

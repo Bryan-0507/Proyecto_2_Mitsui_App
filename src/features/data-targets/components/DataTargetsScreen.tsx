@@ -3,6 +3,7 @@ import "../data-targets.css";
 import { DatasetSection } from "./DatasetSection";
 import { LagSection } from "./LagSection";
 import { MeaningSection } from "./MeaningSection";
+import { ObjectivesSection } from "./ObjectivesSection";
 import { TargetsSection } from "./TargetsSection";
 
 const t = copy.dataTargets;
@@ -14,5 +15,6 @@ export function DataTargetsScreen() {
     <TargetsSection />
     <MeaningSection />
     <LagSection />
+    <ObjectivesSection />
   </section>;
 }

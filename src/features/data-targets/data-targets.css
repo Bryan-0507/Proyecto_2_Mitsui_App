@@ -54,7 +54,8 @@
 .dt-copy p { font-size:.9375rem; line-height:1.6; max-width:60ch; }
 .dt-timeline { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:8px; }
 .dt-timeline li { display:flex; flex-direction:column; align-items:flex-start; gap:4px; border:1px dashed var(--border); border-radius:var(--radius); padding:10px 8px; font-size:.75rem; color:var(--muted-foreground); }
-.dt-timeline li[data-edge=true] { border:2px solid var(--primary); color:var(--foreground); }
+.dt-timeline li[data-kind=edge] { border:2px solid var(--primary); color:var(--foreground); }
+.dt-timeline li[data-kind=entry] { border:1px solid var(--foreground); color:var(--foreground); }
 .dt-timeline svg { width:16px; height:16px; color:var(--primary); }
 .dt-id { font-size:.8125rem; font-variant-numeric:tabular-nums; color:var(--foreground); }
 @media(max-width:1023px) { .dt-two,.dt-targets { grid-template-columns:1fr; } .dt-versions ol { grid-template-columns:1fr; } .dt-versions li,.dt-versions li + li { padding:16px 0; border-left:0; border-bottom:1px solid var(--border); } }
@@ -79,3 +80,9 @@
   .dt-files tr { display:grid; gap:6px; justify-items:start; padding:12px 0; }
   .dt-files td { padding:0; }
 }
+.dt-market { font-size:.8125rem !important; color:var(--muted-foreground); margin-top:4px; }
+.dt-objectives { display:grid; grid-template-columns:minmax(0,5fr) minmax(0,6fr); gap:16px; align-items:start; }
+.dt-objectives ol { display:flex; flex-direction:column; gap:12px; }
+.dt-objectives li { display:grid; grid-template-columns:24px minmax(0,1fr); gap:12px; align-items:start; font-size:.875rem; line-height:1.6; }
+.dt-general { font-size:1rem !important; line-height:1.6; }
+@media(max-width:1023px) { .dt-objectives { grid-template-columns:1fr; } }
