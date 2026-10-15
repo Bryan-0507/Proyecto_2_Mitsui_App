@@ -311,5 +311,314 @@
       "title": "Predicción",
       "description": "Laboratorio académico para probar los modelos con entradas compatibles."
     }
+  },
+  "models": {
+    "title": "Modelos",
+    "intro": "Comparamos tres enfoques propios, regresión lineal, modelos temporales y LightGBM, junto con una referencia externa, una LSTM publicada.",
+    "tabsLabel": "Modelos propios",
+    "tabs": {
+      "linear": "Regresión lineal",
+      "temporal": "Modelos temporales",
+      "boosting": "LightGBM"
+    },
+    "whyTitle": "Por qué lo incorporamos",
+    "howTitle": "Cómo funciona",
+    "configTitle": "Configuración utilizada",
+    "moreDetail": "Ver más detalle",
+    "visualTitle": "Representación",
+    "conceptual": "Ejemplo conceptual",
+    "sourcesTitle": "Antecedentes",
+    "target": "Target",
+    "valueLabel": "Valor",
+    "weightLabel": "Peso",
+    "contributionLabel": "Aporte",
+    "notApplicable": "No aplica",
+    "linear": {
+      "name": "Regresión lineal",
+      "why": "Es nuestro baseline, es decir, un modelo sencillo de referencia para comprobar si enfoques más complejos aportan una mejora.",
+      "how": "Toma las variables de entrada, asigna un peso a cada una y las suma junto con un valor constante para estimar el target. Durante el entrenamiento ajusta los pesos para que la suma de los errores al cuadrado sea lo más pequeña posible. Ese método se llama mínimos cuadrados ordinarios: elegir los pesos que dejan el menor error total al cuadrado en los datos de entrenamiento.",
+      "flowLabel": "Etapas de la regresión lineal",
+      "flow": [
+        {
+          "title": "Predictores seleccionados",
+          "description": "Las variables de entrada que conserva el modelo."
+        },
+        {
+          "title": "Pesos aprendidos",
+          "description": "Un número por predictor que indica cuánto influye."
+        },
+        {
+          "title": "Suma y constante",
+          "description": "Cada valor se multiplica por su peso y se suma al valor constante."
+        },
+        {
+          "title": "Predicción",
+          "description": "La estimación del target."
+        }
+      ],
+      "exampleTitle": "Ejemplo conceptual con tres predictores",
+      "exampleNote": "Los números están inventados para ilustrar la suma. No provienen de nuestro modelo, que usa 8 o 16 predictores.",
+      "exampleCaption": "Ejemplo conceptual de una suma ponderada",
+      "exampleRows": [
+        [
+          "Predictor A",
+          "0,80",
+          "0,50",
+          "0,40"
+        ],
+        [
+          "Predictor B",
+          "-0,40",
+          "0,25",
+          "-0,10"
+        ],
+        [
+          "Predictor C",
+          "1,20",
+          "-0,10",
+          "-0,12"
+        ]
+      ],
+      "constant": "Valor constante",
+      "constantContribution": "0,02",
+      "prediction": "Predicción",
+      "predictionValue": "0,20",
+      "configCaption": "Cantidad de predictores por target",
+      "predictors": "Predictores",
+      "config": [
+        [
+          "target_225",
+          "16"
+        ],
+        [
+          "target_19",
+          "8"
+        ],
+        [
+          "target_105",
+          "8"
+        ],
+        [
+          "target_410",
+          "8"
+        ]
+      ],
+      "detail": "La regresión es lineal y no tiene regularización, es decir, no penaliza pesos grandes. La búsqueda comparó cuántos predictores usar y si recortar valores extremos. No ajustó hiperparámetros internos de la regresión, porque no los tiene."
+    },
+    "temporal": {
+      "name": "Modelos temporales",
+      "why": "Los incorporamos para compararlos con una familia estudiada en clase y evaluar cuánto aporta la historia del propio target.",
+      "how": "Usan únicamente la historia del target, sin las demás variables. Tomamos ARIMA como ejemplo y lo separamos en tres piezas.",
+      "parts": [
+        {
+          "name": "AR",
+          "title": "Valores pasados",
+          "description": "Usa valores históricos de la serie."
+        },
+        {
+          "name": "I",
+          "title": "Diferencias",
+          "description": "Trabaja con los cambios entre observaciones consecutivas en lugar de los niveles, cuando corresponde."
+        },
+        {
+          "name": "MA",
+          "title": "Errores pasados",
+          "description": "Usa los errores que el propio modelo cometió antes. No equivale a calcular una media móvil simple de los datos."
+        }
+      ],
+      "example": "Ejemplo: ARIMA(1,1,2) usa 1 valor pasado, 1 diferencia y 2 errores pasados.",
+      "orderNote": "El orden del modelo no es el horizonte del target ni la cantidad de predicciones. La aplicación solicita una sola predicción.",
+      "flowLabel": "Etapas de un modelo temporal",
+      "flow": [
+        {
+          "title": "Historia disponible",
+          "description": "Observaciones pasadas del target."
+        },
+        {
+          "title": "Transformación",
+          "description": "Se calculan los cambios entre observaciones cuando el modelo incluye diferencias."
+        },
+        {
+          "title": "Historia y errores",
+          "description": "Se combinan el último cambio y los dos errores pasados."
+        },
+        {
+          "title": "Predicción",
+          "description": "Una sola estimación. El cambio estimado se suma al último valor observado."
+        }
+      ],
+      "sequenceTitle": "Ejemplo conceptual de valores y cambios",
+      "sequenceNote": "Números inventados. Obs. significa observación y es un identificador de posición, no una fecha de calendario.",
+      "sequenceCaption": "Valores y cambios de una serie corta de ejemplo",
+      "pastGroup": "Pasado observado",
+      "futureGroup": "Predicción",
+      "positions": [
+        "Obs. 1",
+        "Obs. 2",
+        "Obs. 3",
+        "Obs. 4",
+        "Obs. 5",
+        "Siguiente"
+      ],
+      "rowValue": "Valor",
+      "rowChange": "Cambio",
+      "values": [
+        "10,0",
+        "10,8",
+        "10,3",
+        "11,0",
+        "10,6"
+      ],
+      "changes": [
+        "No aplica",
+        "+0,8",
+        "-0,5",
+        "+0,7",
+        "-0,4"
+      ],
+      "pending": "Por estimar",
+      "configCaption": "Modelo seleccionado por target",
+      "modelColumn": "Modelo",
+      "meaningColumn": "Qué usa",
+      "config": [
+        [
+          "target_225",
+          "ARMA(2,1)",
+          "2 valores pasados y 1 error pasado, sin diferencias."
+        ],
+        [
+          "target_19",
+          "ARIMA(1,1,2)",
+          "1 valor pasado, 1 diferencia y 2 errores pasados."
+        ],
+        [
+          "target_105",
+          "MA(2)",
+          "Solo 2 errores pasados."
+        ],
+        [
+          "target_410",
+          "ARMA(2,2)",
+          "2 valores pasados y 2 errores pasados, sin diferencias."
+        ]
+      ],
+      "configNote": "ARIMA no fue seleccionado para todos los targets.",
+      "detail": "Los candidatos se compararon con validación temporal: se ajusta con el pasado y se evalúa en bloques posteriores. No hay que confundir estacionariedad, que la serie mantenga un comportamiento estable en el tiempo, con estacionalidad, que ciertos patrones se repitan por periodos."
+    },
+    "boosting": {
+      "name": "LightGBM",
+      "why": "Lo consideramos candidato a partir de experiencias documentadas de participantes de la misma competencia. Esos antecedentes motivaron probarlo; no garantizan que sea mejor en nuestro proyecto.",
+      "sources": [
+        {
+          "label": "Publicación de dhue123, puesto 26",
+          "href": "https://www.kaggle.com/competitions/mitsui-commodity-prediction-challenge/writeups/26th-place-mitsui-and-co-commodity-prediction"
+        },
+        {
+          "label": "Publicación de Morim, puesto 97",
+          "href": "https://www.kaggle.com/competitions/mitsui-commodity-prediction-challenge/writeups/97th-place-solution"
+        }
+      ],
+      "sourceNote": "Según el registro de nuestra investigación, Morim reportó pruebas con LSTM y otras redes sin mejora en su validación.",
+      "how": "LightGBM construye árboles de decisión uno después de otro. Cada árbol aprende a corregir lo que aún falla en la predicción acumulada. La tasa de aprendizaje controla cuánto de esa corrección se aplica.",
+      "illustrative": "Ejemplo ilustrativo con números inventados. No son resultados de nuestros modelos.",
+      "stepLabel": "Iteración",
+      "stepOf": "{step} de {total}",
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "stepNames": [
+        "Predicción inicial",
+        "Árbol 1",
+        "Árbol 2",
+        "Árbol 3"
+      ],
+      "stepperLabel": "Avance del ejemplo",
+      "treeTitle": "Árbol {number}",
+      "yes": "Sí",
+      "no": "No",
+      "leafLabel": "Hoja",
+      "applied": "Aplicado",
+      "pendingTree": "Pendiente",
+      "usedLeaf": "Hoja que recibe este ejemplo",
+      "stats": {
+        "actual": "Valor real del ejemplo",
+        "prediction": "Predicción acumulada",
+        "correction": "Corrección del siguiente árbol",
+        "remaining": "Error restante"
+      },
+      "noMoreTrees": "Sin más árboles en el ejemplo",
+      "scaleLabel": "Posición del valor real y de la predicción acumulada",
+      "scaleAria": "Valor real {actual} y predicción acumulada {prediction}",
+      "disclaimer": "El error restante no llega necesariamente a cero. Con datos nuevos, más árboles tampoco garantizan una mejora.",
+      "configCaption": "Parámetros del benchmark visible",
+      "parameters": [
+        [
+          "Predictores",
+          "32",
+          "Variables de entrada que conserva el modelo."
+        ],
+        [
+          "Árboles",
+          "200",
+          "Cantidad de correcciones sucesivas."
+        ],
+        [
+          "Tasa de aprendizaje",
+          "0,03",
+          "Fracción de cada corrección que se aplica. Un valor pequeño avanza despacio."
+        ],
+        [
+          "Máximo de hojas",
+          "7",
+          "Cada árbol puede separar los datos en hasta 7 grupos finales."
+        ]
+      ],
+      "minLeaf": "Mínimo de observaciones por hoja",
+      "minLeafHelp": "Tamaño mínimo de cada grupo final. Evita hojas basadas en muy pocos casos.",
+      "minLeafRows": [
+        [
+          "target_225 y target_410",
+          "30"
+        ],
+        [
+          "target_19 y target_105",
+          "60"
+        ]
+      ],
+      "detail": "Un árbol pequeño con pocas hojas aporta correcciones sencillas. Muchos árboles pequeños con una tasa de aprendizaje baja suman cambios graduales a la predicción."
+    },
+    "externalSection": {
+      "title": "Externo",
+      "model": "LSTM publicada",
+      "provenance": "Modelo de un tercero. Usamos sus pesos publicados; no la entrenamos ni la modificamos.",
+      "why": "La incorporamos para contrastar nuestro acercamiento con una implementación pública que incluía pesos y preparación reproducible.",
+      "how": "Una LSTM es una red neuronal que lee una secuencia en orden y mantiene una representación resumida del historial. Esa representación conserva información útil del pasado, pero no recuerda todo perfectamente.",
+      "ensemble": "La referencia combina cinco redes con la misma arquitectura y semillas distintas, y promedia sus predicciones. No son cinco familias de modelos.",
+      "flowLabel": "Etapas de la LSTM publicada",
+      "flow": [
+        {
+          "title": "20 observaciones anteriores",
+          "description": "Cada una llega como 100 componentes."
+        },
+        {
+          "title": "Capa LSTM",
+          "description": "32 unidades que resumen la secuencia."
+        },
+        {
+          "title": "Procesamiento final",
+          "description": "Normalización y capas finales."
+        },
+        {
+          "title": "424 salidas",
+          "description": "Un valor por cada target de la referencia."
+        },
+        {
+          "title": "Nuestros cuatro targets",
+          "description": "Seleccionamos solo las salidas que usamos."
+        }
+      ],
+      "sourceLabel": "Repositorio de la LSTM publicada",
+      "sourceHref": "https://github.com/Hayden1629/mitsui_commodity/tree/357e8352e7eff9ac10b54d992e61ac6564be8034/FINAL_LSTM",
+      "attribution": "No atribuimos a este repositorio un puesto certificado en la competencia. Si menciona inspiración en otras soluciones, eso no define su autoría ni su resultado."
+    }
   }
 }
