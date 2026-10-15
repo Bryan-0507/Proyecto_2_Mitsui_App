@@ -1,20 +1,21 @@
 import copy from "@/i18n/es.json";
 import "../data-targets.css";
-import { DatasetSection } from "./DatasetSection";
-import { LagSection } from "./LagSection";
-import { MeaningSection } from "./MeaningSection";
-import { ObjectivesSection } from "./ObjectivesSection";
-import { TargetsSection } from "./TargetsSection";
+import { DataPanel } from "./DataPanel";
+import { DataTargetsTabs } from "./DataTargetsTabs";
+import { ObjectivesPanel } from "./ObjectivesPanel";
+import { ReadingPanel } from "./ReadingPanel";
+import { TargetExplorer } from "./TargetExplorer";
 
 const t = copy.dataTargets;
 
 export function DataTargetsScreen() {
   return <section className="eda-screen dt-screen" aria-labelledby="dt-title">
     <header className="eda-heading"><h1 id="dt-title">{t.title}</h1><p>{t.intro}</p></header>
-    <DatasetSection />
-    <TargetsSection />
-    <MeaningSection />
-    <LagSection />
-    <ObjectivesSection />
+    <DataTargetsTabs panels={{
+      data: <DataPanel />,
+      targets: <div className="dt-stack"><p className="dt-lead">{t.targets.intro}</p><TargetExplorer /><p className="dt-muted">{t.targets.notes}</p></div>,
+      reading: <ReadingPanel />,
+      objectives: <ObjectivesPanel />,
+    }} />
   </section>;
 }

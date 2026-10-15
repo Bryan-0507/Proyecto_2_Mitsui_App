@@ -1,6 +1,7 @@
 import { History, Layers, Target, TrendingUp } from "lucide-react";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import copy from "@/i18n/es.json";
+import { signTone } from "@/features/shared/sign";
 import { ModelFlow } from "./ModelFlow";
 import { ModelLayout, MoreDetail } from "./ModelLayout";
 
@@ -26,6 +27,6 @@ export function TemporalPanel() {
             </TableHeader>
             <TableBody>
               <TableRow><TableHead>{m.rowValue}</TableHead>{m.values.map((v, i) => <TableCell key={i}>{v}</TableCell>)}<TableCell className="models-future">{m.pending}</TableCell></TableRow>
-              <TableRow><TableHead>{m.rowChange}</TableHead>{m.changes.map((v, i) => <TableCell key={i}>{v}</TableCell>)}<TableCell className="models-future">{m.pending}</TableCell></TableRow>
+              <TableRow><TableHead>{m.rowChange}</TableHead>{m.changes.map((v, i) => <TableCell key={i} data-tone={signTone(v)}>{v}</TableCell>)}<TableCell className="models-future">{m.pending}</TableCell></TableRow>
             </TableBody></Table></div></section></>} />;
 }

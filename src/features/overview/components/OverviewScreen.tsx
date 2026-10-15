@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { ArrowDown, ArrowRight, ArrowUp, Building2, CircleAlert, Coins, Factory, Landmark } from "lucide-react";
+import { ArrowDownRight, ArrowRight, ArrowUpRight, Building2, CircleAlert, Coins, Factory, Landmark } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import copy from "@/i18n/es.json";
 import "../overview.css";
 
 const t = copy.overview;
-const caseIcons = [ArrowUp, ArrowDown, ArrowDown];
+const caseTones = ["positive", "negative", "positive"] as const;
 const marketIcons = [Building2, Landmark, Factory, Coins];
 
 function InternalLink({ href, children }: { href: string; children: string }) {
@@ -23,8 +23,8 @@ export function OverviewScreen() {
       <Card className="ov-card"><CardContent className="ov-stack">
         <h2>{t.readTitle}</h2>
         <ul className="ov-cases">{t.cases.map((item, i) => {
-          const Icon = caseIcons[i];
-          return <li key={item.situation}>
+          const Icon = caseTones[i] === "positive" ? ArrowUpRight : ArrowDownRight;
+          return <li key={item.situation} data-tone={caseTones[i]}>
             <Icon aria-hidden="true" />
             <div><p>{item.situation}</p><p className="ov-muted">{item.meaning}</p></div>
             <span className="ov-sign">{item.sign}</span>

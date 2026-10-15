@@ -21,7 +21,17 @@
     "externalTitle": "La LSTM externa sigue otra ruta",
     "externalDescription": "Reproducimos la preparación del autor desde train.csv original, no desde nuestra base limpia.",
     "externalSteps": ["2064 características derivadas", "Escalado y recorte del autor", "Reducción a 100 componentes", "Ventanas de 20 observaciones anteriores"],
-    "externalNote": "Se calculan retornos, variabilidad y comparaciones entre instrumentos; los faltantes derivados se rellenan con cero. El escalado, la reducción y los pesos ya estaban ajustados: aquí no reentrenamos la red."
+    "externalNote": "Se calculan retornos, variabilidad y comparaciones entre instrumentos; los faltantes derivados se rellenan con cero. El escalado, la reducción y los pesos ya estaban ajustados: aquí no reentrenamos la red.",
+    "stepsLabel": "Pasos de la base común",
+    "stepLabel": "Paso",
+    "stepOf": "Paso {n} de {total}",
+    "routesLabel": "Ruta por modelo",
+    "baseNode": "Base común",
+    "inputNode": "Entrada del modelo",
+    "pipelineLabel": "Secuencia de preparación de {model}",
+    "whyLabel": "Por qué",
+    "externalTab": "LSTM externa",
+    "externalBase": "train.csv original"
   },
   "brand": {
     "name": "Market Lens",
@@ -47,7 +57,12 @@
     "navigation": "Navegación principal",
     "toggle": "Alternar navegación",
     "close": "Cerrar navegación",
-    "skip": "Saltar al contenido"
+    "skip": "Saltar al contenido",
+    "step": "Paso {n} de {total}",
+    "progress": "Progreso del recorrido",
+    "pager": "Recorrido entre secciones",
+    "previous": "Anterior",
+    "next": "Siguiente"
   },
   "prediction": {
     "title": "Predicción",
@@ -624,95 +639,91 @@
   "dataTargets": {
     "title": "Datos y objetivos",
     "intro": "Qué información tenemos, qué intentamos predecir y cómo interpretar el resultado.",
-    "dataset": {
-      "title": "Qué información tenemos",
-      "intro": "El reto entrega cuatro archivos. Cada uno cumple una función distinta.",
-      "tableCaption": "Archivos del dataset y su función",
-      "columns": {
-        "file": "Archivo",
-        "kind": "Tipo",
-        "content": "Qué contiene",
-        "size": "Tamaño"
-      },
-      "kinds": {
-        "predictors": "Predictoras",
-        "labels": "Etiquetas",
-        "metadata": "Metadata",
-        "kaggle": "Evaluación Kaggle"
-      },
+    "tabsLabel": "Temas de esta página",
+    "tabs": {
+      "data": "Datos",
+      "targets": "Targets",
+      "reading": "Cómo leerlos",
+      "objectives": "Objetivos"
+    },
+    "data": {
+      "filesTitle": "Los cuatro archivos del reto",
       "files": [
         {
           "name": "train.csv",
           "kind": "predictors",
-          "content": "Observaciones históricas de las variables predictoras: precios, volúmenes y tipos de cambio.",
-          "size": "1961 observaciones y 557 predictoras"
+          "role": "Predictoras",
+          "content": "Precios, volúmenes y tipos de cambio históricos.",
+          "stat": "1961 × 557",
+          "statLabel": "observaciones × predictoras"
         },
         {
           "name": "train_labels.csv",
           "kind": "labels",
-          "content": "Las respuestas históricas que los modelos aprenden a predecir.",
-          "size": "1961 observaciones y 424 targets"
+          "role": "Etiquetas",
+          "content": "Las respuestas que los modelos aprenden a predecir.",
+          "stat": "1961 × 424",
+          "statLabel": "observaciones × targets"
         },
         {
           "name": "target_pairs.csv",
           "kind": "metadata",
-          "content": "El instrumento o par de instrumentos y el lag de cada target.",
-          "size": "424 targets"
+          "role": "Metadata",
+          "content": "Qué instrumentos compara cada target y con qué lag.",
+          "stat": "424",
+          "statLabel": "targets descritos"
         },
         {
           "name": "test.csv",
           "kind": "kaggle",
-          "content": "Entradas de evaluación de la competencia, con la columna is_scored que indica si la fila puntúa. No es la prueba interna con la que calculamos nuestras métricas.",
-          "size": "134 observaciones"
+          "role": "Evaluación Kaggle",
+          "content": "Entradas con las que la competencia puntúa. No es nuestra prueba interna.",
+          "stat": "134",
+          "statLabel": "observaciones"
         }
       ],
       "idNote": "date_id es un identificador ordenado, no una fecha de calendario.",
-      "versionsTitle": "Tres niveles de datos",
-      "versions": [
+      "funnelTitle": "De los datos originales a cada modelo",
+      "stages": [
         {
-          "title": "Dataset original",
-          "figures": [
-            [
-              "1961",
-              "observaciones"
-            ],
-            [
-              "557",
-              "predictoras"
-            ],
-            [
-              "424",
-              "targets"
-            ]
-          ],
-          "description": "Lo que entrega la competencia."
+          "value": "557",
+          "label": "predictoras originales"
         },
         {
-          "title": "Preparado para EDA",
-          "figures": [
-            [
-              "552",
-              "predictoras"
-            ]
-          ],
-          "description": "Excluimos las cinco columnas del instrumento US_Stock_GOLD porque su cobertura termina antes que la de las demás."
-        },
-        {
-          "title": "Usado por cada modelo",
-          "figures": [],
-          "description": "No todos los modelos usan las mismas variables. La regresión lineal y LightGBM seleccionan un subconjunto de predictoras, los modelos temporales usan solo la historia del target y la LSTM externa parte del train.csv original. El detalle está en Preparación y Modelos."
+          "value": "552",
+          "label": "preparadas para el EDA"
         }
+      ],
+      "stageNote": "Excluimos las cinco columnas de US_Stock_GOLD porque terminan antes que las demás.",
+      "familiesTitle": "Lo que recibe cada modelo",
+      "families": [
+        [
+          "Regresión lineal",
+          "8 o 16 predictoras seleccionadas"
+        ],
+        [
+          "LightGBM",
+          "32 predictoras seleccionadas"
+        ],
+        [
+          "Modelos temporales",
+          "Solo la historia del target"
+        ],
+        [
+          "LSTM externa",
+          "100 componentes calculados del original"
+        ]
       ]
     },
     "targets": {
-      "title": "Los cuatro targets",
-      "intro": "Organizamos el modelado alrededor de los cuatro mercados del dataset y elegimos comparaciones con instrumentos familiares para la audiencia. No son necesariamente los targets más fáciles de predecir ni representan el comportamiento completo de sus mercados.",
-      "crossNote": "Cada comparación puede cruzar mercados: el mercado asignado no implica que ambos instrumentos pertenezcan a él. Conservamos los lags originales porque forman parte de la definición del target, no porque sean los horizontes óptimos.",
+      "intro": "Elegimos instrumentos familiares para la audiencia, uno por cada mercado del dataset. No son los más fáciles de predecir ni representan a su mercado completo.",
+      "listLabel": "Elige un target",
       "lag": "Lag",
+      "market": "Mercado asignado",
+      "datasetName": "Nombre en el dataset",
       "against": "frente a",
       "a": "Instrumento A",
       "b": "Instrumento B",
-      "datasetName": "Nombre en el dataset",
       "cards": [
         {
           "id": "target_225",
@@ -775,27 +786,19 @@
           "market": "Divisas"
         }
       ],
-      "market": "Mercado asignado"
+      "notes": "El mercado asignado no implica que ambos instrumentos pertenezcan a él. Conservamos los lags originales porque forman parte de la definición del target."
     },
-    "meaning": {
-      "title": "Qué representa el target",
-      "intro": "Cada target compara dos instrumentos, A y B, con la diferencia de sus retornos logarítmicos. Un retorno logarítmico mide el cambio proporcional de un instrumento.",
-      "stepsLabel": "Cómo se construye el target",
-      "steps": [
-        {
-          "title": "Cambio de A",
-          "description": "Se mide el cambio proporcional de A."
-        },
-        {
-          "title": "Cambio de B",
-          "description": "Se mide el cambio proporcional de B."
-        },
-        {
-          "title": "Resta",
-          "description": "Se resta el retorno de B al de A."
-        }
-      ],
-      "readTitle": "Cómo leer el resultado",
+    "reading": {
+      "meaningTitle": "Qué representa",
+      "equationLabel": "Fórmula del target",
+      "equation": {
+        "a": "Retorno de A",
+        "minus": "menos",
+        "b": "Retorno de B",
+        "equals": "igual a",
+        "result": "Target"
+      },
+      "equationNote": "El retorno es el cambio proporcional de cada instrumento, medido con logaritmo.",
       "reads": [
         {
           "title": "Positivo",
@@ -840,19 +843,14 @@
           "0,693"
         ]
       ],
-      "exampleNote": "Ambos aumentan 100 unidades, pero el segundo tiene un cambio proporcional mayor. El retorno logarítmico no es exactamente un porcentaje: se parecen cuando el cambio es pequeño y difieren cuando es grande.",
+      "exampleNote": "Ambos suben 100 unidades, pero el segundo cambia mucho más en proporción. Eso es lo que compara el target.",
       "modelNote": "El modelo estima esta comparación cuando los valores futuros todavía no se conocen.",
       "detailSummary": "Ver definición técnica",
-      "detail": "Retorno de A = ln(valor final de A / valor inicial de A), y lo mismo para B. Target = retorno de A menos retorno de B. Para una observación t, el proyecto reconstruye el target con los valores de t + 1 y t + lag + 1. En la competencia algunos targets son el retorno de un solo instrumento; los cuatro que usamos son diferencias."
-    },
-    "lag": {
-      "title": "Qué significa el lag",
-      "intro": "El lag forma parte de la definición del target y determina su horizonte. No es la cantidad de observaciones históricas que recibe el modelo.",
-      "single": "Un target produce un único resultado relativo, no una predicción por cada paso.",
-      "known": "Para una fila t, el target usa los valores de t + 1 y t + lag + 1. Por eso su resultado no puede usarse como dato conocido hasta que llega la fila t + lag + 1.",
-      "ours": "Lags de nuestros cuatro targets",
+      "detail": "Retorno de A = ln(valor final de A / valor inicial de A), y lo mismo para B. Target = retorno de A menos retorno de B. Para una observación t, el proyecto reconstruye el target con los valores de t + 1 y t + lag + 1. En la competencia algunos targets son el retorno de un solo instrumento; los cuatro que usamos son diferencias.",
+      "lagTitle": "Qué significa el lag",
+      "lagIntro": "El lag define el horizonte del target, no cuántas observaciones históricas recibe el modelo. Cada target produce un único resultado.",
+      "lagKnown": "Para una fila t, el target usa los valores de t + 1 y t + lag + 1. Por eso su resultado no puede usarse como dato conocido hasta que llega la fila t + lag + 1.",
       "timelineLabel": "Pasos entre la fila de entrada y el momento en que se conoce su resultado",
-      "timelineTitle": "Ejemplo conceptual con lag 3",
       "timelineNote": "Los números son identificadores de fila, no fechas ni días.",
       "rowLabel": "Fila",
       "ids": [
@@ -984,5 +982,11 @@
     "findings": "Los modelos no mostraron una ventaja consistente frente a predicciones simples, como usar cero o la media del entrenamiento. El R^2 y el acierto del signo indican una señal predictiva limitada.",
     "findingsScope": "Sirven para estudiar el problema y contrastar enfoques; no respaldan su uso para decisiones financieras.",
     "findingsLink": "Ver resultados"
+  },
+  "missingArtifacts": {
+    "title": "Datos de evaluación no disponibles en este equipo",
+    "description": "Esta sección lee las métricas y los modelos desde la carpeta artifacts, que no se guarda en el repositorio. Sin esos archivos no puede mostrarse.",
+    "how": "Impórtalos desde el repositorio del análisis y recarga la página:",
+    "command": "python scripts/import-artifacts.py --source <ruta del repositorio del análisis>"
   }
 }

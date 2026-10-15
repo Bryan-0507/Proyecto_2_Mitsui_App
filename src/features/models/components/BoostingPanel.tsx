@@ -4,6 +4,7 @@ import { Check, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableRow } from "@/components/ui/table";
 import copy from "@/i18n/es.json";
+import { signTone } from "@/features/shared/sign";
 import { boostingExample, fill, formatSigned, formatValue } from "../data";
 import { useBoostingStep } from "../hooks/useBoostingStep";
 import { ModelLayout, MoreDetail } from "./ModelLayout";
@@ -40,8 +41,8 @@ export function BoostingPanel() {
             <h4>{fill(b.treeTitle, { number: i + 1 })}</h4>
             <p className="models-split">{tree.feature} &gt; {tree.threshold}?</p>
             <div className="models-leaves">
-              <div className="models-leaf" data-used="true"><span>{t.boosting.yes}</span><span>{b.leafLabel} {formatSigned(tree.yes)}</span><Check aria-label={b.usedLeaf} /></div>
-              <div className="models-leaf"><span>{t.boosting.no}</span><span>{b.leafLabel} {formatSigned(tree.no)}</span></div>
+              <div className="models-leaf" data-used="true"><span>{t.boosting.yes}</span><span data-tone={signTone(tree.yes)}>{b.leafLabel} {formatSigned(tree.yes)}</span><Check aria-label={b.usedLeaf} /></div>
+              <div className="models-leaf"><span>{t.boosting.no}</span><span data-tone={signTone(tree.no)}>{b.leafLabel} {formatSigned(tree.no)}</span></div>
             </div>
             <p className="models-tree-state">{applied ? b.applied : b.pendingTree}</p>
           </li>;
@@ -58,7 +59,7 @@ export function BoostingPanel() {
       <dl className="models-stats">
         <div><dt>{b.stats.actual}</dt><dd>{formatValue(view.actual)}</dd></div>
         <div><dt>{b.stats.prediction}</dt><dd>{formatValue(view.prediction)}</dd></div>
-        <div><dt>{b.stats.correction}</dt><dd>{view.nextCorrection === null ? b.noMoreTrees : formatSigned(view.nextCorrection)}</dd></div>
+        <div><dt>{b.stats.correction}</dt><dd data-tone={view.nextCorrection === null ? undefined : signTone(view.nextCorrection)}>{view.nextCorrection === null ? b.noMoreTrees : formatSigned(view.nextCorrection)}</dd></div>
         <div><dt>{b.stats.remaining}</dt><dd>{formatValue(view.remaining)}</dd></div>
       </dl>
       <p className="models-note">{b.disclaimer}</p></>} />;

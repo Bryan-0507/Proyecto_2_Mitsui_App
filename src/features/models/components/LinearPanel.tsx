@@ -1,6 +1,7 @@
 import { ListChecks, Scale, Sigma, Target } from "lucide-react";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import copy from "@/i18n/es.json";
+import { signTone } from "@/features/shared/sign";
 import { ModelFlow } from "./ModelFlow";
 import { ModelLayout, MoreDetail } from "./ModelLayout";
 
@@ -19,7 +20,7 @@ export function LinearPanel() {
         <Table><TableCaption>{l.exampleCaption}</TableCaption>
           <TableHeader><TableRow><TableHead>Predictor</TableHead><TableHead>{t.valueLabel}</TableHead><TableHead>{t.weightLabel}</TableHead><TableHead>{t.contributionLabel}</TableHead></TableRow></TableHeader>
           <TableBody>
-            {l.exampleRows.map((row) => <TableRow key={row[0]}>{row.map((cell, i) => <TableCell key={i}>{cell}</TableCell>)}</TableRow>)}
+            {l.exampleRows.map((row) => <TableRow key={row[0]}>{row.map((cell, i) => <TableCell key={i} data-tone={signTone(cell)}>{cell}</TableCell>)}</TableRow>)}
             <TableRow><TableCell>{l.constant}</TableCell><TableCell>{t.notApplicable}</TableCell><TableCell>{t.notApplicable}</TableCell><TableCell>{l.constantContribution}</TableCell></TableRow>
             <TableRow className="models-total"><TableCell>{l.prediction}</TableCell><TableCell>{t.notApplicable}</TableCell><TableCell>{t.notApplicable}</TableCell><TableCell>{l.predictionValue}</TableCell></TableRow>
           </TableBody></Table></section></>} />;

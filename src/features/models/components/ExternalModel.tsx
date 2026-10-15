@@ -1,6 +1,5 @@
 import { Brain, Filter, ListOrdered, Network, Target } from "lucide-react";
 import { ExternalLink } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import copy from "@/i18n/es.json";
 import { ModelFlow } from "./ModelFlow";
@@ -9,7 +8,7 @@ const x = copy.models.externalSection, t = copy.models;
 
 export function ExternalModel() {
   return <section className="models-external" aria-labelledby="models-external-title">
-    <header><h2 id="models-external-title">{x.title}</h2><Badge variant="outline">{x.model}</Badge></header>
+    <header><h2 id="models-external-title">{x.title}</h2></header>
     <div className="models-grid">
       <Card className="models-card models-card-external"><CardHeader><CardTitle><h3>{x.model}</h3></CardTitle></CardHeader>
         <CardContent className="models-text">
