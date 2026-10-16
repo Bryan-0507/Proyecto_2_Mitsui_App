@@ -26,9 +26,9 @@
     "steps": [
       {"title": "Conservar la secuencia", "description": "Mantenemos todas las filas y el orden de date_id, incluso cuando faltan mediciones."},
       {"title": "Excluir GOLD", "description": "Retiramos sus cinco columnas por falta de cobertura. Quedan 552 predictoras; los futuros de oro e IAU se conservan."},
-      {"title": "Validar precios", "description": "Aperturas o cierres fuera del mínimo y máximo se dejan como faltantes, sin inventar un precio."},
-      {"title": "Alinear los targets", "description": "Unimos los cuatro objetivos por date_id y agregamos historia del target únicamente cuando ya puede conocerse."},
-      {"title": "Separar en el tiempo", "description": "Validamos en bloques consecutivos. La selección y las transformaciones se ajustan dentro del entrenamiento."}
+      {"title": "Validar precios", "description": "Comparamos apertura y cierre con las columnas low y high del mismo instrumento y la misma fila de train o test. Rechazamos 97 aperturas y 10 cierres fuera de ese intervalo; solo esas celdas pasan a faltantes."},
+      {"title": "Alinear los targets", "description": "Unimos las entradas de train con sus respuestas de train_labels por date_id. Como cada respuesta usa valores futuros, solo agregamos etiquetas históricas cuyo horizonte ya terminó, no automáticamente la de la fila anterior."},
+      {"title": "Separar en el tiempo", "description": "No mezclamos filas al azar: entrenamos con el tramo anterior y seleccionamos configuraciones en tres bloques posteriores, IDs 981–1568. La prueba del benchmark inicial usa IDs 1569–1960; la comparación externa muestra el tramo común 1832–1960."}
     ],
     "branchesTitle": "Después, la entrada cambia según el modelo",
     "branchesDescription": "No aplicamos el mismo tratamiento a todos los algoritmos.",
@@ -280,11 +280,17 @@
     "tabs": { "distributions": "Distribuciones", "quality": "Calidad", "relationships": "Relaciones" },
     "marketLabel": "Mercado del ejemplo",
     "markets": { "stocks": "Acciones estadounidenses", "jpx": "Futuros japoneses (JPX)", "lme": "Metales (LME)", "fx": "Divisas (FX)" },
+    "marketDescriptions": {
+      "stocks": "US_Stock agrupa acciones y fondos cotizados. El ejemplo VXUS es un ETF de acciones fuera de EE. UU.; su inclusión en este bloque no convierte sus inversiones en empresas estadounidenses.",
+      "jpx": "JPX es el grupo bursátil japonés. Aquí se registran contratos de futuros sobre materias primas, como oro y platino, no acciones de empresas japonesas.",
+      "lme": "London Metal Exchange es un mercado de metales industriales, como aluminio, cobre, plomo y zinc. El ejemplo muestra el cierre del aluminio.",
+      "fx": "FX reúne tipos de cambio: el valor de una moneda respecto a otra. El ejemplo compara la corona noruega con el euro."
+    },
     "examples": {
-      "stocks": { "name": "ETF VXUS · cierre ajustado", "outlier": "Targa Resources (TRGP) · apertura ajustada", "finding": "VXUS presenta una distribución relativamente equilibrada. Este ejemplo no describe todas las acciones del dataset." },
-      "jpx": { "name": "Futuros de oro estándar · cierre", "outlier": "Futuros mini de platino · volumen", "finding": "El oro presenta una cola hacia valores altos más marcada que los otros ejemplos. Su trayectoria debe revisarse antes de interpretar los extremos como errores." },
-      "lme": { "name": "Aluminio · cierre", "outlier": "Plomo · cierre", "finding": "El aluminio presenta una asimetría positiva moderada: algunos valores altos prolongan la cola derecha de la distribución." },
-      "fx": { "name": "Corona noruega / euro (NOK/EUR)", "outlier": "Libra esterlina / dólar canadiense (GBP/CAD)", "finding": "NOK/EUR tiene una distribución aproximadamente simétrica. La estabilidad de este ejemplo no se puede generalizar a todas las divisas." }
+      "stocks": { "name": "ETF VXUS · cierre ajustado", "outlier": "Targa Resources (TRGP) · apertura ajustada", "finding": "El 50 % central de VXUS está entre 44.85 y 57.12, con mediana 50.81. La caja resume esa zona; el histograma muestra dónde se acumulan las observaciones." },
+      "jpx": { "name": "Futuros de oro estándar · cierre", "outlier": "Futuros mini de platino · volumen", "finding": "El 50 % central está entre 5,197 y 8,953, con mediana 6,621. La cola derecha y los valores altos son más marcados; no implican automáticamente errores." },
+      "lme": { "name": "Aluminio · cierre", "outlier": "Plomo · cierre", "finding": "El 50 % central está entre 1,925.25 y 2,512, con mediana 2,245.50. Algunos valores altos prolongan la cola derecha, menos marcada que en el ejemplo JPX." },
+      "fx": { "name": "Corona noruega / euro (NOK/EUR)", "outlier": "Libra esterlina / dólar canadiense (GBP/CAD)", "finding": "El histograma sugiere dos zonas de concentración, alrededor de 0.085 y 0.10. La caja resume el 50 % central, de 0.0873 a 0.1012; por sí sola no identifica dos grupos ni sus causas." }
     },
     "scope": "Ejemplos seleccionados en el EDA, no índices ni resúmenes del mercado completo. Sus escalas son distintas.",
     "histogram": "Cómo se distribuyen los valores",
@@ -298,17 +304,26 @@
     "coverage": "Dónde aparecen las ausencias", "coverageDescription": "Celdas faltantes por bloque de 25 IDs en el dataset preparado (train_eda.csv). Escala común de 0 a 25 % para los cuatro mercados.",
     "noMissing": "No hay celdas faltantes en las variables de este mercado en el dataset preparado, entre los IDs 0 y 1960 (0 %).",
     "missing": "Celdas faltantes (%)", "coverageSummary": "{missing} de {cells} celdas · {columns} variables · {percentage} % faltantes",
-    "qualityFinding": "Las ausencias no justifican borrar todas las filas incompletas. Conservamos la secuencia y diferenciamos cobertura, patrones posibles y el caso especial de GOLD.",
+    "qualityFinding": "Aquí revisamos la cobertura: cuántas mediciones están disponibles y cómo se reparten las ausencias entre posiciones consecutivas. Una barra más alta indica más celdas faltantes, no un cambio de precio.",
+    "coverageVisual": {
+      "available": "Valores disponibles",
+      "absent": "Valores ausentes",
+      "complete": "Cobertura completa en los 79 bloques: 38 variables de divisas, IDs 0 a 1960. Esto no demuestra capacidad predictiva ni ausencia de otros problemas de calidad.",
+      "goldTitle": "Caso GOLD · acción, no divisa ni precio del oro",
+      "goldDescription": "El cierre US_Stock_GOLD_adj_close tiene 1,713 valores ausentes de 1,961. Sus cinco columnas se excluyeron antes del EDA preparado; no son los futuros de oro JPX ni el fondo IAU.",
+      "goldSource": "Fuente: train.csv original · cierre de GOLD · IDs 0 a 1960. Barra de 0 a 100 % sobre valores de una columna; el gráfico superior usa todas las celdas del mercado preparado por bloque."
+    },
     "gold": "GOLD: {missing} de {rows} valores de cierre ausentes en train.csv. El EDA preparado excluye las cinco columnas de este instrumento; no confundirlo con los futuros de oro o el ETF IAU.",
     "outliers": "Los extremos también tienen contexto", "outlierDescription": "Se muestra el predictor con mayor proporción de candidatos IQR dentro de este mercado.",
     "outlierSummary": "{count} de {n} observaciones · {percentage} % candidatos",
     "ordinary": "Resto (círculos)", "candidate": "Candidatos IQR (rombos)",
     "outlierFinding": "Una marca no implica error ni eliminación. Los candidatos se conservan para examinar su contexto y probar tratamientos en modelos.",
     "relationsTitle": "Incluso las mayores asociaciones fueron débiles",
-    "relationsIntro": "Los cinco pares con mayor correlación absoluta de Spearman en el notebook de relaciones. No son los cuatro targets seleccionados para modelar.",
+    "relationsIntro": "Spearman compara el orden de los valores y permite explorar asociaciones monotónicas sin exigir una relación lineal. Mostramos los cinco pares con mayor asociación absoluta del EDA, no los cuatro targets seleccionados para modelar.",
+    "relationReading": "Cada punto es una observación con predictor y target disponibles para el mismo date_id, dentro de los IDs 0 a 1960. Eje X: valor de la predictora seleccionada. Eje Y: diferencia de retornos logarítmicos del target. No representa una variable distinta por punto ni un porcentaje de acierto.",
     "pairLabel": "Par predictor–target", "predictor": "Predictor", "target": "Retorno relativo del target", "rho": "Spearman", "pairN": "Observaciones coincidentes",
     "relationSource": "Fuente: train_eda.csv + train_labels.csv · unión por dateId · n = {n} · {predictor} frente a {target}",
-    "relationFinding": "La asociación más alta de este ranking ronda 0.17. Spearman describe asociación monotónica, no causalidad ni desempeño fuera de muestra.",
+    "relationFinding": "Las asociaciones absolutas de estos cinco pares rondan 0.16–0.17: no observamos una relación monotónica fuerte. Esto no demuestra causalidad, no identifica su causa económica ni descarta relaciones útiles entre varias variables.",
     "relationNames": ["Plomo frente a target_406 (USD/CHF − plomo)", "Plomo frente a target_345 (CAD/JPY − plomo)", "Plomo frente a target_231 (plomo − USD/JPY)", "Plomo frente a target_376 (ETF TIP − plomo)", "ETF LQD: mínimo ajustado frente a target_410 (EUR/USD − aluminio)"],
     "why": "Criterios del gráfico", "close": "Cerrar explicación", "method": "Método", "guideline": "Decisiones visuales", "basis": "Base: notebooks del EDA y guías CC3084 de visualización y teoría del color.",
     "help": {
@@ -737,7 +752,7 @@
           "name": "test.csv",
           "kind": "kaggle",
           "role": "Evaluación Kaggle",
-          "content": "Entradas con las que la competencia puntúa. No es nuestra prueba interna.",
+          "content": "Entradas de la evaluación de Kaggle, sin etiquetas objetivo públicas asociadas. No permiten calcular nuestras métricas locales; para ello reservamos un tramo posterior de train con respuestas conocidas.",
           "stat": "134",
           "statLabel": "observaciones"
         }

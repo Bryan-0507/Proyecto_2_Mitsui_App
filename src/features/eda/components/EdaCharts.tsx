@@ -70,7 +70,7 @@ export function MissingCoverage({ market }: { market: Market }) {
   const blocks = market.coverage.blocks;
   const end = blocks[blocks.length-1].end;
   const right = 968, bottom = 170;
-  if (market.coverage.missing === 0) return <p className="eda-selection" role="status">{text.noMissing}</p>;
+  if (market.coverage.missing === 0) return <p className="eda-selection" role="status">{text.coverageVisual.complete}</p>;
   return <Plot compact title={text.coverage} xDomain={[blocks[0].start,end]} yDomain={[0,25]} xLabel={text.dateId} yLabel={text.missing}>
     {blocks.map((block) => {
       const x = scale(block.start,blocks[0].start,end,left,right);

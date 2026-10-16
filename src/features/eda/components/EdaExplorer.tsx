@@ -6,7 +6,8 @@ import { Card, CardHeader, CardTitle, CardDescription, CardAction, CardContent, 
 import { Field, FieldLabel } from "@/components/ui/field";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectGroup, SelectItem } from "@/components/ui/select";
 import { ChartHelp } from "./ChartHelp";
-import { Histogram, BoxPlot, MissingCoverage, OutlierPlot, RelationshipPlot, ChartData, numeric } from "./EdaCharts";
+import { Histogram, BoxPlot, MissingCoverage, RelationshipPlot, ChartData, numeric } from "./EdaCharts";
+import { CoverageSummary } from "./CoverageSummary";
 import { useEdaExplorer } from "../hooks/useEdaExplorer";
 import copy from "@/i18n/es.json";
 
@@ -26,7 +27,6 @@ export function EdaExplorer() {
   const marketItems=Object.entries(text.markets).map(([value,label])=>({value,label}));
   const pairItems=text.relationNames.map((label,i)=>({value:String(i),label}));
   const source=fill(text.source,{start:view.provenance.ids[0],end:view.provenance.ids[1],n:market.n,variable:market.variable});
-  const qualitySource=fill(text.source,{start:view.provenance.ids[0],end:view.provenance.ids[1],n:market.quality.n,variable:market.quality.variable});
   return <section className="eda-screen" aria-labelledby="eda-title">
     <header className="eda-heading"><h1 id="eda-title">{text.title}</h1><p>{text.intro}</p></header>
     <Tabs.Root value={view.section} onValueChange={view.changeSection} className="eda-tabs">
@@ -38,6 +38,7 @@ export function EdaExplorer() {
           <SelectContent alignItemWithTrigger={false} side="bottom" align="start"><SelectGroup>{marketItems.map((item)=><SelectItem key={item.value} value={item.value}>{item.label}</SelectItem>)}</SelectGroup></SelectContent>
         </Select></Field>}
       <Tabs.Panel value="distributions" className="eda-panel">
+        <p className="eda-market-context">{text.marketDescriptions[view.market]}</p>
         <div className="eda-narrative"><div><h2>{example.name}</h2><p>{example.finding}</p></div><p className="eda-scope">{text.scope}</p></div>
         <div className="eda-distribution-grid">
           <ChartPanel title={text.histogram} description={text.histogramDescription} kind="histogram" source={source}>
@@ -55,20 +56,17 @@ export function EdaExplorer() {
         <div className="eda-narrative"><div><h2>{text.markets[view.market]}</h2><p>{text.qualityFinding}</p></div></div>
         <ChartPanel title={text.coverage} description={text.coverageDescription} kind="coverage" source={`${fill(text.source,{start:view.provenance.ids[0],end:view.provenance.ids[1],n:view.provenance.rows,variable:text.markets[view.market]})} · ${fill(text.coverageSummary,{
           missing:numeric(market.coverage.missing),cells:numeric(market.coverage.cells),columns:market.coverage.columns,percentage:numeric(100*market.coverage.missing/market.coverage.cells)})}`}>
+          <CoverageSummary cells={market.coverage.cells} missing={market.coverage.missing}/>
           <MissingCoverage market={market}/>
-          <p className="eda-selection">{fill(text.gold,{missing:view.provenance.goldMissing,rows:view.provenance.rows})}</p>
           <ChartData name={`${view.market}-missing`} headers={[text.start,text.end,text.absent,text.cells,text.missing]}
             rows={market.coverage.blocks.map((b)=>[b.start,b.end,b.missing,b.cells,b.percentage])}/>
         </ChartPanel>
-        <section className="eda-outlier-summary"><h2>{text.outliers}</h2><p>{text.outlierFinding}</p></section>
-        <details className="eda-support"><summary>{text.exploreOutliers}</summary>
-        <ChartPanel title={text.outliers} description={`${example.outlier}. ${text.outlierDescription}`} kind="outliers" source={qualitySource}>
-          <div className="eda-plot-summary"><p>{fill(text.outlierSummary,{count:market.quality.count,n:market.quality.n,percentage:numeric(market.quality.percentage)})}</p>
-            <div className="eda-legend"><span><i className="eda-legend-circle"/>{text.ordinary}</span><span><i className="eda-legend-diamond"/>{text.candidate}</span></div></div>
-          <OutlierPlot market={market} ids={view.provenance.ids}/><p className="eda-selection">{text.outlierFinding}</p>
-          <ChartData name={`${view.market}-outliers`} headers={[text.dateId,text.value,text.classification]}
-            rows={market.quality.points.map((p)=>[p.id,p.value,p.outlier?text.yes:text.no])}/>
-        </ChartPanel></details>
+        {view.market === "stocks" && <section className="eda-gold-case" aria-labelledby="eda-gold-title">
+          <h3 id="eda-gold-title">{text.coverageVisual.goldTitle}</h3>
+          <p>{text.coverageVisual.goldDescription}</p>
+          <CoverageSummary cells={view.provenance.rows} missing={view.provenance.goldMissing}/>
+          <p className="eda-selection">{text.coverageVisual.goldSource}</p>
+        </section>}
       </Tabs.Panel>
       <Tabs.Panel value="relationships" className="eda-panel">
         <div className="eda-narrative"><div><h2>{text.relationsTitle}</h2><p>{text.relationsIntro}</p></div></div>
@@ -78,6 +76,7 @@ export function EdaExplorer() {
           </Select></Field>
         <ChartPanel title={text.relationNames[Number(view.pairIndex)]} description={`${text.rho}: ${numeric(view.relation.rho)} · ${text.pairN}: ${view.relation.n}`} kind="relationships"
           source={fill(text.relationSource,{n:view.relation.n,predictor:view.relation.predictor,target:view.relation.target})}>
+          <p className="eda-relation-reading">{text.relationReading}</p>
           <RelationshipPlot relation={view.relation}/><p className="eda-selection">{text.relationFinding}</p>
           <ChartData name={`relationship-${view.pairIndex}`} headers={[view.relation.predictor,view.relation.target]} rows={view.relation.points.map((p)=>[p.x,p.y])}/>
         </ChartPanel>
