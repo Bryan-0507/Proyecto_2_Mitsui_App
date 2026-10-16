@@ -71,7 +71,9 @@
     "models": "Modelos",
     "results": "Resultados",
     "metrics": "Métricas",
-    "prediction": "Predicción"
+    "prediction": "Predicción",
+    "closing": "Cierre",
+    "conclusions": "Conclusiones"
   },
   "shell": {
     "navigation": "Navegación principal",
@@ -350,6 +352,10 @@
     "prediction": {
       "title": "Predicción",
       "description": "Laboratorio académico para probar los modelos con entradas compatibles."
+    },
+    "conclusions": {
+      "title": "Conclusiones",
+      "description": "Cierre del proyecto: evidencia obtenida y respuesta a cada objetivo."
     }
   },
   "models": {
@@ -927,22 +933,55 @@
     "objectives": {
       "title": "Objetivos del proyecto",
       "generalTitle": "Objetivo general",
-      "general": "Evaluar la capacidad predictiva de los modelos para cuatro targets del MITSUI&CO. Commodity Prediction Challenge, mediante la preparación de datos y la comparación temporal con referencias simples, para determinar sus mejoras y limitaciones.",
+      "general": "Evaluar la capacidad predictiva de los modelos para cuatro targets del MITSUI&CO. Commodity Prediction Challenge, mediante la preparación de datos y su comparación temporal con referencias simples, para determinar las mejoras observadas y sus limitaciones.",
       "specificTitle": "Objetivos específicos",
       "specific": [
-        "Contrastar los enfoques de predicción mediante la revisión de bibliografía y soluciones documentadas de la competencia, para justificar los modelos, las métricas y la evaluación seleccionados.",
-        "Analizar la calidad y las relaciones de los datos mediante estadísticas descriptivas, gráficos y correlaciones, para justificar la preparación de los cuatro targets y sus predictores.",
-        "Comparar la regresión lineal, LightGBM y los modelos temporales con referencias simples y una LSTM externa mediante RMSE, MAE, R^2, acierto del signo y tiempos disponibles, para determinar sus ventajas y limitaciones por target.",
-        "Resolver la consulta de predicciones históricas y la comparación de modelos mediante una aplicación interactiva con selección de target e identificador, para facilitar la exploración de los resultados y sus límites."
+        "Analizar los enfoques de predicción mediante la revisión de bibliografía y soluciones documentadas de la competencia, contrastando sus fundamentos, resultados y requisitos de información, para justificar tres familias de modelos, las métricas y la evaluación temporal seleccionadas.",
+        "Diagnosticar la calidad y disponibilidad temporal de los datos mediante recuentos de faltantes e inconsistencias, estadísticas descriptivas y análisis de asociaciones, para definir y verificar la preparación de los cuatro targets y sus predictores sin modificar los archivos originales.",
+        "Contrastar la regresión lineal, LightGBM y los modelos temporales con referencias simples y una LSTM externa, mediante RMSE, MAE, R^2, acierto del signo y tiempos disponibles sobre períodos identificados, para determinar sus diferencias y limitaciones por target."
       ],
       "evidenceTitle": "Cómo comprobamos su cumplimiento",
       "evidenceNote": "Cada objetivo se vincula con evidencia verificable. Cumplirlos no exige alcanzar un R^2 determinado ni demostrar utilidad financiera.",
       "evidence": [
         {"title": "Criterios fundamentados", "description": "Fuentes identificadas y justificaciones de las familias, métricas y reglas de evaluación, consultables en Modelos y en el informe."},
         {"title": "Decisiones trazables", "description": "Diagnósticos de ausencias, extremos y asociaciones; exclusión de las cinco columnas de GOLD y preparación diferenciada por familia, consultables en EDA y Preparación."},
-        {"title": "Comparación por target", "description": "Cuatro métricas sobre las mismas observaciones de cada target y referencias simples. Los tiempos conservan su alcance original; no se inventa un tiempo de entrenamiento para la LSTM externa. Evidencia disponible en Resultados."},
-        {"title": "Consulta funcional", "description": "La aplicación permite seleccionar los cuatro targets, consultar los cuatro procedimientos y contrastar sus salidas históricas. La comprobación funcional cubre 16 combinaciones de target y procedimiento; no equivale a probar rentabilidad."}
+        {"title": "Comparación por target", "description": "Cuatro métricas sobre las mismas observaciones de cada target y referencias simples. Los tiempos conservan su alcance original; no se inventa un tiempo de entrenamiento para la LSTM externa. Evidencia disponible en Resultados."}
       ]
+    }
+  },
+  "conclusions": {
+    "title": "Conclusiones",
+    "generalTitle": "Conclusión general",
+    "general": "Se compararon tres familias de modelos propios para cuatro targets y una LSTM externa con referencias de cero y media del entrenamiento, utilizando RMSE, MAE, R^2 y acierto del signo en períodos temporales identificados. Las mejoras fueron pequeñas y dependieron del target y del período. Por tanto, la evaluación permitió delimitar su capacidad predictiva, pero no aportó evidencia suficiente para utilizar los modelos como guía de decisiones financieras.",
+    "specificTitle": "Conclusiones por objetivo específico",
+    "specific": [
+      {"title": "Selección fundamentada", "text": "La revisión justificó tres enfoques complementarios: regresión lineal, modelos temporales y LightGBM."},
+      {"title": "Preparación verificable", "text": "Se conservaron las 1,961 filas y se prepararon 552 predictoras, con tratamientos específicos por familia y sin modificar los originales."},
+      {"title": "Mejora predictiva limitada", "text": "Las mejoras fueron puntuales: 11 de los 12 modelos propios tuvieron R^2 negativo en la comparación inicial. Mayor complejidad no aseguró mejor predicción."}
+    ],
+    "visuals": {
+      "selection": {
+        "label": "Tres enfoques complementarios",
+        "branches": [
+          {"name": "Lineal", "role": "Referencia"},
+          {"name": "Temporal", "role": "Historia"},
+          {"name": "LightGBM", "role": "No linealidad"}
+        ]
+      },
+      "preparation": {
+        "label": "De los originales a la preparación específica, sin modificar los archivos fuente",
+        "steps": [
+          {"name": "Original", "detail": "1,961 filas"},
+          {"name": "Limpieza", "detail": "552 predictoras"},
+          {"name": "Por modelo", "detail": "Tratamiento propio"}
+        ]
+      },
+      "performance": {
+        "label": "Comparación inicial: once modelos propios con R^2 negativo y uno positivo",
+        "caption": "Comparación inicial · 12 modelos propios",
+        "exception": "Único positivo: LightGBM · IAU frente a cobre",
+        "value": "R^2 = 0.005567"
+      }
     }
   },
   "overview": {

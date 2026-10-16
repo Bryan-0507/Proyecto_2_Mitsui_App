@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import {
-  BarChart3, ChartNoAxesCombined, Database, FlaskConical, Layers3,
+  BarChart3, ChartNoAxesCombined, Database, Flag, FlaskConical, Layers3,
   LayoutDashboard, ListFilter, PanelLeftClose, ScanLine, Target,
 } from "lucide-react";
 import {
@@ -18,7 +18,7 @@ import copy from "@/i18n/es.json";
 const icons = {
   overview: LayoutDashboard, dataTargets: Database, eda: ScanLine,
   preprocessing: ListFilter, models: Layers3, results: Target,
-  metrics: BarChart3, prediction: FlaskConical,
+  metrics: BarChart3, prediction: FlaskConical, conclusions: Flag,
 } satisfies Record<PageId, typeof Database>;
 
 type Props = {

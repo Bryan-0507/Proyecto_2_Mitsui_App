@@ -26,6 +26,10 @@ export const navigationGroups: {
     label: copy.navigation.laboratory,
     items: [{ id: "prediction", href: "/prediction", label: copy.navigation.prediction }],
   },
+  {
+    label: copy.navigation.closing,
+    items: [{ id: "conclusions", href: "/conclusions", label: copy.navigation.conclusions }],
+  },
 ];
 
 export function pageMetadata(id: PageId): Metadata {

@@ -6,5 +6,6 @@ export type PageId =
   | "models"
   | "results"
   | "metrics"
-  | "prediction";
+  | "prediction"
+  | "conclusions";
 

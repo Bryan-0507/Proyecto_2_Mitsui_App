@@ -1,4 +1,4 @@
-type ArtKind = "overview" | "research" | "data" | "models" | "app";
+type ArtKind = "overview" | "research" | "data" | "models";
 
 /** Decorative editorial illustrations, not charts or measured project results. */
 export function ObjectiveArt({ kind }: { kind: ArtKind }) {
@@ -32,12 +32,6 @@ export function ObjectiveArt({ kind }: { kind: ArtKind }) {
         <rect x="163" y="40" width="20" height="20" rx="4" />
         <circle cx="97" cy="20" r="5" /><circle cx="147" cy="80" r="5" /><circle cx="197" cy="20" r="5" />
         <path d="m209 43 7 7-7 7" />
-      </>}
-      {kind === "app" && <>
-        <rect x="27" y="14" width="172" height="72" rx="6" className="dt-art-wash" />
-        <path d="M27 30h172M43 22h1m9 0h1m9 0h1M80 30v56M40 43h25m-25 12h18m-18 12h22" />
-        <rect x="94" y="43" width="40" height="26" rx="3" /><path d="M146 45h36m-36 10h24m-24 10h17" />
-        <path d="m178 66 11 27 5-12 13-4Z" fill="var(--background)" />
       </>}
     </g>
   </svg>;

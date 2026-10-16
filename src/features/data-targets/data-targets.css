@@ -104,11 +104,12 @@
 .dt-art-guide { stroke:var(--muted-foreground); opacity:.6; }
 .dt-specific-item > .dt-objective-art { grid-column:2; margin-top:4px; }
 .dt-general p { margin-top:8px; font-size:1.0625rem !important; line-height:1.65; max-width:90ch; }
-.dt-specific { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px 32px; list-style:none; }
+.dt-specific { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px 32px; list-style:none; }
 .dt-specific-item { display:grid; grid-template-columns:24px minmax(0,1fr); gap:8px 16px; align-items:start; padding-top:20px; border-top:1px solid var(--border); }
 .dt-number { color:var(--primary); font-size:1.125rem; font-weight:500; font-variant-numeric:tabular-nums; }
 
 @media(max-width:1023px) {
+  .dt-specific { grid-template-columns:1fr; }
   .dt-reading-layout { grid-template-columns:1fr; }
   .dt-data-layout { grid-template-columns:1fr; }
   .dt-scope,.dt-reading-example { border-left:0; border-top:1px solid var(--border); padding:24px 0 0; }
