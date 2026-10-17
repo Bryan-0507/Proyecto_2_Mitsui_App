@@ -94,10 +94,13 @@ export function PredictionComparison({ options }: { options: ComparisonOptions }
         <div className="comparison-model-grid">
           {view.rows.map((row) => {
             const model = text.models[row.family];
+            const modelLabel = row.family === "temporal"
+              ? copy.metrics.signFinding.temporal[view.target].split("(")[0]
+              : model.label;
             return (
               <Card key={row.family} className="comparison-model-card" data-status={row.status} aria-labelledby={`model-${row.family}`}>
                 <CardHeader>
-                  <CardTitle><h3 id={`model-${row.family}`}>{model.label}</h3></CardTitle>
+                  <CardTitle><h3 id={`model-${row.family}`}>{modelLabel}</h3></CardTitle>
                   <CardDescription>{model.detail}</CardDescription>
                 </CardHeader>
                 <CardContent className="comparison-model-content">
