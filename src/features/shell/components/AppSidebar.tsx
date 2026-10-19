@@ -3,7 +3,7 @@
 import Link from "next/link";
 import {
   BarChart3, ChartNoAxesCombined, Database, Flag, FlaskConical, Layers3,
-  LayoutDashboard, ListFilter, PanelLeftClose, ScanLine, Target,
+  LayoutDashboard, ListFilter, PanelLeftClose, ScanLine, Target, Workflow, Lightbulb, Play,
 } from "lucide-react";
 import {
   Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent,
@@ -16,6 +16,7 @@ import type { PageId } from "@/features/shared/types/navigation";
 import copy from "@/i18n/es.json";
 
 const icons = {
+  problem: Target, solution: Workflow, demo: Play, learnings: Lightbulb,
   overview: LayoutDashboard, dataTargets: Database, eda: ScanLine,
   preprocessing: ListFilter, models: Layers3, results: Target,
   metrics: BarChart3, prediction: FlaskConical, conclusions: Flag,

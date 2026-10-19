@@ -1,4 +1,142 @@
 {
+  "presentation": {
+    "navigation": "Presentación",
+    "cover": "Inicio",
+    "problem": {
+      "title": "Objetivos",
+      "intro": "Qué buscamos evaluar y cómo orientamos el trabajo."
+    },
+    "solution": {
+      "title": "Solución y diseño",
+      "intro": "Cómo organizamos el modelado y por qué cada estrategia sigue una preparación distinta.",
+      "tabsLabel": "Arquitectura y decisiones del modelado",
+      "tabs": { "architecture": "Arquitectura del proceso", "models": "Decisiones de modelado" },
+      "flowTitle": "De los datos a los modelos evaluados",
+      "flowLabel": "Ruta de las tres familias propias, desde los archivos originales hasta los modelos guardados.",
+      "flow": [
+        { "title": "Datos originales", "description": "Entradas y targets por date_id." },
+        { "title": "Base común", "description": "Secuencia y calidad de precios." },
+        { "title": "Por familia", "description": "Entradas y tratamiento específicos." },
+        { "title": "Entrenar y elegir", "description": "Configuraciones por RMSE de validación." },
+        { "title": "Evaluar", "description": "Contraste con referencias simples." },
+        { "title": "Guardar", "description": "Modelos y preparación reutilizables." }
+      ],
+      "externalRoute": "Esta ruta corresponde a los modelos propios. La LSTM externa conserva la preparación y los pesos publicados por su autor desde train.csv original.",
+      "baseTitle": "Preparación común: corregir sin borrar la secuencia",
+      "common": [
+        { "title": "Conservar y alinear", "text": "1,961 filas en orden; entradas y etiquetas unidas por date_id." },
+        { "title": "Excluir GOLD", "text": "Retirar sus cinco columnas por baja cobertura: quedan 552 predictoras candidatas, no 552 entradas por modelo." },
+        { "title": "Validar apertura y cierre", "text": "Comparar con low/high del mismo instrumento y fila: 97 aperturas y 10 cierres inconsistentes pasan a faltantes." }
+      ],
+      "timeTitle": "Separar en el tiempo, no al azar",
+      "timeLabel": "Cortes cronológicos del benchmark inicial",
+      "timeSteps": [
+        { "title": "Entrenamiento", "detail": "Historia anterior" },
+        { "title": "Validación", "detail": "IDs 981–1568 · tres bloques" },
+        { "title": "Prueba inicial", "detail": "IDs 1569–1960" }
+      ],
+      "timeReason": "La regla de disponibilidad exige que termine el horizonte de una etiqueta antes de usarla como historia. Las transformaciones se aprenden con el entrenamiento, no con la prueba.",
+      "evaluation": "Referencias: cero y media de entrenamiento. Evaluación: RMSE, MAE, R^2 y acierto del signo; tiempos disponibles por separado.",
+      "scope": "Los cortes mostrados son del benchmark inicial. La comparación externa utiliza el tramo común 1832–1960; no se presenta como una prueba independiente.",
+      "modelLabel": "Enfoque",
+      "whyTitle": "Por qué lo elegimos",
+      "inputTitle": "Qué recibe",
+      "preparationTitle": "Qué preparamos y por qué",
+      "howTitle": "Cómo funciona",
+      "representationTitle": "La idea del modelo",
+      "schematic": "Esquema conceptual: no representa predicciones ni parámetros aprendidos.",
+      "temporalPartsTitle": "Tres piezas, según el modelo",
+      "selectedTitle": "Selección por target",
+      "temporalScope": "Se probaron AR, MA, ARMA y ARIMA. El orden no es el horizonte del target; no se seleccionó ARIMA para todos.",
+      "externalSourceLabel": "Implementación y pesos publicados",
+      "boostingSourcesLabel": "Antecedentes de la competencia",
+      "families": {
+        "linear": {
+          "name": "Regresión lineal",
+          "why": "Un baseline sencillo permite comprobar si mayor complejidad aporta una mejora.",
+          "input": "8 o 16 predictoras seleccionadas por asociación absoluta de Spearman, más indicadores de ausencia cuando corresponde.",
+          "preparation": "Recorte si la configuración lo indica, mediana, indicadores de ausencia y estandarización. El relleno permite calcular la regresión sin perder la señal de qué faltaba.",
+          "how": "Aprende un peso por entrada y suma sus aportes con una constante, minimizando errores al cuadrado."
+        },
+        "temporal": {
+          "name": "Modelos temporales",
+          "why": "Aprovechar la historia del propio target y contrastar una familia estudiada en clase.",
+          "input": "Solo etiquetas históricas ya conocidas del target, no las 552 columnas de precios.",
+          "preparation": "Conservar el orden y los huecos, respetar el horizonte y actualizar el estado con información disponible, sin reajustar parámetros en cada consulta.",
+          "how": "AR utiliza valores anteriores; MA, errores anteriores del modelo; ARMA los combina. ARIMA añade diferencias entre valores."
+        },
+        "boosting": {
+          "name": "LightGBM",
+          "why": "Probar relaciones no lineales con árboles potenciados, motivados por antecedentes documentados de la competencia.",
+          "input": "32 predictoras seleccionadas por asociación absoluta de Spearman.",
+          "preparation": "Recorte si la configuración lo indica; conservar faltantes y escalas. Los árboles pueden tratar ausencias y no requieren estandarización en esta ruta.",
+          "how": "Cada árbol aprende a corregir errores de la predicción acumulada. La tasa de aprendizaje regula cuánto aporta cada corrección."
+        },
+        "external": {
+          "name": "LSTM externa",
+          "why": "Añadir una referencia publicada y reproducible para contrastar nuestros enfoques, sin atribuirnos su diseño ni entrenamiento.",
+          "input": "Ventanas de 20 observaciones anteriores, con 100 componentes por observación.",
+          "preparation": "Ruta del autor: 2,064 características derivadas del original, escalado, recorte y PCA a 100 componentes; faltantes derivados rellenados con cero.",
+          "how": "Actualiza una memoria que regula qué conservar e incorporar. Promedia cinco redes del autor; produce 424 salidas y recuperamos nuestros cuatro targets."
+        }
+      },
+      "boostingFlow": [
+        { "title": "Predicción inicial", "description": "Punto de partida del conjunto." },
+        { "title": "Árbol", "description": "Separa entradas y propone una corrección." },
+        { "title": "Actualizar", "description": "Aplica una fracción de la corrección." },
+        { "title": "Repetir", "description": "El siguiente árbol atiende el error restante." }
+      ],
+      "externalFlow": [
+        { "title": "Historia", "description": "20 observaciones × 100 componentes." },
+        { "title": "Memoria LSTM", "description": "Compuertas: qué conservar y qué incorporar." },
+        { "title": "Salida", "description": "Un resumen alimenta las 424 estimaciones." },
+        { "title": "Comparación", "description": "Consultamos solo los cuatro targets del proyecto." }
+      ]
+    },
+    "demo": {
+      "title": "Demo",
+      "intro": "Una consulta histórica y cuatro modelos sobre el mismo punto de partida.",
+      "tabsLabel": "Demostración de la aplicación",
+      "predictionTab": "1. Consultar modelos",
+      "metricsTab": "2. Comparar rendimiento",
+      "metricTarget": "Rendimiento de la relación seleccionada",
+      "scope": "Estas métricas resumen el tramo histórico evaluado, no únicamente el dateId consultado. No es una prueba independiente.",
+      "timings": "Consultar tiempos de entrenamiento",
+      "backupTitle": "Video de respaldo",
+      "backupDescription": "Grabación de la demostración; no es una consulta en vivo.",
+      "videoFallback": "Tu navegador no puede reproducir el video."
+    },
+    "learnings": {
+      "title": "Retos y aprendizajes",
+      "intro": "Lo importante no fue obtener un número pequeño, sino saber interpretarlo.",
+      "items": [
+        { "title": "Orden conocido, calendario desconocido", "response": "Los dateId ordenan las observaciones, pero no revelan sus fechas ni el tiempo entre ellas. Trabajamos con posiciones y horizontes, no con días ni períodos económicos identificables." },
+        { "title": "Error pequeño ≠ ventaja", "response": "RMSE y MAE dependen de la escala. R^2 negativo no: indica más error que la media del período evaluado." },
+        { "title": "Más no siempre fue mejor", "response": "Entre las cantidades probadas, la regresión seleccionó 8 predictores en tres targets y 16 en ExxonMobil frente a oro." }
+      ],
+      "tabsLabel": "Hallazgos del modelado",
+      "tabs": { "r2": "R^2 y referencias", "predictors": "Cantidad de predictores", "spearman": "Estabilidad de Spearman" },
+      "r2Explanation": "La escala pequeña no causa un R^2 negativo. Este compara errores relativos a una referencia; no depende de que los números sean grandes o pequeños."
+    },
+    "closing": {
+      "title": "Conclusiones y trabajo futuro",
+      "intro": "Qué concluimos frente a los objetivos planteados.",
+      "conclusionTitle": "Conclusión general",
+      "conclusion": "La evaluación temporal de cuatro targets frente a referencias simples mostró mejoras puntuales, dependientes del target y del período. No encontramos evidencia suficiente de una ventaja predictiva consistente ni de utilidad para decisiones financieras.",
+      "evidenceTitle": "Conclusiones por objetivo específico, en el mismo orden",
+      "evidence": [
+        { "value": "3 + 1", "label": "1. Selección y evaluación fundamentadas", "detail": "La bibliografía justificó tres familias propias, una LSTM externa como referencia y los criterios de métricas y evaluación temporal." },
+        { "value": "1,961", "label": "2. Preparación definida por el diagnóstico", "detail": "El análisis de faltantes, asociaciones y disponibilidad temporal permitió conservar las filas y preparar 552 predictoras candidatas, con entradas y tratamientos por familia." },
+        { "value": "11 de 12", "label": "3. Mejora predictiva limitada", "detail": "Modelos propios con R^2 negativo en la comparación inicial. El contraste con referencias simples y la LSTM externa mostró mejoras puntuales, no una ventaja general." }
+      ],
+      "futureTitle": "Qué sigue",
+      "future": [
+        { "title": "Evaluación en períodos nuevos", "text": "Congelar el protocolo y medir sobre observaciones no reutilizadas durante las iteraciones." },
+        { "title": "Estabilidad de las características", "text": "Estudiar qué asociaciones se sostienen entre períodos antes de añadir complejidad." }
+      ],
+      "futureNote": "Propuestas de trabajo futuro, no tareas realizadas."
+    }
+  },
   "preparation": {
     "modelInputs": {
       "title":"Consultar las entradas del modelo",
@@ -64,7 +202,7 @@
     "research": "Investigación",
     "evaluation": "Evaluación",
     "laboratory": "Laboratorio",
-    "overview": "Panorama",
+    "overview": "Problema",
     "dataTargets": "Datos y objetivos",
     "eda": "Análisis exploratorio",
     "preprocessing": "Preparación",
@@ -337,7 +475,7 @@
   },
   "pages": {
     "overview": {
-      "title": "Panorama",
+      "title": "Problema",
       "description": "Propósito y alcance del proyecto académico de predicción de retornos relativos."
     },
     "dataTargets": {
@@ -951,9 +1089,9 @@
       "general": "Evaluar la capacidad predictiva de los modelos para cuatro targets del MITSUI&CO. Commodity Prediction Challenge, mediante la preparación de datos y su comparación temporal con referencias simples, para determinar las mejoras observadas y sus limitaciones.",
       "specificTitle": "Objetivos específicos",
       "specific": [
-        "Analizar los enfoques de predicción mediante la revisión de bibliografía y soluciones documentadas de la competencia, contrastando sus fundamentos, resultados y requisitos de información, para justificar tres familias de modelos, las métricas y la evaluación temporal seleccionadas.",
-        "Diagnosticar la calidad y disponibilidad temporal de los datos mediante recuentos de faltantes e inconsistencias, estadísticas descriptivas y análisis de asociaciones, para definir y verificar la preparación de los cuatro targets y sus predictores sin modificar los archivos originales.",
-        "Contrastar la regresión lineal, LightGBM y los modelos temporales con referencias simples y una LSTM externa, mediante RMSE, MAE, R^2, acierto del signo y tiempos disponibles sobre períodos identificados, para determinar sus diferencias y limitaciones por target."
+        "Analizar bibliografía y soluciones de la competencia para justificar los modelos, las métricas y la evaluación temporal.",
+        "Diagnosticar la calidad y disponibilidad temporal de los datos mediante recuentos y asociaciones, para definir su preparación por modelo.",
+        "Contrastar modelos propios, LSTM externa y referencias simples mediante errores, R^2, acierto del signo y tiempos disponibles, para identificar mejoras y limitaciones."
       ],
       "evidenceTitle": "Cómo comprobamos su cumplimiento",
       "evidenceNote": "Cada objetivo se vincula con evidencia verificable. Cumplirlos no exige alcanzar un R^2 determinado ni demostrar utilidad financiera.",

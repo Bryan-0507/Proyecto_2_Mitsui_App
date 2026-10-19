@@ -16,7 +16,7 @@ function emptyRows(status: "idle" | "loading"): ComparisonRow[] {
   return comparisonFamilies.map((family) => ({ family, status }));
 }
 
-export function usePredictionComparison(options: ComparisonOptions) {
+export function usePredictionComparison(options: ComparisonOptions, onTargetChange?: (target: TargetId) => void) {
   const containerRef = useRef<HTMLElement>(null);
   const dateTriggerRef = useRef<HTMLButtonElement>(null);
   const active = useRef<{ id: number; controller?: AbortController }>({ id: 0 });
@@ -73,6 +73,7 @@ export function usePredictionComparison(options: ComparisonOptions) {
     if (!entry) return;
     invalidate();
     setTarget(entry.target);
+    onTargetChange?.(entry.target);
   }
 
   function changeDateId(value: string | null) {

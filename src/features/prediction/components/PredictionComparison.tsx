@@ -10,23 +10,26 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { usePredictionComparison } from "../hooks/usePredictionComparison";
 import { fillCopy, formatPrediction, predictionErrorText } from "../comparison-formatting";
 import type { ComparisonOptions } from "../types/comparison";
+import type { TargetId } from "../types/prediction";
 import copy from "@/i18n/es.json";
 
 const text = copy.prediction;
 
-export function PredictionComparison({ options }: { options: ComparisonOptions }) {
-  const { containerRef, dateTriggerRef, ...view } = usePredictionComparison(options);
+export function PredictionComparison({ options, embedded = false, onTargetChange }: {
+  options: ComparisonOptions; embedded?: boolean; onTargetChange?: (target: TargetId) => void;
+}) {
+  const { containerRef, dateTriggerRef, ...view } = usePredictionComparison(options, onTargetChange);
   const pair = text.targets[view.target];
   const items = options.targets.map((entry) => ({ value: entry.target, label: text.targets[entry.target].label }));
   const context = { target: view.target, dateId: Number(view.dateId), lag: view.selectedTarget.lag,
     stepLabel: view.selectedTarget.lag === 1 ? text.step : text.steps };
 
   return (
-    <section ref={containerRef} className="prediction-screen" aria-labelledby="prediction-title">
-      <header data-comparison-intro className="prediction-heading">
+    <section ref={containerRef} className="prediction-screen" aria-labelledby={embedded ? undefined : "prediction-title"} aria-label={embedded ? text.configuration : undefined}>
+      {!embedded && <header data-comparison-intro className="prediction-heading">
         <h1 id="prediction-title">{text.title}</h1>
         <p>{text.intro}</p>
-      </header>
+      </header>}
 
       <Card className="comparison-config">
         <CardHeader>

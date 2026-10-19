@@ -1,4 +1,4 @@
-.ov-screen { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); gap:40px; align-items:center; padding-top:48px; padding-bottom:40px; }
+.eda-screen.ov-screen { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); gap:40px; align-items:center; padding-top:48px; padding-bottom:40px; }
 .ov-introduction { display:flex; flex-direction:column; gap:32px; min-width:0; }
 .ov-opening { display:flex; flex-direction:column; align-items:flex-start; gap:20px; }
 .ov-eyebrow { font-size:.875rem; color:var(--muted-foreground); }
@@ -12,5 +12,5 @@
 .ov-animation-canvas svg { display:block; width:100%; height:100%; }
 .ov-animation-control { position:absolute; right:8px; bottom:8px; }
 .ov-animation-error { position:absolute; inset:0; display:grid; place-items:center; color:var(--muted-foreground); font-size:.875rem; text-align:center; }
-@media(max-width:1023px) { .ov-screen { grid-template-columns:1fr; gap:24px; } .ov-introduction { max-width:76ch; } .ov-visual { max-width:380px; } }
-@media(max-width:767px) { .ov-screen { gap:24px; padding-top:32px; } .ov-opening { gap:16px; } .ov-visual { max-width:320px; } }
+@media(max-width:1023px) { .eda-screen.ov-screen { grid-template-columns:1fr; gap:24px; } .ov-introduction { max-width:76ch; } .ov-visual { max-width:380px; } }
+@media(max-width:767px) { .eda-screen.ov-screen { gap:24px; padding-top:32px; } .ov-opening { gap:16px; } .ov-visual { max-width:320px; } }

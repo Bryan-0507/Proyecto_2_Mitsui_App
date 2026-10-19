@@ -5,6 +5,7 @@ import "@fontsource/ibm-plex-sans/latin-400.css";
 import "@fontsource/ibm-plex-sans/latin-500.css";
 import "@fontsource/ibm-plex-sans/latin-600.css";
 import "./globals.css";
+import "@/features/presentation/presentation.css";
 
 export const metadata: Metadata = {
   title: { default: copy.brand.name, template: `%s | ${copy.brand.name}` },

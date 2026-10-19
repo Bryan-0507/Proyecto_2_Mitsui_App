@@ -1,4 +1,8 @@
 export type PageId =
+  | "problem"
+  | "solution"
+  | "demo"
+  | "learnings"
   | "overview"
   | "dataTargets"
   | "eda"

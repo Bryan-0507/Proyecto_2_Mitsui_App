@@ -10,7 +10,7 @@ import { MetricHelp } from "./MetricHelp";
 
 const formatAxis = new Intl.NumberFormat("es-GT", { maximumFractionDigits:3 });
 
-export function R2Finding({data}:{data:R2Data}) {
+export function R2Finding({data, compact = false}:{data:R2Data; compact?:boolean}) {
   const view=useR2Finding(data), t=copy.metrics.r2Finding;
   return <Card className="r2-finding">
     <CardHeader>
@@ -19,7 +19,7 @@ export function R2Finding({data}:{data:R2Data}) {
       <CardAction><MetricHelp kind="reference"/></CardAction>
     </CardHeader>
     <CardContent className="r2-content">
-      <p className="r2-explanation">{t.explanation}</p>
+      {!compact && <p className="r2-explanation">{t.explanation}</p>}
       <div className="r2-toolbar">
         <Field className="r2-control">
           <FieldLabel id="r2-reference-label">{t.control}</FieldLabel>

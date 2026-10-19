@@ -1,8 +1,5 @@
 import { pageMetadata } from "@/features/shared/navigation";
-import { ConclusionsScreen } from "@/features/conclusions/components/ConclusionsScreen";
+import { ClosingScreen } from "@/features/presentation/components/ClosingScreen";
 
 export const metadata = pageMetadata("conclusions");
-
-export default function Page() {
-  return <ConclusionsScreen />;
-}
+export default function Page() { return <ClosingScreen />; }

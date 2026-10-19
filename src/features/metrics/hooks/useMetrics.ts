@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import type { MetricData } from "../types";
-export function useMetrics(data:MetricData) {
-  const [target,setTarget]=useState("target_225");
+export function useMetrics(data:MetricData, initialTarget = "target_225") {
+  const [target,setTarget]=useState(initialTarget);
   const [model,setModel]=useState("all");
   const [showCharts,setShowCharts]=useState(true);
   const order=["ols","lightgbm","temporal","lstm_externa","media","cero"];
