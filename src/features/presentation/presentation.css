@@ -42,7 +42,7 @@
 .presentation-evidence dt { font-size:.9375rem; color:var(--foreground); }
 .presentation-evidence .presentation-evidence-value { order:-1; color:var(--primary); font-size:2.75rem; line-height:1.2; font-weight:500; font-variant-numeric:tabular-nums; }
 .presentation-evidence dd:not(.presentation-evidence-value) { color:var(--muted-foreground); font-size:.8125rem; line-height:1.5; }
-.presentation-future { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:40px; margin:20px 0 12px; }
+.presentation-future { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px; margin:20px 0 12px; }
 .presentation-future article { display:flex; gap:12px; align-items:flex-start; }
 .presentation-future svg { width:20px; height:20px; flex-shrink:0; color:var(--primary); margin-top:2px; }
 .presentation-future p { color:var(--muted-foreground); font-size:.875rem; margin-top:8px; }

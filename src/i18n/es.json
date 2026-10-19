@@ -131,8 +131,9 @@
       ],
       "futureTitle": "Qué sigue",
       "future": [
-        { "title": "Evaluación en períodos nuevos", "text": "Congelar el protocolo y medir sobre observaciones no reutilizadas durante las iteraciones." },
-        { "title": "Estabilidad de las características", "text": "Estudiar qué asociaciones se sostienen entre períodos antes de añadir complejidad." }
+        { "title": "Explorar nuevas familias", "text": "Comparar otros enfoques bajo el mismo protocolo temporal y frente a referencias simples." },
+        { "title": "Desarrollar una LSTM propia", "text": "Diseñar y entrenar nuestra arquitectura para evaluar el aporte del contexto temporal." },
+        { "title": "Ampliar a los 424 targets", "text": "Evaluar cómo escalan nuestros enfoques y contrastarlos con la métrica oficial de Kaggle, además de las métricas actuales." }
       ],
       "futureNote": "Propuestas de trabajo futuro, no tareas realizadas."
     }
