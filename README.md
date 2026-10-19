@@ -1,52 +1,87 @@
 # Market Lens
 
-Next.js scaffold for the academic MITSUI commodity prediction project. Market Lens is the selected project name, not a claim of affiliation with MITSUI or a financial company.
+Aplicación académica para comparar modelos de predicción de retornos relativos del MITSUI&CO. Commodity Prediction Challenge. La rama `presentacion` contiene el recorrido reducido para la exposición: Problema, Objetivos, Solución y diseño, Demo, Retos y aprendizajes y Conclusiones y trabajo futuro.
 
-## Run
+## Ejecutar la aplicación completa
 
-Requirements: Node >=22.12 and pnpm 10.33.
+Requisitos: Node.js >=22.12, pnpm 10.33 y Python 3.14. Los modelos serializados se generaron con Python 3.14.7; las versiones de sus bibliotecas están fijadas en `artifacts/python/requirements.txt`. Utiliza esas versiones para evitar incompatibilidades al cargar los modelos.
+
+Los modelos, datos históricos necesarios, contratos y métricas están incluidos en `artifacts/` (aproximadamente 28 MB). No necesitas clonar el repositorio EDA, importar sus archivos ni reentrenar modelos para utilizar esta copia.
+
+Desde la raíz del proyecto, en macOS o Linux:
 
 ```sh
 pnpm install --frozen-lockfile
+python3.14 -m venv .venv
+.venv/bin/python -m pip install --upgrade pip
+.venv/bin/python -m pip install -r artifacts/python/requirements.txt
 pnpm dev --hostname 127.0.0.1 --port 3100
+```
+
+Abrir http://127.0.0.1:3100/. La instalación de dependencias requiere Internet; la consulta posterior utiliza archivos locales. Las dependencias de Python, especialmente PyTorch, ocupan más espacio que los modelos incluidos.
+
+En Windows, crear e instalar el entorno con:
+
+```powershell
+py -3.14 -m venv .venv
+.venv\Scripts\python.exe -m pip install --upgrade pip
+.venv\Scripts\python.exe -m pip install -r artifacts/python/requirements.txt
+```
+
+Antes de iniciar Next.js en Windows, crear `.env.local` con:
+
+```dotenv
+PYTHON_EXECUTABLE=.venv/Scripts/python.exe
+```
+
+En macOS y Linux no hace falta `.env.local`: el proceso utiliza `.venv/bin/python` por defecto. Si ya existe una configuración que apunta al entorno de otra computadora, sustituirla por la ruta local relativa. `.env.example` documenta esta opción; no contiene secretos.
+
+LightGBM puede requerir una biblioteca OpenMP del sistema. Si la importación falla por una biblioteca nativa ausente, instalar la correspondiente a la plataforma; no sustituir arbitrariamente las versiones fijadas de los modelos. La instalación en otras plataformas debe comprobarse antes de la exposición.
+
+## Comprobar la instalación
+
+```sh
 pnpm validate
 pnpm build
 ```
 
-## Visual direction
+Para comprobar la inferencia, abrir Demo, seleccionar ExxonMobil frente a oro, elegir el dateId 1900 y pulsar Comparar modelos. Deben responder regresión lineal, modelo temporal, LightGBM y LSTM externa. La primera consulta puede tardar más al cargar las bibliotecas y modelos.
 
-Market is the selected design: locally served IBM Plex Sans, cool gray surfaces, blue accents and a compact sidebar inspired by financial analysis apps. Open http://127.0.0.1:3100/. All eight project pages remain empty Server Components with individual metadata. Temporary proposals, sample chart, selector and unused fonts have been removed.
+Si no aparecen los resultados, revisar la terminal de Next.js y comprobar que el intérprete configurado tiene instaladas las dependencias. La app utiliza un proceso Python local, no un servicio Python que deba levantarse manualmente.
 
-## Structure
+## Cómo funciona
+
+La interfaz y el endpoint `POST /api/prediction` están en Next.js. El endpoint valida la solicitud y se comunica mediante JSON Lines con `python/worker.py`. El proceso carga las entradas históricas y la preparación del modelo seleccionado, verifica los archivos contra sus hashes y devuelve la estimación. No entrena durante la consulta.
+
+Las consultas usan dateId históricos con contexto disponible. No son pronósticos en vivo ni implican utilidad financiera. Las evaluaciones iniciales y la comparación retrospectiva con la LSTM externa conservan sus alcances separados.
+
+## Estructura
 
 ```text
-src/app/                 Route entries, metadata, root layout, globals.css
-src/features/shell/      Shared sidebar/header UI, hooks and types
-src/features/shared/     Cross-feature navigation and metadata
-src/features/<feature>/  Prepared components/hooks/types directories
-src/components/ui/       Official shadcn Base UI components
-src/i18n/es.json          Central Spanish copy
-public/figures/           Lossless WebP assets and provenance manifest
-artifacts/               Local ignored model/data/contract snapshots
-scripts/import-artifacts.py   Repeatable transfer from the EDA repo
+src/app/                 Rutas, metadata y endpoint de predicción
+src/features/            Interfaz y lógica organizadas por funcionalidad
+src/components/ui/       Componentes shadcn Base UI
+src/i18n/es.json          Textos centralizados en español
+python/                  Proceso local y adaptadores de inferencia
+artifacts/models/        Modelos propios y pesos de la referencia externa
+artifacts/data/          Entradas históricas comprimidas y caché PCA
+artifacts/contracts/     Contratos y procedencia
+artifacts/evaluation/    Métricas y datos de los gráficos
+artifacts/python/        Compatibilidad de serialización y dependencias fijadas
+public/                  Figuras, animación y otros recursos públicos
+scripts/                 Importación y exportadores reproducibles
 ```
 
-No backend, auth, live metrics, prediction form or financial recommendation has been implemented. API modules and data-fetching hooks should be added only when the actual backend contract is agreed.
+`artifacts/` no está dentro de `public/` ni se importa directamente en componentes cliente. Los archivos de modelos permanecen en el servidor local. Los manifiestos históricos pueden contener rutas de la computadora de origen; sirven como procedencia y no necesitan existir en la computadora que ejecuta la app.
 
-## Import project artifacts
+## Procedencia y precauciones
 
-Use the existing EDA virtual environment, which contains Pillow. Sources are only read. The script copies final model weights and selected evaluation/contracts, not experimental checkpoints, into the private artifacts directory. Hashes are verified and symlinks are materialized.
+Los modelos propios y los derivados provienen del repositorio EDA. No modificar pesos, datos o contratos para resolver errores de instalación: la inferencia comprueba su integridad. `scripts/import-artifacts.py` es una herramienta de mantenimiento de la transferencia inicial, no un paso de instalación ni un generador completo de los derivados incorporados después.
 
-```sh
-/Users/bryan/Documents/DataScience/Proyecto_2_EDA_Data_Science/.venv/bin/python scripts/import-artifacts.py --source /Users/bryan/Documents/DataScience/Proyecto_2_EDA_Data_Science
-```
+La LSTM externa y sus pesos proceden de Hayden1629, revisión `357e8352e7eff9ac10b54d992e61ac6564be8034`. El equipo integró la inferencia; no diseñó ni entrenó esa red. La procedencia está en `artifacts/contracts/external-lstm-provenance.json` y conserva el aviso de que no se encontró una licencia de redistribución. Su inclusión temporal para la demostración académica no concede una licencia ni autoriza usos posteriores. Eliminar un repositorio no revoca copias o clones realizados previamente. Conservar las condiciones aplicables a los datos de la competencia y a los recursos de terceros.
 
-Models are not public and cannot execute in a JavaScript runtime. artifacts/python contains the minimal project module snapshot required by trusted serialized objects. A Python process must add that directory to its module path and import src before loading our joblib files, to register the historical module aliases. Connecting and testing full inference is a separate task. Never load untrusted joblib/pickle files. The external LSTM is isolated as a third-party reference, not a model trained by the team.
+Los archivos joblib/pickle pueden ejecutar código al cargarse: utilizar únicamente los artefactos conocidos de este proyecto. Los hashes comprueban integridad respecto de los manifiestos, no vuelven seguro un modelo de origen desconocido.
 
-Graphics are converted to lossless WebP without changing dimensions or decoded pixels. Existing metrics and rounds are retained separately. EDA graphic accessibility review is still required before displaying them; approved modeling graphs retain their original encoding, labels and accessible markers.
+Se versiona la copia congelada necesaria para la demostración. No se incluyen `.venv`, `node_modules`, `.next`, cachés de Python ni `.env.local`. Los nuevos cambios de pesos aumentarán el historial de Git: no utilizar este repositorio como registro de experimentos.
 
-See docs/scaffold-design.md for routes, architecture and cleanup boundaries. No commits are made automatically.
-
-## Font provenance
-
-IBM Plex Sans is bundled locally through Fontsource; retain its included license notices. This is a licensed font choice inspired by financial analysis interfaces, not a claim that TradingView uses this font.
+IBM Plex Sans se sirve localmente mediante Fontsource. Conservar sus avisos de licencia. Market Lens no implica afiliación con MITSUI ni constituye una recomendación financiera.

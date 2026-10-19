@@ -1,0 +1,241 @@
+{
+  "modelos": {
+    "compartido": {
+      "seleccion": {
+        "modo": "compartido",
+        "targets": [
+          "target_225",
+          "target_19",
+          "target_105",
+          "target_410"
+        ],
+        "perfil": {
+          "num_leaves": 7,
+          "min_child_samples": 30,
+          "learning_rate": 0.03,
+          "n_estimators": 100,
+          "reg_lambda": 1.0
+        },
+        "candidato": 0,
+        "r2_interno": -0.014499562624063406
+      },
+      "archivo": "/Users/bryan/Documents/DataScience/Proyecto_2_EDA_Data_Science/data/processed/modelado_compartido/modelos/compartido.joblib",
+      "sha256": "056244c1325cfb99b520446b43f69ae3b56f9d721ed0d1a3ad78e7f6045f1e31",
+      "recarga_error_maximo": 0.0,
+      "train_fin": 1563,
+      "conocido_ajuste": 1568,
+      "n_train": 5587,
+      "n_arboles": 100,
+      "media_peso": 1.0,
+      "suma_pesos_target": {
+        "target_225": 1396.75,
+        "target_19": 1396.7499999999995,
+        "target_105": 1396.75,
+        "target_410": 1396.7499999999998
+      },
+      "segundos": 0.058201000007102266
+    },
+    "target_225": {
+      "seleccion": {
+        "modo": "independiente",
+        "targets": [
+          "target_225"
+        ],
+        "perfil": {
+          "num_leaves": 7,
+          "min_child_samples": 60,
+          "learning_rate": 0.03,
+          "n_estimators": 100,
+          "reg_lambda": 1.0
+        },
+        "candidato": 8,
+        "r2_interno": -0.03955186614378681
+      },
+      "archivo": "/Users/bryan/Documents/DataScience/Proyecto_2_EDA_Data_Science/data/processed/modelado_compartido/modelos/target_225.joblib",
+      "sha256": "50ecf3d1255135693f962986cf53b98270b6fec3129ba3380887fa6955a02b9b",
+      "recarga_error_maximo": 0.0,
+      "train_fin": 1563,
+      "conocido_ajuste": 1568,
+      "n_train": 1287,
+      "n_arboles": 100,
+      "media_peso": 1.0,
+      "suma_pesos_target": {
+        "target_225": 1287.0
+      },
+      "segundos": 0.02565712499199435
+    },
+    "target_19": {
+      "seleccion": {
+        "modo": "independiente",
+        "targets": [
+          "target_19"
+        ],
+        "perfil": {
+          "num_leaves": 7,
+          "min_child_samples": 30,
+          "learning_rate": 0.03,
+          "n_estimators": 100,
+          "reg_lambda": 1.0
+        },
+        "candidato": 0,
+        "r2_interno": -0.04958433408686469
+      },
+      "archivo": "/Users/bryan/Documents/DataScience/Proyecto_2_EDA_Data_Science/data/processed/modelado_compartido/modelos/target_19.joblib",
+      "sha256": "066ce3481f9d7cc2eab9b1f1321de808f8277534f961a597a9af304ed61b425f",
+      "recarga_error_maximo": 0.0,
+      "train_fin": 1563,
+      "conocido_ajuste": 1568,
+      "n_train": 1397,
+      "n_arboles": 100,
+      "media_peso": 1.0,
+      "suma_pesos_target": {
+        "target_19": 1397.0
+      },
+      "segundos": 0.026587959000607952
+    },
+    "target_105": {
+      "seleccion": {
+        "modo": "independiente",
+        "targets": [
+          "target_105"
+        ],
+        "perfil": {
+          "num_leaves": 7,
+          "min_child_samples": 30,
+          "learning_rate": 0.03,
+          "n_estimators": 100,
+          "reg_lambda": 1.0
+        },
+        "candidato": 0,
+        "r2_interno": -0.015168702319746541
+      },
+      "archivo": "/Users/bryan/Documents/DataScience/Proyecto_2_EDA_Data_Science/data/processed/modelado_compartido/modelos/target_105.joblib",
+      "sha256": "5202b5359f838bda8431c5227872feaacc7ff1c19680fa4ca05e37a8da46ec1e",
+      "recarga_error_maximo": 0.0,
+      "train_fin": 1563,
+      "conocido_ajuste": 1568,
+      "n_train": 1423,
+      "n_arboles": 100,
+      "media_peso": 1.0,
+      "suma_pesos_target": {
+        "target_105": 1423.0
+      },
+      "segundos": 0.02854674999252893
+    },
+    "target_410": {
+      "seleccion": {
+        "modo": "independiente",
+        "targets": [
+          "target_410"
+        ],
+        "perfil": {
+          "num_leaves": 7,
+          "min_child_samples": 60,
+          "learning_rate": 0.03,
+          "n_estimators": 100,
+          "reg_lambda": 10.0
+        },
+        "candidato": 9,
+        "r2_interno": -0.12800667127725862
+      },
+      "archivo": "/Users/bryan/Documents/DataScience/Proyecto_2_EDA_Data_Science/data/processed/modelado_compartido/modelos/target_410.joblib",
+      "sha256": "05759168dca8c796f9db0d952c1f5f93649272c6e2dac6861899d01f6218a158",
+      "recarga_error_maximo": 0.0,
+      "train_fin": 1563,
+      "conocido_ajuste": 1568,
+      "n_train": 1480,
+      "n_arboles": 100,
+      "media_peso": 1.0,
+      "suma_pesos_target": {
+        "target_410": 1480.0
+      },
+      "segundos": 0.030330790992593393
+    }
+  },
+  "seleccion_final_interna": {
+    "compartido": {
+      "modo": "compartido",
+      "targets": [
+        "target_225",
+        "target_19",
+        "target_105",
+        "target_410"
+      ],
+      "perfil": {
+        "num_leaves": 7,
+        "min_child_samples": 30,
+        "learning_rate": 0.03,
+        "n_estimators": 100,
+        "reg_lambda": 1.0
+      },
+      "candidato": 0,
+      "r2_interno": -0.014499562624063406
+    },
+    "target_225": {
+      "modo": "independiente",
+      "targets": [
+        "target_225"
+      ],
+      "perfil": {
+        "num_leaves": 7,
+        "min_child_samples": 60,
+        "learning_rate": 0.03,
+        "n_estimators": 100,
+        "reg_lambda": 1.0
+      },
+      "candidato": 8,
+      "r2_interno": -0.03955186614378681
+    },
+    "target_19": {
+      "modo": "independiente",
+      "targets": [
+        "target_19"
+      ],
+      "perfil": {
+        "num_leaves": 7,
+        "min_child_samples": 30,
+        "learning_rate": 0.03,
+        "n_estimators": 100,
+        "reg_lambda": 1.0
+      },
+      "candidato": 0,
+      "r2_interno": -0.04958433408686469
+    },
+    "target_105": {
+      "modo": "independiente",
+      "targets": [
+        "target_105"
+      ],
+      "perfil": {
+        "num_leaves": 7,
+        "min_child_samples": 30,
+        "learning_rate": 0.03,
+        "n_estimators": 100,
+        "reg_lambda": 1.0
+      },
+      "candidato": 0,
+      "r2_interno": -0.015168702319746541
+    },
+    "target_410": {
+      "modo": "independiente",
+      "targets": [
+        "target_410"
+      ],
+      "perfil": {
+        "num_leaves": 7,
+        "min_child_samples": 60,
+        "learning_rate": 0.03,
+        "n_estimators": 100,
+        "reg_lambda": 10.0
+      },
+      "candidato": 9,
+      "r2_interno": -0.12800667127725862
+    }
+  },
+  "contrato_sha256": "1505a10e1248bc47e8d4960aac0ef9a9bf1cd20ded28be3dce22d29c69d04640",
+  "holdout_consultado": false,
+  "retrospectivo": true,
+  "fits_ejecutados": 325,
+  "segundos_fit": 26.52389804003178,
+  "segundos_congelacion_total": 29.61803291598335
+}

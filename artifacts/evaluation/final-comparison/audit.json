@@ -1,0 +1,70 @@
+{
+  "entrenamiento_nuevo": false,
+  "grid_search": false,
+  "familias": [
+    "ols",
+    "temporal",
+    "lightgbm",
+    "lstm_externa"
+  ],
+  "procedimientos": [
+    "cero",
+    "lgb_roles_conjunto",
+    "lgb_roles_independiente",
+    "lightgbm",
+    "lstm_externa",
+    "media",
+    "ols",
+    "temporal"
+  ],
+  "referencias": [
+    "cero",
+    "media"
+  ],
+  "evaluacion": "Retrospectiva; no prueba ciega ni comparacion con igual presupuesto de datos",
+  "periodos_autor": {
+    "train": [
+      20,
+      1599
+    ],
+    "validacion": [
+      1600,
+      1826
+    ]
+  },
+  "inicio_posterior_frontera": 1832,
+  "razon_inicio": "Ultima etiqueta de seleccion 1826 requiere precios hasta1831 (lag4+1)",
+  "diferencia_informacional": "LSTM X[t-20:t]; propios tabulares incluyen X_t; autor selecciona hasta1826, propios ultimas rondas entrenan hasta1563",
+  "targets": [
+    "target_225",
+    "target_19",
+    "target_105",
+    "target_410"
+  ],
+  "filas_metricas": 64,
+  "propios_sha256": {
+    "data/processed/modelado_compartido/modelos/compartido.joblib": "056244c1325cfb99b520446b43f69ae3b56f9d721ed0d1a3ad78e7f6045f1e31",
+    "data/processed/modelado_compartido/modelos/target_225.joblib": "50ecf3d1255135693f962986cf53b98270b6fec3129ba3380887fa6955a02b9b",
+    "data/processed/modelado_compartido/modelos/target_19.joblib": "066ce3481f9d7cc2eab9b1f1321de808f8277534f961a597a9af304ed61b425f",
+    "data/processed/modelado_compartido/modelos/target_105.joblib": "5202b5359f838bda8431c5227872feaacc7ff1c19680fa4ca05e37a8da46ec1e",
+    "data/processed/modelado_compartido/modelos/target_410.joblib": "05759168dca8c796f9db0d952c1f5f93649272c6e2dac6861899d01f6218a158"
+  },
+  "raw_sha256": {
+    "train_labels.csv": "65c89598c5d9a45ca7b6c1df2a0420aaf3cba05f46916aa66682977502b243b1",
+    "test.csv": "009db5b195b54ef8c1a352d82deca8834329ca3f1b2e3a852125e9dfbcaaa00b",
+    "target_pairs.csv": "06de5c4a9babcd0aef150e68d0a1b8e6ab1ddabf24406f7326f595ead84ad1e1",
+    "train.csv": "6b0cb8794921494c01b187295046160aec18e9957e733e547b3c98cb80195c9c"
+  },
+  "entradas_sha256": {
+    "data/processed/modelado_externo/25_predicciones_424.csv": "957d51ddc3cb4617cd8f64e633c2ac1a49bfe7a156335d2dca3ad29041085e42",
+    "data/processed/modelado_externo/25_predicciones_seleccionadas.csv": "32f94d8b68e67b53e7073f946b816c71c9f9ed81385779b106719e4dc56673f9",
+    "data/raw/train_labels.csv": "65c89598c5d9a45ca7b6c1df2a0420aaf3cba05f46916aa66682977502b243b1",
+    "data/processed/modelado/07_predicciones_prueba.csv": "d1c49a15e39ac1c2e47b87f1a050c751495ac2235eef0a83502cfb4b781d18dc",
+    "data/processed/train_eda.csv": "67dc186b30466804385417a81d9a3f9a2019d4dccb8e7a2784bc364ef8873adf",
+    "data/processed/modelado_compartido/23_freeze.json": "45666c486459f1d9e7468d626f68534a509a48ccab20129092b0408c94e72921"
+  },
+  "codigo_sha256": {
+    "src/pipelines/evaluation/01_compare.py": "aa1166b3fac3fd4dde6f6ccd68e5dc7b45763a830ad1ab4bbf08cc0e697da391",
+    "src/models/lightgbm/shared_targets.py": "0d0303914c278c8673da1b3587b932592e92b498642fc5215097eb3f0f61731d"
+  }
+}

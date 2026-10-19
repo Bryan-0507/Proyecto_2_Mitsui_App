@@ -1,0 +1,46 @@
+{
+  "metodo_conversion": "interprete_estatico_pickletools_sin_llamadas_externas",
+  "sandbox_mac_disponible": false,
+  "joblib_load_utilizado": false,
+  "entrenamiento_o_fit": false,
+  "pct_change": "fill_method_None_sin_relleno_previo_validado_por_replay",
+  "diagnostico_compatibilidad": {
+    "error_maximo_legacy_ffill": 0.030361463998664857,
+    "error_maximo_sin_relleno": 6.959382533970604e-08,
+    "criterio": "Reproduccion de predicciones publicadas, no optimizacion contra etiquetas"
+  },
+  "features": 2064,
+  "pca": [
+    1961,
+    100
+  ],
+  "historia": "20 observaciones estrictamente anteriores al origen",
+  "periodo_reproduccion": [
+    1827,
+    1960
+  ],
+  "evaluacion_predictiva_propia": false,
+  "parametros_sha256": "d21dcbdd1b69bd5652c27d5523743dc0625e719c80d1f1a01eef26e5a24f0d07",
+  "pca_sha256": "fc2fe0e955fdbf45b96fb69a15f84cf7fc4faf2ce9aeacb7bcf72a3ac21fdd94",
+  "fuente_sha256": {
+    "LSTMOutputFixed.ipynb": "3a076a1563e8ab7fc8f52706c6711c2475875db2f9ce91d607c5180c1327dbba",
+    "model_seed4.pt": "b6f5c0a107ac35c0c28b501e60d30f2061738f841c215f1103e05d4f8de7b357",
+    "config.json": "2289743134e0d6ce019c3631599cb57bfcecf51782ef9beeaa3ca5611bdf0715",
+    "model_seed0.pt": "eaab30561f1d746ddfe5ec2ea7f906c3f3887a2316f7e8378fb40fb34a20db3f",
+    "model_seed1.pt": "862ae83c0cf72260499cde844b87aec3cd5721c2de611ae307566578c4828de0",
+    "scaler.joblib": "ef4a44a857d4dc6d68ee25b359ffb02d914521d71fefaa5fe638418680099a42",
+    "model_seed2.pt": "4d0339a4e282d669ffea4c4f98aa5646203a4df88d35eca6b2aaa49b889d9c73",
+    "pca.joblib": "5e6673eed0bb2394f43c037ecd2ac39c4e4f7d08358f5464c8d1d76e012b593e",
+    "model_seed3.pt": "25f768b2c0e9579e5e2aa847eb78779894503f43874b6aac1b6e93e06c48d899",
+    "eng_cols.json": "bc32a7bd2be515a1a7454f7fbce6e9b0f3bace1f8d845fa898e25bd3b0c67e96",
+    "predictions_test.csv": "81da9c60a3f12bfccdb47fe54d620c1ebe196b3f4c4cff8332ea8e712e7168c3",
+    "seeds.json": "fdfcf135bffcc675015faa4753ed199fcc30c176cf836e45a8261503791b6298"
+  },
+  "codigo_sha256": {
+    "models/external_lstm/core.py": "6b1ea2cb41e5c282769d7a47dcbbadb9e3b62801566555c575fb5e4ccee42345",
+    "pipelines/external_lstm/01_prepare.py": "a8d30be1e40b273d8e0edf8ebb04b88cf65af744e72df4f0e42c183277c92d3e",
+    "pipelines/external_lstm/02_predict.py": "f186370a4ee19e4255a4b90a3f0b72f99b9f0a5eb0b0fa8f336c56ab2d6f3eb5",
+    "config.py": "da7e8679375d15f53461c0c6d5ec46b4d5f04c9e6c16bbd19b9864f6e2b138dd",
+    "models/external_lstm/download.py": "c0ef5cf9034cd6317a5f9a7cbb6558a4ec32e51a028789b2bd9b8462420c39f0"
+  }
+}

@@ -1,0 +1,1038 @@
+{
+  "seleccion": {
+    "target_225": {
+      "ols": {
+        "parametros": {
+          "k": 16,
+          "recorte": false
+        },
+        "rmse_cv": 0.032533613382875505,
+        "segundos_busqueda": 3.382199582993053,
+        "avisos": []
+      },
+      "lightgbm": {
+        "parametros": {
+          "k": 32,
+          "learning_rate": 0.03,
+          "min_child_samples": 30,
+          "n_estimators": 200,
+          "num_leaves": 7,
+          "recorte": false
+        },
+        "rmse_cv": 0.03250208194784927,
+        "segundos_busqueda": 29.675048290984705,
+        "avisos": []
+      },
+      "temporal": {
+        "parametros": {
+          "orden": [
+            2,
+            0,
+            1
+          ],
+          "estacional": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "tendencia": "c"
+        },
+        "rmse_cv": 0.03192090852000173,
+        "candidato": 6,
+        "variante": "ARMA",
+        "segundos_busqueda": 13.709218167001382
+      }
+    },
+    "target_19": {
+      "ols": {
+        "parametros": {
+          "k": 8,
+          "recorte": true
+        },
+        "rmse_cv": 0.009544975001411611,
+        "segundos_busqueda": 2.2542965000029653,
+        "avisos": []
+      },
+      "lightgbm": {
+        "parametros": {
+          "k": 32,
+          "learning_rate": 0.03,
+          "min_child_samples": 60,
+          "n_estimators": 200,
+          "num_leaves": 7,
+          "recorte": true
+        },
+        "rmse_cv": 0.01012093576495079,
+        "segundos_busqueda": 30.67128983300063,
+        "avisos": []
+      },
+      "temporal": {
+        "parametros": {
+          "orden": [
+            1,
+            1,
+            2
+          ],
+          "estacional": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "tendencia": "n"
+        },
+        "rmse_cv": 0.00925174088076602,
+        "candidato": 18,
+        "variante": "ARIMA",
+        "segundos_busqueda": 13.318807749979896
+      }
+    },
+    "target_105": {
+      "ols": {
+        "parametros": {
+          "k": 8,
+          "recorte": true
+        },
+        "rmse_cv": 0.013711196142340126,
+        "segundos_busqueda": 2.2554681669862475,
+        "avisos": []
+      },
+      "lightgbm": {
+        "parametros": {
+          "k": 32,
+          "learning_rate": 0.03,
+          "min_child_samples": 60,
+          "n_estimators": 200,
+          "num_leaves": 7,
+          "recorte": true
+        },
+        "rmse_cv": 0.013913656466680059,
+        "segundos_busqueda": 30.985541541012935,
+        "avisos": []
+      },
+      "temporal": {
+        "parametros": {
+          "orden": [
+            0,
+            0,
+            2
+          ],
+          "estacional": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "tendencia": "c"
+        },
+        "rmse_cv": 0.01325127674174609,
+        "candidato": 1,
+        "variante": "MA",
+        "segundos_busqueda": 12.201488749997225
+      }
+    },
+    "target_410": {
+      "ols": {
+        "parametros": {
+          "k": 8,
+          "recorte": true
+        },
+        "rmse_cv": 0.03166038939771202,
+        "segundos_busqueda": 2.4451175410067663,
+        "avisos": []
+      },
+      "lightgbm": {
+        "parametros": {
+          "k": 32,
+          "learning_rate": 0.03,
+          "min_child_samples": 30,
+          "n_estimators": 200,
+          "num_leaves": 7,
+          "recorte": false
+        },
+        "rmse_cv": 0.03257252369067244,
+        "segundos_busqueda": 30.889329875004478,
+        "avisos": []
+      },
+      "temporal": {
+        "parametros": {
+          "orden": [
+            2,
+            0,
+            2
+          ],
+          "estacional": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "tendencia": "c"
+        },
+        "rmse_cv": 0.03140449168507236,
+        "candidato": 7,
+        "variante": "ARMA",
+        "segundos_busqueda": 10.789786374982214
+      }
+    }
+  },
+  "modelos": {
+    "target_225": {
+      "ols": {
+        "archivo": "modelos/target_225_ols.joblib",
+        "sha256": "534230a12c3a36c4cb64d030de3c6c851fcd7d006c162cdb18e11b4327c572da",
+        "segundos_ajuste_final": 0.16070904198568314,
+        "n_entrenamiento_finitas": 1287,
+        "entrenamiento_fin_id": 1564,
+        "parametros": {
+          "k": 16,
+          "recorte": false
+        },
+        "seleccionadas": [
+          "US_Stock_SCCO_adj_volume",
+          "US_Stock_EWZ_adj_close",
+          "US_Stock_EWZ_adj_low",
+          "US_Stock_BP_adj_volume",
+          "US_Stock_EWZ_adj_high",
+          "US_Stock_KMI_adj_volume",
+          "US_Stock_EWZ_adj_open",
+          "US_Stock_VXUS_adj_volume",
+          "US_Stock_VGK_adj_volume",
+          "JPX_Gold_Standard_Futures_open_interest",
+          "US_Stock_VCSH_adj_volume",
+          "US_Stock_XLB_adj_volume",
+          "US_Stock_COP_adj_volume",
+          "US_Stock_CVE_adj_volume",
+          "US_Stock_NUGT_adj_close",
+          "US_Stock_DE_adj_volume"
+        ],
+        "coeficientes_escalados": {
+          "US_Stock_SCCO_adj_volume": 0.001311498031683004,
+          "US_Stock_EWZ_adj_close": 0.008291286657704565,
+          "US_Stock_EWZ_adj_low": -0.009206302337072024,
+          "US_Stock_BP_adj_volume": 0.0022331799859966308,
+          "US_Stock_EWZ_adj_high": -0.043802832589012484,
+          "US_Stock_KMI_adj_volume": 0.0013149111912361575,
+          "US_Stock_EWZ_adj_open": 0.04258996485549951,
+          "US_Stock_VXUS_adj_volume": 0.0025740498398272105,
+          "US_Stock_VGK_adj_volume": -0.0017861232440568194,
+          "JPX_Gold_Standard_Futures_open_interest": -0.00311420265905773,
+          "US_Stock_VCSH_adj_volume": -0.00018848918696351852,
+          "US_Stock_XLB_adj_volume": -0.0006081015241601298,
+          "US_Stock_COP_adj_volume": -0.0006963151973508155,
+          "US_Stock_CVE_adj_volume": -0.001402629710857505,
+          "US_Stock_NUGT_adj_close": -0.0007402216410423881,
+          "US_Stock_DE_adj_volume": 0.0020147161197580942,
+          "missingindicator_US_Stock_SCCO_adj_volume": 0.0005346007763102627,
+          "missingindicator_US_Stock_EWZ_adj_close": 0.0005346007763104054,
+          "missingindicator_US_Stock_EWZ_adj_low": 0.0005346007763103941,
+          "missingindicator_US_Stock_BP_adj_volume": 0.0005346007763103768,
+          "missingindicator_US_Stock_EWZ_adj_high": 0.0005346007763103768,
+          "missingindicator_US_Stock_KMI_adj_volume": 0.0005346007763103768,
+          "missingindicator_US_Stock_EWZ_adj_open": -0.008338753636691653,
+          "missingindicator_US_Stock_VXUS_adj_volume": 0.0005346007763103768,
+          "missingindicator_US_Stock_VGK_adj_volume": 0.0005346007763103768,
+          "missingindicator_JPX_Gold_Standard_Futures_open_interest": 0.0007610840432179084,
+          "missingindicator_US_Stock_VCSH_adj_volume": 0.0005346007763103768,
+          "missingindicator_US_Stock_XLB_adj_volume": 0.0005346007763103768,
+          "missingindicator_US_Stock_COP_adj_volume": 0.0005346007763103768,
+          "missingindicator_US_Stock_CVE_adj_volume": 0.0005346007763103768,
+          "missingindicator_US_Stock_NUGT_adj_close": 0.0005346007763103768,
+          "missingindicator_US_Stock_DE_adj_volume": 0.0005346007763103768
+        },
+        "intercepto_escalado": -0.00020054942822913873,
+        "recarga_error_maximo_train": 0.0
+      },
+      "lightgbm": {
+        "archivo": "modelos/target_225_lightgbm.joblib",
+        "sha256": "92c98027b47bdefc52a8c92deee3648f25174d7372d5adeff224e85229dc3b59",
+        "segundos_ajuste_final": 0.28040970797883347,
+        "n_entrenamiento_finitas": 1287,
+        "entrenamiento_fin_id": 1564,
+        "parametros": {
+          "k": 32,
+          "learning_rate": 0.03,
+          "min_child_samples": 30,
+          "n_estimators": 200,
+          "num_leaves": 7,
+          "recorte": false
+        },
+        "seleccionadas": [
+          "US_Stock_SCCO_adj_volume",
+          "US_Stock_EWZ_adj_close",
+          "US_Stock_EWZ_adj_low",
+          "US_Stock_BP_adj_volume",
+          "US_Stock_EWZ_adj_high",
+          "US_Stock_KMI_adj_volume",
+          "US_Stock_EWZ_adj_open",
+          "US_Stock_VXUS_adj_volume",
+          "US_Stock_VGK_adj_volume",
+          "JPX_Gold_Standard_Futures_open_interest",
+          "US_Stock_VCSH_adj_volume",
+          "US_Stock_XLB_adj_volume",
+          "US_Stock_COP_adj_volume",
+          "US_Stock_CVE_adj_volume",
+          "US_Stock_NUGT_adj_close",
+          "US_Stock_DE_adj_volume",
+          "US_Stock_EOG_adj_volume",
+          "US_Stock_NUGT_adj_low",
+          "US_Stock_XLE_adj_volume",
+          "JPX_Gold_Mini_Futures_open_interest",
+          "US_Stock_RSP_adj_volume",
+          "US_Stock_NUGT_adj_high",
+          "US_Stock_AG_adj_volume",
+          "US_Stock_VALE_adj_volume",
+          "US_Stock_NUGT_adj_open",
+          "US_Stock_VTV_adj_volume",
+          "US_Stock_WPM_adj_volume",
+          "US_Stock_EMB_adj_volume",
+          "US_Stock_VWO_adj_volume",
+          "US_Stock_TIP_adj_volume",
+          "US_Stock_SPYV_adj_volume",
+          "US_Stock_ACWI_adj_volume"
+        ],
+        "importancia_split": {
+          "US_Stock_SCCO_adj_volume": 44,
+          "US_Stock_EWZ_adj_close": 26,
+          "US_Stock_EWZ_adj_low": 18,
+          "US_Stock_BP_adj_volume": 76,
+          "US_Stock_EWZ_adj_high": 28,
+          "US_Stock_KMI_adj_volume": 61,
+          "US_Stock_EWZ_adj_open": 53,
+          "US_Stock_VXUS_adj_volume": 57,
+          "US_Stock_VGK_adj_volume": 20,
+          "JPX_Gold_Standard_Futures_open_interest": 78,
+          "US_Stock_VCSH_adj_volume": 50,
+          "US_Stock_XLB_adj_volume": 14,
+          "US_Stock_COP_adj_volume": 13,
+          "US_Stock_CVE_adj_volume": 34,
+          "US_Stock_NUGT_adj_close": 16,
+          "US_Stock_DE_adj_volume": 67,
+          "US_Stock_EOG_adj_volume": 60,
+          "US_Stock_NUGT_adj_low": 9,
+          "US_Stock_XLE_adj_volume": 53,
+          "JPX_Gold_Mini_Futures_open_interest": 39,
+          "US_Stock_RSP_adj_volume": 23,
+          "US_Stock_NUGT_adj_high": 40,
+          "US_Stock_AG_adj_volume": 43,
+          "US_Stock_VALE_adj_volume": 69,
+          "US_Stock_NUGT_adj_open": 12,
+          "US_Stock_VTV_adj_volume": 5,
+          "US_Stock_WPM_adj_volume": 29,
+          "US_Stock_EMB_adj_volume": 36,
+          "US_Stock_VWO_adj_volume": 51,
+          "US_Stock_TIP_adj_volume": 33,
+          "US_Stock_SPYV_adj_volume": 12,
+          "US_Stock_ACWI_adj_volume": 31
+        },
+        "importancia_gain": {
+          "US_Stock_SCCO_adj_volume": 0.31955977296456695,
+          "US_Stock_EWZ_adj_close": 0.26180807838682085,
+          "US_Stock_EWZ_adj_low": 0.1595378192141652,
+          "US_Stock_BP_adj_volume": 0.874558617011644,
+          "US_Stock_EWZ_adj_high": 0.2937241611070931,
+          "US_Stock_KMI_adj_volume": 0.44861963053699583,
+          "US_Stock_EWZ_adj_open": 0.3984989083837718,
+          "US_Stock_VXUS_adj_volume": 0.814420260139741,
+          "US_Stock_VGK_adj_volume": 0.2904884619638324,
+          "JPX_Gold_Standard_Futures_open_interest": 0.8529540405143052,
+          "US_Stock_VCSH_adj_volume": 0.3636132414685562,
+          "US_Stock_XLB_adj_volume": 0.1259273800533265,
+          "US_Stock_COP_adj_volume": 0.07905950956046581,
+          "US_Stock_CVE_adj_volume": 0.15163358952850103,
+          "US_Stock_NUGT_adj_close": 0.14351635053753853,
+          "US_Stock_DE_adj_volume": 0.44579841766972095,
+          "US_Stock_EOG_adj_volume": 0.3110437688883394,
+          "US_Stock_NUGT_adj_low": 0.12483965000137687,
+          "US_Stock_XLE_adj_volume": 0.49991638236679137,
+          "JPX_Gold_Mini_Futures_open_interest": 0.3800403899513185,
+          "US_Stock_RSP_adj_volume": 0.1870522506069392,
+          "US_Stock_NUGT_adj_high": 0.40962127048987895,
+          "US_Stock_AG_adj_volume": 0.40513408998958766,
+          "US_Stock_VALE_adj_volume": 0.49819201848004013,
+          "US_Stock_NUGT_adj_open": 0.12878338992595673,
+          "US_Stock_VTV_adj_volume": 0.03065587067976594,
+          "US_Stock_WPM_adj_volume": 0.2808048111619428,
+          "US_Stock_EMB_adj_volume": 0.24564598058350384,
+          "US_Stock_VWO_adj_volume": 0.6581683128606528,
+          "US_Stock_TIP_adj_volume": 0.18092526018153876,
+          "US_Stock_SPYV_adj_volume": 0.075163469533436,
+          "US_Stock_ACWI_adj_volume": 0.24395189969800413
+        },
+        "recarga_error_maximo_train": 0.0
+      },
+      "temporal": {
+        "archivo": "modelos/target_225_temporal.joblib",
+        "sha256": "356bc4c51baa35e1efa7b51ebd6d2ce8d6354e037df7a3029817dacafc2d831d",
+        "segundos_ajuste_final": 0.17296729199006222,
+        "n_entrenamiento_finitas": 1287,
+        "entrenamiento_fin_id": 1564,
+        "parametros": {
+          "orden": [
+            2,
+            0,
+            1
+          ],
+          "estacional": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "tendencia": "c"
+        },
+        "diagnostico_residual": "Ljung-Box solo sobre bloques contiguos >=30, no se comprimen ausencias",
+        "ljung_box_bloques": [
+          {
+            "inicio": 139,
+            "fin": 169,
+            "n": 31,
+            "model_df": 3,
+            "p_lag10": 0.002422862911749014
+          }
+        ],
+        "convergio": true,
+        "avisos": [],
+        "segundos_ajuste": 0.1366451249923557,
+        "recarga_error_maximo_train": 0.0
+      }
+    },
+    "target_19": {
+      "ols": {
+        "archivo": "modelos/target_19_ols.joblib",
+        "sha256": "2624b40af22c6d08a5af35d63acd3968d2d574710bd49f93c41796d60b3022e2",
+        "segundos_ajuste_final": 0.154524916986702,
+        "n_entrenamiento_finitas": 1400,
+        "entrenamiento_fin_id": 1566,
+        "parametros": {
+          "k": 8,
+          "recorte": true
+        },
+        "seleccionadas": [
+          "US_Stock_DE_adj_volume",
+          "LME_PB_Close",
+          "FX_AUDUSD",
+          "FX_CADUSD",
+          "US_Stock_SCCO_adj_volume",
+          "FX_AUDNZD",
+          "US_Stock_VALE_adj_volume",
+          "FX_GBPUSD"
+        ],
+        "coeficientes_escalados": {
+          "US_Stock_DE_adj_volume": -0.00010693026815370136,
+          "LME_PB_Close": 1.8558346136586452e-05,
+          "FX_AUDUSD": 0.00033790673213710687,
+          "FX_CADUSD": 0.00029839262748594783,
+          "US_Stock_SCCO_adj_volume": -0.00031865070599205547,
+          "FX_AUDNZD": -0.000726878780269363,
+          "US_Stock_VALE_adj_volume": -0.0004648671297176495,
+          "FX_GBPUSD": -0.001306107562502946,
+          "missingindicator_US_Stock_DE_adj_volume": -0.00015482472338894423,
+          "missingindicator_LME_PB_Close": 5.553409716898394e-05,
+          "missingindicator_US_Stock_SCCO_adj_volume": -0.00015482472338894512,
+          "missingindicator_US_Stock_VALE_adj_volume": -0.00015482472338894512
+        },
+        "intercepto_escalado": 0.00039690659681375297,
+        "recarga_error_maximo_train": 0.0
+      },
+      "lightgbm": {
+        "archivo": "modelos/target_19_lightgbm.joblib",
+        "sha256": "1213a0cadef7502d991b126624b2e4d620eed6356f5f26d0c5403ec22949c775",
+        "segundos_ajuste_final": 0.21660204100771807,
+        "n_entrenamiento_finitas": 1400,
+        "entrenamiento_fin_id": 1566,
+        "parametros": {
+          "k": 32,
+          "learning_rate": 0.03,
+          "min_child_samples": 60,
+          "n_estimators": 200,
+          "num_leaves": 7,
+          "recorte": true
+        },
+        "seleccionadas": [
+          "US_Stock_DE_adj_volume",
+          "LME_PB_Close",
+          "FX_AUDUSD",
+          "FX_CADUSD",
+          "US_Stock_SCCO_adj_volume",
+          "FX_AUDNZD",
+          "US_Stock_VALE_adj_volume",
+          "FX_GBPUSD",
+          "FX_AUDCHF",
+          "hist_target_desfase_0",
+          "FX_ZARJPY",
+          "FX_GBPCAD",
+          "US_Stock_BKR_adj_high",
+          "US_Stock_BKR_adj_close",
+          "US_Stock_CAT_adj_volume",
+          "US_Stock_X_adj_high",
+          "US_Stock_BKR_adj_low",
+          "US_Stock_X_adj_open",
+          "US_Stock_X_adj_close",
+          "US_Stock_X_adj_low",
+          "FX_EURAUD",
+          "JPX_Platinum_Mini_Futures_Low",
+          "JPX_Platinum_Standard_Futures_Low",
+          "LME_ZS_Close",
+          "FX_NOKUSD",
+          "US_Stock_SLB_adj_volume",
+          "US_Stock_BKR_adj_open",
+          "US_Stock_EWY_adj_open",
+          "JPX_Platinum_Mini_Futures_High",
+          "JPX_Platinum_Standard_Futures_High",
+          "JPX_Platinum_Standard_Futures_Open",
+          "US_Stock_EWY_adj_high"
+        ],
+        "importancia_split": {
+          "US_Stock_DE_adj_volume": 65,
+          "LME_PB_Close": 40,
+          "FX_AUDUSD": 24,
+          "FX_CADUSD": 75,
+          "US_Stock_SCCO_adj_volume": 52,
+          "FX_AUDNZD": 28,
+          "US_Stock_VALE_adj_volume": 59,
+          "FX_GBPUSD": 36,
+          "FX_AUDCHF": 19,
+          "hist_target_desfase_0": 108,
+          "FX_ZARJPY": 20,
+          "FX_GBPCAD": 43,
+          "US_Stock_BKR_adj_high": 7,
+          "US_Stock_BKR_adj_close": 32,
+          "US_Stock_CAT_adj_volume": 52,
+          "US_Stock_X_adj_high": 55,
+          "US_Stock_BKR_adj_low": 0,
+          "US_Stock_X_adj_open": 11,
+          "US_Stock_X_adj_close": 13,
+          "US_Stock_X_adj_low": 10,
+          "FX_EURAUD": 18,
+          "JPX_Platinum_Mini_Futures_Low": 32,
+          "JPX_Platinum_Standard_Futures_Low": 18,
+          "LME_ZS_Close": 45,
+          "FX_NOKUSD": 42,
+          "US_Stock_SLB_adj_volume": 68,
+          "US_Stock_BKR_adj_open": 46,
+          "US_Stock_EWY_adj_open": 8,
+          "JPX_Platinum_Mini_Futures_High": 35,
+          "JPX_Platinum_Standard_Futures_High": 20,
+          "JPX_Platinum_Standard_Futures_Open": 82,
+          "US_Stock_EWY_adj_high": 37
+        },
+        "importancia_gain": {
+          "US_Stock_DE_adj_volume": 0.02190040233108448,
+          "LME_PB_Close": 0.012921776899020188,
+          "FX_AUDUSD": 0.008987614957732148,
+          "FX_CADUSD": 0.028758094893419184,
+          "US_Stock_SCCO_adj_volume": 0.0257818929530913,
+          "FX_AUDNZD": 0.009886466010357253,
+          "US_Stock_VALE_adj_volume": 0.02297409590391908,
+          "FX_GBPUSD": 0.019139366850140505,
+          "FX_AUDCHF": 0.006709714973112568,
+          "hist_target_desfase_0": 0.042706698179244995,
+          "FX_ZARJPY": 0.005865347993676551,
+          "FX_GBPCAD": 0.020058977068401873,
+          "US_Stock_BKR_adj_high": 0.002234216997749172,
+          "US_Stock_BKR_adj_close": 0.011252641983446665,
+          "US_Stock_CAT_adj_volume": 0.018087997945258394,
+          "US_Stock_X_adj_high": 0.022521845006849617,
+          "US_Stock_BKR_adj_low": 0.0,
+          "US_Stock_X_adj_open": 0.0029880940273869783,
+          "US_Stock_X_adj_close": 0.004090339978574775,
+          "US_Stock_X_adj_low": 0.0035937450011260808,
+          "FX_EURAUD": 0.007422322974889539,
+          "JPX_Platinum_Mini_Futures_Low": 0.01373146397236269,
+          "JPX_Platinum_Standard_Futures_Low": 0.004472994987736456,
+          "LME_ZS_Close": 0.010666928923455998,
+          "FX_NOKUSD": 0.014217535841453355,
+          "US_Stock_SLB_adj_volume": 0.029088816925650463,
+          "US_Stock_BKR_adj_open": 0.00843108506524004,
+          "US_Stock_EWY_adj_open": 0.002902721651480533,
+          "JPX_Platinum_Mini_Futures_High": 0.013261597938253544,
+          "JPX_Platinum_Standard_Futures_High": 0.005763567940448411,
+          "JPX_Platinum_Standard_Futures_Open": 0.03209928199794376,
+          "US_Stock_EWY_adj_high": 0.011650776956230402
+        },
+        "recarga_error_maximo_train": 0.0
+      },
+      "temporal": {
+        "archivo": "modelos/target_19_temporal.joblib",
+        "sha256": "ce7444157b681949cabfaf8aff600dd62e3e8eb64f51025379eddd937ae3fdb5",
+        "segundos_ajuste_final": 0.22895212497678585,
+        "n_entrenamiento_finitas": 1400,
+        "entrenamiento_fin_id": 1566,
+        "parametros": {
+          "orden": [
+            1,
+            1,
+            2
+          ],
+          "estacional": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "tendencia": "n"
+        },
+        "diagnostico_residual": "Ljung-Box solo sobre bloques contiguos >=30, no se comprimen ausencias",
+        "ljung_box_bloques": [
+          {
+            "inicio": 608,
+            "fin": 661,
+            "n": 54,
+            "model_df": 3,
+            "p_lag10": 0.015583803609715017
+          },
+          {
+            "inicio": 866,
+            "fin": 919,
+            "n": 54,
+            "model_df": 3,
+            "p_lag10": 0.4642011331641236
+          },
+          {
+            "inicio": 1126,
+            "fin": 1175,
+            "n": 50,
+            "model_df": 3,
+            "p_lag10": 0.013270198782479934
+          }
+        ],
+        "convergio": true,
+        "avisos": [],
+        "segundos_ajuste": 0.1961432920070365,
+        "recarga_error_maximo_train": 0.0
+      }
+    },
+    "target_105": {
+      "ols": {
+        "archivo": "modelos/target_105_ols.joblib",
+        "sha256": "60c60da1fd65cfa932f55cf8337a0451eeae5c156765b7d70a774edbf53307d6",
+        "segundos_ajuste_final": 0.15269229200202972,
+        "n_entrenamiento_finitas": 1425,
+        "entrenamiento_fin_id": 1566,
+        "parametros": {
+          "k": 8,
+          "recorte": true
+        },
+        "seleccionadas": [
+          "US_Stock_KMI_adj_volume",
+          "US_Stock_SLV_adj_low",
+          "US_Stock_PAAS_adj_low",
+          "US_Stock_PAAS_adj_close",
+          "hist_target_desfase_0",
+          "US_Stock_SLV_adj_close",
+          "US_Stock_SLV_adj_high",
+          "US_Stock_SLV_adj_open"
+        ],
+        "coeficientes_escalados": {
+          "US_Stock_KMI_adj_volume": -0.00024445999285548406,
+          "US_Stock_SLV_adj_low": -0.024869284426157975,
+          "US_Stock_PAAS_adj_low": -0.0018562219615597053,
+          "US_Stock_PAAS_adj_close": 0.0009076269253015238,
+          "hist_target_desfase_0": -0.001187255415703901,
+          "US_Stock_SLV_adj_close": 0.016939558163167966,
+          "US_Stock_SLV_adj_high": -0.0016683004388811861,
+          "US_Stock_SLV_adj_open": 0.009575160467235359,
+          "missingindicator_US_Stock_KMI_adj_volume": -2.977142351503277e-05,
+          "missingindicator_US_Stock_SLV_adj_low": -2.9771423515066597e-05,
+          "missingindicator_US_Stock_PAAS_adj_low": -2.977142351506573e-05,
+          "missingindicator_US_Stock_PAAS_adj_close": -2.977142351506573e-05,
+          "missingindicator_hist_target_desfase_0": 0.0005669884585483936,
+          "missingindicator_US_Stock_SLV_adj_close": -2.977142351506573e-05,
+          "missingindicator_US_Stock_SLV_adj_high": -2.977142351506573e-05,
+          "missingindicator_US_Stock_SLV_adj_open": -2.977142351506573e-05
+        },
+        "intercepto_escalado": 0.00015751400653918872,
+        "recarga_error_maximo_train": 0.0
+      },
+      "lightgbm": {
+        "archivo": "modelos/target_105_lightgbm.joblib",
+        "sha256": "fc02583c490e34e5d3375ac0521422e2d0d80255179b54d151548668db32abf2",
+        "segundos_ajuste_final": 0.250380415993277,
+        "n_entrenamiento_finitas": 1425,
+        "entrenamiento_fin_id": 1566,
+        "parametros": {
+          "k": 32,
+          "learning_rate": 0.03,
+          "min_child_samples": 60,
+          "n_estimators": 200,
+          "num_leaves": 7,
+          "recorte": true
+        },
+        "seleccionadas": [
+          "US_Stock_KMI_adj_volume",
+          "US_Stock_SLV_adj_low",
+          "US_Stock_PAAS_adj_low",
+          "US_Stock_PAAS_adj_close",
+          "hist_target_desfase_0",
+          "US_Stock_SLV_adj_close",
+          "US_Stock_SLV_adj_high",
+          "US_Stock_SLV_adj_open",
+          "US_Stock_GDXJ_adj_close",
+          "US_Stock_KGC_adj_low",
+          "US_Stock_COP_adj_volume",
+          "US_Stock_KGC_adj_close",
+          "US_Stock_OKE_adj_volume",
+          "US_Stock_PAAS_adj_open",
+          "US_Stock_KGC_adj_open",
+          "US_Stock_KMI_adj_open",
+          "US_Stock_KMI_adj_low",
+          "US_Stock_AEM_adj_low",
+          "US_Stock_PAAS_adj_high",
+          "US_Stock_KGC_adj_high",
+          "US_Stock_AEM_adj_close",
+          "US_Stock_GDXJ_adj_low",
+          "US_Stock_GDXJ_adj_high",
+          "US_Stock_SPIB_adj_low",
+          "US_Stock_BP_adj_volume",
+          "US_Stock_KMI_adj_close",
+          "US_Stock_AEM_adj_high",
+          "US_Stock_IAU_adj_volume",
+          "US_Stock_SPIB_adj_close",
+          "US_Stock_GDX_adj_close",
+          "US_Stock_KMI_adj_high",
+          "US_Stock_GDXJ_adj_open"
+        ],
+        "importancia_split": {
+          "US_Stock_KMI_adj_volume": 43,
+          "US_Stock_SLV_adj_low": 24,
+          "US_Stock_PAAS_adj_low": 43,
+          "US_Stock_PAAS_adj_close": 6,
+          "hist_target_desfase_0": 127,
+          "US_Stock_SLV_adj_close": 28,
+          "US_Stock_SLV_adj_high": 10,
+          "US_Stock_SLV_adj_open": 13,
+          "US_Stock_GDXJ_adj_close": 26,
+          "US_Stock_KGC_adj_low": 23,
+          "US_Stock_COP_adj_volume": 90,
+          "US_Stock_KGC_adj_close": 13,
+          "US_Stock_OKE_adj_volume": 44,
+          "US_Stock_PAAS_adj_open": 29,
+          "US_Stock_KGC_adj_open": 21,
+          "US_Stock_KMI_adj_open": 48,
+          "US_Stock_KMI_adj_low": 16,
+          "US_Stock_AEM_adj_low": 60,
+          "US_Stock_PAAS_adj_high": 16,
+          "US_Stock_KGC_adj_high": 21,
+          "US_Stock_AEM_adj_close": 38,
+          "US_Stock_GDXJ_adj_low": 46,
+          "US_Stock_GDXJ_adj_high": 13,
+          "US_Stock_SPIB_adj_low": 25,
+          "US_Stock_BP_adj_volume": 133,
+          "US_Stock_KMI_adj_close": 17,
+          "US_Stock_AEM_adj_high": 13,
+          "US_Stock_IAU_adj_volume": 120,
+          "US_Stock_SPIB_adj_close": 23,
+          "US_Stock_GDX_adj_close": 25,
+          "US_Stock_KMI_adj_high": 20,
+          "US_Stock_GDXJ_adj_open": 26
+        },
+        "importancia_gain": {
+          "US_Stock_KMI_adj_volume": 0.030991227162303403,
+          "US_Stock_SLV_adj_low": 0.016747525165556,
+          "US_Stock_PAAS_adj_low": 0.025768156890990213,
+          "US_Stock_PAAS_adj_close": 0.005825017986353487,
+          "hist_target_desfase_0": 0.1245230909116799,
+          "US_Stock_SLV_adj_close": 0.024284085928229615,
+          "US_Stock_SLV_adj_high": 0.0069011559535283595,
+          "US_Stock_SLV_adj_open": 0.00577501006773673,
+          "US_Stock_GDXJ_adj_close": 0.023612940043676645,
+          "US_Stock_KGC_adj_low": 0.02022682793904096,
+          "US_Stock_COP_adj_volume": 0.07391211079084314,
+          "US_Stock_KGC_adj_close": 0.011165484931552783,
+          "US_Stock_OKE_adj_volume": 0.03725182995549403,
+          "US_Stock_PAAS_adj_open": 0.018588188089779578,
+          "US_Stock_KGC_adj_open": 0.018797937023919076,
+          "US_Stock_KMI_adj_open": 0.03694169697701,
+          "US_Stock_KMI_adj_low": 0.010888429067563266,
+          "US_Stock_AEM_adj_low": 0.039649872182053514,
+          "US_Stock_PAAS_adj_high": 0.010248541977489367,
+          "US_Stock_KGC_adj_high": 0.029526365047786385,
+          "US_Stock_AEM_adj_close": 0.041029677173355594,
+          "US_Stock_GDXJ_adj_low": 0.03984071398735978,
+          "US_Stock_GDXJ_adj_high": 0.012075605045538396,
+          "US_Stock_SPIB_adj_low": 0.02413192394305952,
+          "US_Stock_BP_adj_volume": 0.1302871051884722,
+          "US_Stock_KMI_adj_close": 0.011972867039730772,
+          "US_Stock_AEM_adj_high": 0.009690023143775761,
+          "US_Stock_IAU_adj_volume": 0.09627907066897023,
+          "US_Stock_SPIB_adj_close": 0.02196373074548319,
+          "US_Stock_GDX_adj_close": 0.021920178027357906,
+          "US_Stock_KMI_adj_high": 0.025182235054671764,
+          "US_Stock_GDXJ_adj_open": 0.013869533955585212
+        },
+        "recarga_error_maximo_train": 0.0
+      },
+      "temporal": {
+        "archivo": "modelos/target_105_temporal.joblib",
+        "sha256": "f57c70b76a965a324f6e2ba738dbcfd9195c49dd9931f5c7f6d61da3aa09ac52",
+        "segundos_ajuste_final": 0.06868458399549127,
+        "n_entrenamiento_finitas": 1425,
+        "entrenamiento_fin_id": 1566,
+        "parametros": {
+          "orden": [
+            0,
+            0,
+            2
+          ],
+          "estacional": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "tendencia": "c"
+        },
+        "diagnostico_residual": "Ljung-Box solo sobre bloques contiguos >=30, no se comprimen ausencias",
+        "ljung_box_bloques": [
+          {
+            "inicio": 432,
+            "fin": 492,
+            "n": 61,
+            "model_df": 2,
+            "p_lag10": 0.7562555955401323
+          },
+          {
+            "inicio": 174,
+            "fin": 229,
+            "n": 56,
+            "model_df": 2,
+            "p_lag10": 0.13910402690128157
+          },
+          {
+            "inicio": 696,
+            "fin": 751,
+            "n": 56,
+            "model_df": 2,
+            "p_lag10": 0.6568217823732305
+          }
+        ],
+        "convergio": true,
+        "avisos": [],
+        "segundos_ajuste": 0.03636991701205261,
+        "recarga_error_maximo_train": 0.0
+      }
+    },
+    "target_410": {
+      "ols": {
+        "archivo": "modelos/target_410_ols.joblib",
+        "sha256": "ea97430b108a69a18711f1531be460d324102b6ba23913757515557a07e22013",
+        "segundos_ajuste_final": 0.15573829098138958,
+        "n_entrenamiento_finitas": 1480,
+        "entrenamiento_fin_id": 1563,
+        "parametros": {
+          "k": 8,
+          "recorte": true
+        },
+        "seleccionadas": [
+          "US_Stock_EMB_adj_close",
+          "US_Stock_EMB_adj_low",
+          "US_Stock_SPIB_adj_low",
+          "US_Stock_SPIB_adj_close",
+          "US_Stock_VCIT_adj_low",
+          "US_Stock_EMB_adj_open",
+          "US_Stock_EMB_adj_high",
+          "US_Stock_VCIT_adj_close"
+        ],
+        "coeficientes_escalados": {
+          "US_Stock_EMB_adj_close": -0.10082870553621577,
+          "US_Stock_EMB_adj_low": 0.06390065524791683,
+          "US_Stock_SPIB_adj_low": 0.024818255292200175,
+          "US_Stock_SPIB_adj_close": -0.035493344087098935,
+          "US_Stock_VCIT_adj_low": -0.05662199393048244,
+          "US_Stock_EMB_adj_open": -0.01834172819545469,
+          "US_Stock_EMB_adj_high": 0.0506864413602824,
+          "US_Stock_VCIT_adj_close": 0.06789675422279987,
+          "missingindicator_US_Stock_EMB_adj_close": -0.00011720636021992269,
+          "missingindicator_US_Stock_EMB_adj_low": -0.00011720636022000303,
+          "missingindicator_US_Stock_SPIB_adj_low": -0.00011720636021999262,
+          "missingindicator_US_Stock_SPIB_adj_close": -0.00011720636021999262,
+          "missingindicator_US_Stock_VCIT_adj_low": -0.00011720636021999262,
+          "missingindicator_US_Stock_EMB_adj_open": -0.00011720636021999262,
+          "missingindicator_US_Stock_EMB_adj_high": -0.00011720636021999262,
+          "missingindicator_US_Stock_VCIT_adj_close": 0.0007510368997048748
+        },
+        "intercepto_escalado": -0.0002623831381468613,
+        "recarga_error_maximo_train": 0.0
+      },
+      "lightgbm": {
+        "archivo": "modelos/target_410_lightgbm.joblib",
+        "sha256": "d0cb48cccf4bdce7483b3d63bedce5314c409eece0d3c0f4e9f259a242261602",
+        "segundos_ajuste_final": 0.223705250013154,
+        "n_entrenamiento_finitas": 1480,
+        "entrenamiento_fin_id": 1563,
+        "parametros": {
+          "k": 32,
+          "learning_rate": 0.03,
+          "min_child_samples": 30,
+          "n_estimators": 200,
+          "num_leaves": 7,
+          "recorte": false
+        },
+        "seleccionadas": [
+          "US_Stock_EMB_adj_close",
+          "US_Stock_EMB_adj_low",
+          "US_Stock_SPIB_adj_low",
+          "US_Stock_SPIB_adj_close",
+          "US_Stock_VCIT_adj_low",
+          "US_Stock_EMB_adj_open",
+          "US_Stock_EMB_adj_high",
+          "US_Stock_VCIT_adj_close",
+          "US_Stock_SPIB_adj_open",
+          "US_Stock_VCIT_adj_open",
+          "US_Stock_SPIB_adj_high",
+          "US_Stock_VCSH_adj_close",
+          "US_Stock_VCSH_adj_low",
+          "US_Stock_IGSB_adj_close",
+          "US_Stock_VCIT_adj_high",
+          "US_Stock_IGSB_adj_low",
+          "US_Stock_OXY_adj_open",
+          "US_Stock_IGSB_adj_open",
+          "US_Stock_VCSH_adj_high",
+          "US_Stock_IGSB_adj_high",
+          "US_Stock_OXY_adj_high",
+          "US_Stock_VCSH_adj_open",
+          "US_Stock_LQD_adj_low",
+          "US_Stock_BNDX_adj_low",
+          "US_Stock_BNDX_adj_close",
+          "US_Stock_LQD_adj_close",
+          "US_Stock_SHEL_adj_open",
+          "US_Stock_BNDX_adj_open",
+          "US_Stock_OXY_adj_low",
+          "US_Stock_BSV_adj_close",
+          "US_Stock_BNDX_adj_high",
+          "US_Stock_SHEL_adj_high"
+        ],
+        "importancia_split": {
+          "US_Stock_EMB_adj_close": 46,
+          "US_Stock_EMB_adj_low": 33,
+          "US_Stock_SPIB_adj_low": 10,
+          "US_Stock_SPIB_adj_close": 27,
+          "US_Stock_VCIT_adj_low": 3,
+          "US_Stock_EMB_adj_open": 25,
+          "US_Stock_EMB_adj_high": 19,
+          "US_Stock_VCIT_adj_close": 8,
+          "US_Stock_SPIB_adj_open": 15,
+          "US_Stock_VCIT_adj_open": 44,
+          "US_Stock_SPIB_adj_high": 37,
+          "US_Stock_VCSH_adj_close": 40,
+          "US_Stock_VCSH_adj_low": 22,
+          "US_Stock_IGSB_adj_close": 34,
+          "US_Stock_VCIT_adj_high": 12,
+          "US_Stock_IGSB_adj_low": 35,
+          "US_Stock_OXY_adj_open": 110,
+          "US_Stock_IGSB_adj_open": 29,
+          "US_Stock_VCSH_adj_high": 32,
+          "US_Stock_IGSB_adj_high": 38,
+          "US_Stock_OXY_adj_high": 38,
+          "US_Stock_VCSH_adj_open": 34,
+          "US_Stock_LQD_adj_low": 48,
+          "US_Stock_BNDX_adj_low": 48,
+          "US_Stock_BNDX_adj_close": 40,
+          "US_Stock_LQD_adj_close": 56,
+          "US_Stock_SHEL_adj_open": 44,
+          "US_Stock_BNDX_adj_open": 54,
+          "US_Stock_OXY_adj_low": 60,
+          "US_Stock_BSV_adj_close": 78,
+          "US_Stock_BNDX_adj_high": 31,
+          "US_Stock_SHEL_adj_high": 50
+        },
+        "importancia_gain": {
+          "US_Stock_EMB_adj_close": 0.28046385711058974,
+          "US_Stock_EMB_adj_low": 0.09413088293513283,
+          "US_Stock_SPIB_adj_low": 0.04861793969757855,
+          "US_Stock_SPIB_adj_close": 0.16184659046120942,
+          "US_Stock_VCIT_adj_low": 0.01519101019948721,
+          "US_Stock_EMB_adj_open": 0.08627392002381384,
+          "US_Stock_EMB_adj_high": 0.10642900946550071,
+          "US_Stock_VCIT_adj_close": 0.032949059968814254,
+          "US_Stock_SPIB_adj_open": 0.08597059990279377,
+          "US_Stock_VCIT_adj_open": 0.287931592669338,
+          "US_Stock_SPIB_adj_high": 0.1321219673845917,
+          "US_Stock_VCSH_adj_close": 0.2234157188795507,
+          "US_Stock_VCSH_adj_low": 0.09252507193014026,
+          "US_Stock_IGSB_adj_close": 0.10609667625976726,
+          "US_Stock_VCIT_adj_high": 0.06817397009581327,
+          "US_Stock_IGSB_adj_low": 0.2152920390944928,
+          "US_Stock_OXY_adj_open": 0.5332457105978392,
+          "US_Stock_IGSB_adj_open": 0.16534008033340797,
+          "US_Stock_VCSH_adj_high": 0.18116103304782882,
+          "US_Stock_IGSB_adj_high": 0.17796832299791276,
+          "US_Stock_OXY_adj_high": 0.19837893795920536,
+          "US_Stock_VCSH_adj_open": 0.14568873087409884,
+          "US_Stock_LQD_adj_low": 0.2555685976985842,
+          "US_Stock_BNDX_adj_low": 0.36041050124913454,
+          "US_Stock_BNDX_adj_close": 0.21222175005823374,
+          "US_Stock_LQD_adj_close": 0.23094314394984394,
+          "US_Stock_SHEL_adj_open": 0.3383144213585183,
+          "US_Stock_BNDX_adj_open": 0.163525533687789,
+          "US_Stock_OXY_adj_low": 0.28661009145434946,
+          "US_Stock_BSV_adj_close": 0.24969550099922344,
+          "US_Stock_BNDX_adj_high": 0.14682049868861213,
+          "US_Stock_SHEL_adj_high": 0.29882482858374715
+        },
+        "recarga_error_maximo_train": 0.0
+      },
+      "temporal": {
+        "archivo": "modelos/target_410_temporal.joblib",
+        "sha256": "f3fb6060d7581116cfc712696273b5d08b217b1e57f99f49dbf7c3a4d3b1749f",
+        "segundos_ajuste_final": 0.47516145900590345,
+        "n_entrenamiento_finitas": 1480,
+        "entrenamiento_fin_id": 1563,
+        "parametros": {
+          "orden": [
+            2,
+            0,
+            2
+          ],
+          "estacional": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "tendencia": "c"
+        },
+        "diagnostico_residual": "Ljung-Box solo sobre bloques contiguos >=30, no se comprimen ausencias",
+        "ljung_box_bloques": [
+          {
+            "inicio": 427,
+            "fin": 508,
+            "n": 82,
+            "model_df": 4,
+            "p_lag10": 0.0005486514040211322
+          },
+          {
+            "inicio": 169,
+            "fin": 249,
+            "n": 81,
+            "model_df": 4,
+            "p_lag10": 0.06158903389426082
+          },
+          {
+            "inicio": 949,
+            "fin": 1028,
+            "n": 80,
+            "model_df": 4,
+            "p_lag10": 0.00047855108091267057
+          }
+        ],
+        "convergio": true,
+        "avisos": [],
+        "segundos_ajuste": 0.44407070899615064,
+        "recarga_error_maximo_train": 0.0
+      }
+    }
+  },
+  "familia_preferida_cv": {
+    "target_225": "temporal",
+    "target_19": "temporal",
+    "target_105": "temporal",
+    "target_410": "temporal"
+  },
+  "contrato_sha256": "3267d908be87d896891e4ef23cc638ab27d8488eba77491ed829b2e7226f2290",
+  "diagnosticos_sha256": "eed92b0a444499cee05189b5a65135351f035d054bd03b974c46c1e1fd37d052",
+  "metrica_principal": "menor media no ponderada de los tres RMSE de validacion",
+  "holdout_evaluado": false
+}

@@ -1,0 +1,14 @@
+{
+  "retrained": false,
+  "files": [
+    {
+      "source_repository_relative": "data/processed/modelado_externo/24_features_pca.npz",
+      "destination": "artifacts/data/external-features-pca.npz",
+      "sha256": "fc2fe0e955fdbf45b96fb69a15f84cf7fc4faf2ce9aeacb7bcf72a3ac21fdd94",
+      "bytes": 800594,
+      "transformation": "none; byte-for-byte copy of the frozen, verified PCA cache",
+      "validation_contract": "artifacts/contracts/external-lstm.json",
+      "private_third_party_reference": true
+    }
+  ]
+}

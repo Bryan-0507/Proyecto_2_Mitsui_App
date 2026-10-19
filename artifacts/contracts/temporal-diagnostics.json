@@ -1,0 +1,1654 @@
+{
+  "target_225": {
+    "lag": 3,
+    "entrenamiento_fin": 976,
+    "n_total": 977,
+    "n_finitas": 802,
+    "bloques_completos": [
+      {
+        "inicio": 139,
+        "fin": 169,
+        "n": 31
+      },
+      {
+        "inicio": 199,
+        "fin": 227,
+        "n": 29
+      },
+      {
+        "inicio": 707,
+        "fin": 732,
+        "n": 26
+      },
+      {
+        "inicio": 621,
+        "fin": 645,
+        "n": 25
+      },
+      {
+        "inicio": 362,
+        "fin": 385,
+        "n": 24
+      },
+      {
+        "inicio": 816,
+        "fin": 839,
+        "n": 24
+      },
+      {
+        "inicio": 104,
+        "fin": 126,
+        "n": 23
+      },
+      {
+        "inicio": 884,
+        "fin": 904,
+        "n": 21
+      },
+      {
+        "inicio": 293,
+        "fin": 311,
+        "n": 19
+      },
+      {
+        "inicio": 34,
+        "fin": 51,
+        "n": 18
+      },
+      {
+        "inicio": 63,
+        "fin": 79,
+        "n": 17
+      },
+      {
+        "inicio": 316,
+        "fin": 332,
+        "n": 17
+      },
+      {
+        "inicio": 754,
+        "fin": 770,
+        "n": 17
+      },
+      {
+        "inicio": 9,
+        "fin": 24,
+        "n": 16
+      },
+      {
+        "inicio": 397,
+        "fin": 412,
+        "n": 16
+      },
+      {
+        "inicio": 676,
+        "fin": 691,
+        "n": 16
+      },
+      {
+        "inicio": 934,
+        "fin": 949,
+        "n": 16
+      },
+      {
+        "inicio": 495,
+        "fin": 509,
+        "n": 15
+      },
+      {
+        "inicio": 556,
+        "fin": 570,
+        "n": 15
+      },
+      {
+        "inicio": 844,
+        "fin": 858,
+        "n": 15
+      },
+      {
+        "inicio": 477,
+        "fin": 490,
+        "n": 14
+      },
+      {
+        "inicio": 790,
+        "fin": 803,
+        "n": 14
+      },
+      {
+        "inicio": 866,
+        "fin": 879,
+        "n": 14
+      },
+      {
+        "inicio": 88,
+        "fin": 99,
+        "n": 12
+      },
+      {
+        "inicio": 531,
+        "fin": 542,
+        "n": 12
+      },
+      {
+        "inicio": 273,
+        "fin": 283,
+        "n": 11
+      },
+      {
+        "inicio": 347,
+        "fin": 357,
+        "n": 11
+      },
+      {
+        "inicio": 417,
+        "fin": 427,
+        "n": 11
+      },
+      {
+        "inicio": 447,
+        "fin": 457,
+        "n": 11
+      },
+      {
+        "inicio": 575,
+        "fin": 585,
+        "n": 11
+      },
+      {
+        "inicio": 650,
+        "fin": 659,
+        "n": 10
+      },
+      {
+        "inicio": 737,
+        "fin": 746,
+        "n": 10
+      },
+      {
+        "inicio": 967,
+        "fin": 976,
+        "n": 10
+      },
+      {
+        "inicio": 241,
+        "fin": 249,
+        "n": 9
+      },
+      {
+        "inicio": 590,
+        "fin": 598,
+        "n": 9
+      },
+      {
+        "inicio": 608,
+        "fin": 616,
+        "n": 9
+      },
+      {
+        "inicio": 909,
+        "fin": 917,
+        "n": 9
+      },
+      {
+        "inicio": 665,
+        "fin": 671,
+        "n": 7
+      },
+      {
+        "inicio": 923,
+        "fin": 929,
+        "n": 7
+      },
+      {
+        "inicio": 174,
+        "fin": 179,
+        "n": 6
+      },
+      {
+        "inicio": 189,
+        "fin": 194,
+        "n": 6
+      },
+      {
+        "inicio": 432,
+        "fin": 437,
+        "n": 6
+      },
+      {
+        "inicio": 696,
+        "fin": 701,
+        "n": 6
+      },
+      {
+        "inicio": 954,
+        "fin": 959,
+        "n": 6
+      },
+      {
+        "inicio": 468,
+        "fin": 472,
+        "n": 5
+      },
+      {
+        "inicio": 131,
+        "fin": 134,
+        "n": 4
+      },
+      {
+        "inicio": 233,
+        "fin": 236,
+        "n": 4
+      },
+      {
+        "inicio": 56,
+        "fin": 58,
+        "n": 3
+      },
+      {
+        "inicio": 261,
+        "fin": 263,
+        "n": 3
+      },
+      {
+        "inicio": 390,
+        "fin": 392,
+        "n": 3
+      },
+      {
+        "inicio": 1,
+        "fin": 2,
+        "n": 2
+      },
+      {
+        "inicio": 6,
+        "fin": 7,
+        "n": 2
+      },
+      {
+        "inicio": 26,
+        "fin": 27,
+        "n": 2
+      },
+      {
+        "inicio": 31,
+        "fin": 32,
+        "n": 2
+      },
+      {
+        "inicio": 53,
+        "fin": 54,
+        "n": 2
+      },
+      {
+        "inicio": 60,
+        "fin": 61,
+        "n": 2
+      },
+      {
+        "inicio": 81,
+        "fin": 82,
+        "n": 2
+      },
+      {
+        "inicio": 101,
+        "fin": 102,
+        "n": 2
+      },
+      {
+        "inicio": 128,
+        "fin": 129,
+        "n": 2
+      },
+      {
+        "inicio": 136,
+        "fin": 137,
+        "n": 2
+      },
+      {
+        "inicio": 171,
+        "fin": 172,
+        "n": 2
+      },
+      {
+        "inicio": 181,
+        "fin": 182,
+        "n": 2
+      },
+      {
+        "inicio": 186,
+        "fin": 187,
+        "n": 2
+      },
+      {
+        "inicio": 196,
+        "fin": 197,
+        "n": 2
+      },
+      {
+        "inicio": 238,
+        "fin": 239,
+        "n": 2
+      },
+      {
+        "inicio": 265,
+        "fin": 266,
+        "n": 2
+      },
+      {
+        "inicio": 270,
+        "fin": 271,
+        "n": 2
+      },
+      {
+        "inicio": 285,
+        "fin": 286,
+        "n": 2
+      },
+      {
+        "inicio": 290,
+        "fin": 291,
+        "n": 2
+      },
+      {
+        "inicio": 313,
+        "fin": 314,
+        "n": 2
+      },
+      {
+        "inicio": 334,
+        "fin": 335,
+        "n": 2
+      },
+      {
+        "inicio": 337,
+        "fin": 338,
+        "n": 2
+      },
+      {
+        "inicio": 359,
+        "fin": 360,
+        "n": 2
+      },
+      {
+        "inicio": 387,
+        "fin": 388,
+        "n": 2
+      },
+      {
+        "inicio": 394,
+        "fin": 395,
+        "n": 2
+      },
+      {
+        "inicio": 414,
+        "fin": 415,
+        "n": 2
+      },
+      {
+        "inicio": 429,
+        "fin": 430,
+        "n": 2
+      },
+      {
+        "inicio": 439,
+        "fin": 440,
+        "n": 2
+      },
+      {
+        "inicio": 444,
+        "fin": 445,
+        "n": 2
+      },
+      {
+        "inicio": 459,
+        "fin": 460,
+        "n": 2
+      },
+      {
+        "inicio": 462,
+        "fin": 463,
+        "n": 2
+      },
+      {
+        "inicio": 465,
+        "fin": 466,
+        "n": 2
+      },
+      {
+        "inicio": 474,
+        "fin": 475,
+        "n": 2
+      },
+      {
+        "inicio": 492,
+        "fin": 493,
+        "n": 2
+      },
+      {
+        "inicio": 511,
+        "fin": 512,
+        "n": 2
+      },
+      {
+        "inicio": 520,
+        "fin": 521,
+        "n": 2
+      },
+      {
+        "inicio": 523,
+        "fin": 524,
+        "n": 2
+      },
+      {
+        "inicio": 528,
+        "fin": 529,
+        "n": 2
+      },
+      {
+        "inicio": 544,
+        "fin": 545,
+        "n": 2
+      },
+      {
+        "inicio": 548,
+        "fin": 549,
+        "n": 2
+      },
+      {
+        "inicio": 553,
+        "fin": 554,
+        "n": 2
+      },
+      {
+        "inicio": 572,
+        "fin": 573,
+        "n": 2
+      },
+      {
+        "inicio": 587,
+        "fin": 588,
+        "n": 2
+      },
+      {
+        "inicio": 600,
+        "fin": 601,
+        "n": 2
+      },
+      {
+        "inicio": 618,
+        "fin": 619,
+        "n": 2
+      },
+      {
+        "inicio": 647,
+        "fin": 648,
+        "n": 2
+      },
+      {
+        "inicio": 673,
+        "fin": 674,
+        "n": 2
+      },
+      {
+        "inicio": 693,
+        "fin": 694,
+        "n": 2
+      },
+      {
+        "inicio": 734,
+        "fin": 735,
+        "n": 2
+      },
+      {
+        "inicio": 748,
+        "fin": 749,
+        "n": 2
+      },
+      {
+        "inicio": 751,
+        "fin": 752,
+        "n": 2
+      },
+      {
+        "inicio": 772,
+        "fin": 773,
+        "n": 2
+      },
+      {
+        "inicio": 776,
+        "fin": 777,
+        "n": 2
+      },
+      {
+        "inicio": 779,
+        "fin": 780,
+        "n": 2
+      },
+      {
+        "inicio": 782,
+        "fin": 783,
+        "n": 2
+      },
+      {
+        "inicio": 787,
+        "fin": 788,
+        "n": 2
+      },
+      {
+        "inicio": 810,
+        "fin": 811,
+        "n": 2
+      },
+      {
+        "inicio": 813,
+        "fin": 814,
+        "n": 2
+      },
+      {
+        "inicio": 841,
+        "fin": 842,
+        "n": 2
+      },
+      {
+        "inicio": 881,
+        "fin": 882,
+        "n": 2
+      },
+      {
+        "inicio": 906,
+        "fin": 907,
+        "n": 2
+      },
+      {
+        "inicio": 931,
+        "fin": 932,
+        "n": 2
+      },
+      {
+        "inicio": 951,
+        "fin": 952,
+        "n": 2
+      },
+      {
+        "inicio": 961,
+        "fin": 962,
+        "n": 2
+      },
+      {
+        "inicio": 964,
+        "fin": 965,
+        "n": 2
+      },
+      {
+        "inicio": 4,
+        "fin": 4,
+        "n": 1
+      },
+      {
+        "inicio": 29,
+        "fin": 29,
+        "n": 1
+      },
+      {
+        "inicio": 85,
+        "fin": 85,
+        "n": 1
+      },
+      {
+        "inicio": 184,
+        "fin": 184,
+        "n": 1
+      },
+      {
+        "inicio": 230,
+        "fin": 230,
+        "n": 1
+      },
+      {
+        "inicio": 252,
+        "fin": 252,
+        "n": 1
+      },
+      {
+        "inicio": 268,
+        "fin": 268,
+        "n": 1
+      },
+      {
+        "inicio": 288,
+        "fin": 288,
+        "n": 1
+      },
+      {
+        "inicio": 442,
+        "fin": 442,
+        "n": 1
+      },
+      {
+        "inicio": 526,
+        "fin": 526,
+        "n": 1
+      },
+      {
+        "inicio": 551,
+        "fin": 551,
+        "n": 1
+      },
+      {
+        "inicio": 662,
+        "fin": 662,
+        "n": 1
+      },
+      {
+        "inicio": 704,
+        "fin": 704,
+        "n": 1
+      },
+      {
+        "inicio": 785,
+        "fin": 785,
+        "n": 1
+      },
+      {
+        "inicio": 805,
+        "fin": 805,
+        "n": 1
+      },
+      {
+        "inicio": 808,
+        "fin": 808,
+        "n": 1
+      },
+      {
+        "inicio": 860,
+        "fin": 860,
+        "n": 1
+      },
+      {
+        "inicio": 863,
+        "fin": 863,
+        "n": 1
+      },
+      {
+        "inicio": 920,
+        "fin": 920,
+        "n": 1
+      }
+    ],
+    "pruebas": [
+      {
+        "adf_p": 0.17292746331436637,
+        "kpss_p": 0.1,
+        "n": 31,
+        "inicio": 139,
+        "fin": 169,
+        "avisos": [
+          "The test statistic is outside of the range of p-values available in the look-up table. The actual p-value is greater than the p-value returned.",
+          "adfuller currently returns a plain tuple whose length depends on the store and autolag arguments. In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning an ADFullerResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning.",
+          "kpss currently returns a plain tuple whose length and layout depends on the store argument (and which silently drops `lags` when store=True). In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning a KPSSResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning."
+        ]
+      }
+    ],
+    "d_candidatos": [
+      0,
+      1
+    ],
+    "periodos_candidatos": [],
+    "periodicidad_estado": "evidencia insuficiente: menos de dos bloques completos de 100 pasos",
+    "diferenciacion_estado": "d1 como sensibilidad por evidencia insuficiente/contradictoria",
+    "acf": [
+      1.0,
+      0.5242500396783278,
+      0.23554290709967515,
+      -0.29595442477747547,
+      -0.3610894586263075,
+      -0.502332614596487,
+      -0.35408988344321696,
+      -0.09732382155904075,
+      0.23500541490687407,
+      0.3263091082627054,
+      0.14183040074296938,
+      -0.016820420334167013,
+      -0.2269177834461469,
+      -0.18821762660894129,
+      -0.2993172992577518
+    ],
+    "pacf": [
+      1.0,
+      0.524250039678328,
+      -0.0541881712557881,
+      -0.5500734159566942,
+      0.045977609983072626,
+      -0.2439344184093128,
+      -0.22137348212507202,
+      0.2830221495116968,
+      0.08089296208018314,
+      -0.22665486420910338,
+      -0.283051533402962,
+      0.0722537212383364,
+      -0.20592481455928197,
+      0.04309830592673018,
+      -0.1454752452967105
+    ],
+    "regla": "d0 siempre; d1 si pruebas no estacionarias o evidencia insuficiente/contradictoria; periodicidad repetida en dos bloques",
+    "limitacion": "bloques sin faltantes pueden no representar todos los regimenes; solapamiento de horizontes genera dependencia"
+  },
+  "target_19": {
+    "lag": 1,
+    "entrenamiento_fin": 978,
+    "n_total": 979,
+    "n_finitas": 873,
+    "bloques_completos": [
+      {
+        "inicio": 608,
+        "fin": 661,
+        "n": 54
+      },
+      {
+        "inicio": 866,
+        "fin": 919,
+        "n": 54
+      },
+      {
+        "inicio": 88,
+        "fin": 136,
+        "n": 49
+      },
+      {
+        "inicio": 347,
+        "fin": 394,
+        "n": 48
+      },
+      {
+        "inicio": 816,
+        "fin": 860,
+        "n": 45
+      },
+      {
+        "inicio": 139,
+        "fin": 181,
+        "n": 43
+      },
+      {
+        "inicio": 477,
+        "fin": 515,
+        "n": 39
+      },
+      {
+        "inicio": 199,
+        "fin": 230,
+        "n": 32
+      },
+      {
+        "inicio": 676,
+        "fin": 703,
+        "n": 28
+      },
+      {
+        "inicio": 707,
+        "fin": 734,
+        "n": 28
+      },
+      {
+        "inicio": 934,
+        "fin": 961,
+        "n": 28
+      },
+      {
+        "inicio": 56,
+        "fin": 81,
+        "n": 26
+      },
+      {
+        "inicio": 288,
+        "fin": 313,
+        "n": 26
+      },
+      {
+        "inicio": 575,
+        "fin": 600,
+        "n": 26
+      },
+      {
+        "inicio": 751,
+        "fin": 776,
+        "n": 26
+      },
+      {
+        "inicio": 29,
+        "fin": 53,
+        "n": 25
+      },
+      {
+        "inicio": 316,
+        "fin": 340,
+        "n": 25
+      },
+      {
+        "inicio": 4,
+        "fin": 26,
+        "n": 23
+      },
+      {
+        "inicio": 417,
+        "fin": 439,
+        "n": 23
+      },
+      {
+        "inicio": 785,
+        "fin": 805,
+        "n": 21
+      },
+      {
+        "inicio": 233,
+        "fin": 251,
+        "n": 19
+      },
+      {
+        "inicio": 526,
+        "fin": 544,
+        "n": 19
+      },
+      {
+        "inicio": 268,
+        "fin": 285,
+        "n": 18
+      },
+      {
+        "inicio": 397,
+        "fin": 414,
+        "n": 18
+      },
+      {
+        "inicio": 556,
+        "fin": 572,
+        "n": 17
+      },
+      {
+        "inicio": 447,
+        "fin": 459,
+        "n": 13
+      },
+      {
+        "inicio": 737,
+        "fin": 748,
+        "n": 12
+      },
+      {
+        "inicio": 967,
+        "fin": 978,
+        "n": 12
+      },
+      {
+        "inicio": 665,
+        "fin": 673,
+        "n": 9
+      },
+      {
+        "inicio": 923,
+        "fin": 931,
+        "n": 9
+      },
+      {
+        "inicio": 189,
+        "fin": 196,
+        "n": 8
+      },
+      {
+        "inicio": 468,
+        "fin": 474,
+        "n": 7
+      },
+      {
+        "inicio": 547,
+        "fin": 553,
+        "n": 7
+      },
+      {
+        "inicio": 808,
+        "fin": 813,
+        "n": 6
+      },
+      {
+        "inicio": 261,
+        "fin": 265,
+        "n": 5
+      },
+      {
+        "inicio": 462,
+        "fin": 465,
+        "n": 4
+      },
+      {
+        "inicio": 520,
+        "fin": 523,
+        "n": 4
+      },
+      {
+        "inicio": 779,
+        "fin": 782,
+        "n": 4
+      },
+      {
+        "inicio": 184,
+        "fin": 186,
+        "n": 3
+      },
+      {
+        "inicio": 254,
+        "fin": 256,
+        "n": 3
+      },
+      {
+        "inicio": 442,
+        "fin": 444,
+        "n": 3
+      },
+      {
+        "inicio": 1,
+        "fin": 1,
+        "n": 1
+      },
+      {
+        "inicio": 84,
+        "fin": 84,
+        "n": 1
+      },
+      {
+        "inicio": 603,
+        "fin": 603,
+        "n": 1
+      },
+      {
+        "inicio": 964,
+        "fin": 964,
+        "n": 1
+      }
+    ],
+    "pruebas": [
+      {
+        "adf_p": 2.6230727020338694e-18,
+        "kpss_p": 0.1,
+        "n": 54,
+        "inicio": 608,
+        "fin": 661,
+        "avisos": [
+          "The test statistic is outside of the range of p-values available in the look-up table. The actual p-value is greater than the p-value returned.",
+          "adfuller currently returns a plain tuple whose length depends on the store and autolag arguments. In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning an ADFullerResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning.",
+          "kpss currently returns a plain tuple whose length and layout depends on the store argument (and which silently drops `lags` when store=True). In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning a KPSSResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning."
+        ]
+      },
+      {
+        "adf_p": 9.679727075857874e-09,
+        "kpss_p": 0.1,
+        "n": 54,
+        "inicio": 866,
+        "fin": 919,
+        "avisos": [
+          "The test statistic is outside of the range of p-values available in the look-up table. The actual p-value is greater than the p-value returned.",
+          "adfuller currently returns a plain tuple whose length depends on the store and autolag arguments. In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning an ADFullerResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning.",
+          "kpss currently returns a plain tuple whose length and layout depends on the store argument (and which silently drops `lags` when store=True). In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning a KPSSResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning."
+        ]
+      },
+      {
+        "adf_p": 1.2414956358122014e-09,
+        "kpss_p": 0.1,
+        "n": 49,
+        "inicio": 88,
+        "fin": 136,
+        "avisos": [
+          "The test statistic is outside of the range of p-values available in the look-up table. The actual p-value is greater than the p-value returned.",
+          "adfuller currently returns a plain tuple whose length depends on the store and autolag arguments. In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning an ADFullerResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning.",
+          "kpss currently returns a plain tuple whose length and layout depends on the store argument (and which silently drops `lags` when store=True). In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning a KPSSResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning."
+        ]
+      }
+    ],
+    "d_candidatos": [
+      0,
+      1
+    ],
+    "periodos_candidatos": [],
+    "periodicidad_estado": "evidencia insuficiente: menos de dos bloques completos de 100 pasos",
+    "diferenciacion_estado": "d1 como sensibilidad por evidencia insuficiente/contradictoria",
+    "acf": [
+      1.0,
+      -0.3470660667798488,
+      0.1389954915590138,
+      -0.14345164041587086,
+      0.06650783588022291,
+      -0.14570140475098944,
+      0.24343172156556045,
+      -0.17796945849591328,
+      0.07086543686446116,
+      -0.0003057231577082898,
+      0.07017922989812808,
+      -0.02869764570985361,
+      0.038922294429874785,
+      -0.13758364833581457,
+      -0.09960439318957427,
+      0.04305111213235385,
+      0.08073539018316404,
+      -0.017331020126617157,
+      -0.03493032562569523,
+      -0.09470045207706777,
+      0.06753412728618773,
+      -0.038041360103323214,
+      0.09591665927952034,
+      -0.06401611190887285,
+      0.010744559132523274
+    ],
+    "pacf": [
+      1.0,
+      -0.3470660667798488,
+      0.02107980124529813,
+      -0.10113337278305533,
+      -0.01744283870399151,
+      -0.1336321917548316,
+      0.16647595846869015,
+      -0.04405516849227745,
+      -0.044246576705776315,
+      0.06452387274218657,
+      0.07543963391460023,
+      0.052403176171174015,
+      -0.007902774623296282,
+      -0.09406956410531733,
+      -0.20547852577646225,
+      -0.057553905474330924,
+      0.08037976491807153,
+      0.01163151818219288,
+      -0.08532825868458614,
+      -0.13494547573559912,
+      0.052661385800808334,
+      -0.022034486547520864,
+      0.06072368548079392,
+      0.03723597682456657,
+      0.012494439015910045
+    ],
+    "regla": "d0 siempre; d1 si pruebas no estacionarias o evidencia insuficiente/contradictoria; periodicidad repetida en dos bloques",
+    "limitacion": "bloques sin faltantes pueden no representar todos los regimenes; solapamiento de horizontes genera dependencia"
+  },
+  "target_105": {
+    "lag": 1,
+    "entrenamiento_fin": 978,
+    "n_total": 979,
+    "n_finitas": 898,
+    "bloques_completos": [
+      {
+        "inicio": 432,
+        "fin": 492,
+        "n": 61
+      },
+      {
+        "inicio": 174,
+        "fin": 229,
+        "n": 56
+      },
+      {
+        "inicio": 696,
+        "fin": 751,
+        "n": 56
+      },
+      {
+        "inicio": 293,
+        "fin": 334,
+        "n": 42
+      },
+      {
+        "inicio": 650,
+        "fin": 688,
+        "n": 39
+      },
+      {
+        "inicio": 909,
+        "fin": 946,
+        "n": 38
+      },
+      {
+        "inicio": 551,
+        "fin": 587,
+        "n": 37
+      },
+      {
+        "inicio": 845,
+        "fin": 881,
+        "n": 37
+      },
+      {
+        "inicio": 131,
+        "fin": 166,
+        "n": 36
+      },
+      {
+        "inicio": 390,
+        "fin": 424,
+        "n": 35
+      },
+      {
+        "inicio": 810,
+        "fin": 841,
+        "n": 32
+      },
+      {
+        "inicio": 34,
+        "fin": 60,
+        "n": 27
+      },
+      {
+        "inicio": 621,
+        "fin": 647,
+        "n": 27
+      },
+      {
+        "inicio": 362,
+        "fin": 387,
+        "n": 26
+      },
+      {
+        "inicio": 104,
+        "fin": 128,
+        "n": 25
+      },
+      {
+        "inicio": 954,
+        "fin": 978,
+        "n": 25
+      },
+      {
+        "inicio": 9,
+        "fin": 31,
+        "n": 23
+      },
+      {
+        "inicio": 64,
+        "fin": 86,
+        "n": 23
+      },
+      {
+        "inicio": 884,
+        "fin": 906,
+        "n": 23
+      },
+      {
+        "inicio": 338,
+        "fin": 359,
+        "n": 22
+      },
+      {
+        "inicio": 754,
+        "fin": 772,
+        "n": 19
+      },
+      {
+        "inicio": 273,
+        "fin": 290,
+        "n": 18
+      },
+      {
+        "inicio": 531,
+        "fin": 548,
+        "n": 18
+      },
+      {
+        "inicio": 790,
+        "fin": 807,
+        "n": 18
+      },
+      {
+        "inicio": 495,
+        "fin": 511,
+        "n": 17
+      },
+      {
+        "inicio": 591,
+        "fin": 607,
+        "n": 17
+      },
+      {
+        "inicio": 256,
+        "fin": 270,
+        "n": 15
+      },
+      {
+        "inicio": 515,
+        "fin": 528,
+        "n": 14
+      },
+      {
+        "inicio": 89,
+        "fin": 101,
+        "n": 13
+      },
+      {
+        "inicio": 241,
+        "fin": 252,
+        "n": 12
+      },
+      {
+        "inicio": 776,
+        "fin": 787,
+        "n": 12
+      },
+      {
+        "inicio": 610,
+        "fin": 618,
+        "n": 9
+      },
+      {
+        "inicio": 0,
+        "fin": 6,
+        "n": 7
+      },
+      {
+        "inicio": 232,
+        "fin": 238,
+        "n": 7
+      },
+      {
+        "inicio": 169,
+        "fin": 171,
+        "n": 3
+      },
+      {
+        "inicio": 427,
+        "fin": 429,
+        "n": 3
+      },
+      {
+        "inicio": 691,
+        "fin": 693,
+        "n": 3
+      },
+      {
+        "inicio": 949,
+        "fin": 951,
+        "n": 3
+      }
+    ],
+    "pruebas": [
+      {
+        "adf_p": 3.0363935911261795e-12,
+        "kpss_p": 0.1,
+        "n": 61,
+        "inicio": 432,
+        "fin": 492,
+        "avisos": [
+          "The test statistic is outside of the range of p-values available in the look-up table. The actual p-value is greater than the p-value returned.",
+          "adfuller currently returns a plain tuple whose length depends on the store and autolag arguments. In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning an ADFullerResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning.",
+          "kpss currently returns a plain tuple whose length and layout depends on the store argument (and which silently drops `lags` when store=True). In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning a KPSSResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning."
+        ]
+      },
+      {
+        "adf_p": 2.099449159401451e-11,
+        "kpss_p": 0.1,
+        "n": 56,
+        "inicio": 174,
+        "fin": 229,
+        "avisos": [
+          "The test statistic is outside of the range of p-values available in the look-up table. The actual p-value is greater than the p-value returned.",
+          "adfuller currently returns a plain tuple whose length depends on the store and autolag arguments. In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning an ADFullerResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning.",
+          "kpss currently returns a plain tuple whose length and layout depends on the store argument (and which silently drops `lags` when store=True). In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning a KPSSResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning."
+        ]
+      },
+      {
+        "adf_p": 1.0702520513488831e-15,
+        "kpss_p": 0.1,
+        "n": 56,
+        "inicio": 696,
+        "fin": 751,
+        "avisos": [
+          "The test statistic is outside of the range of p-values available in the look-up table. The actual p-value is greater than the p-value returned.",
+          "adfuller currently returns a plain tuple whose length depends on the store and autolag arguments. In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning an ADFullerResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning.",
+          "kpss currently returns a plain tuple whose length and layout depends on the store argument (and which silently drops `lags` when store=True). In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning a KPSSResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning."
+        ]
+      }
+    ],
+    "d_candidatos": [
+      0,
+      1
+    ],
+    "periodos_candidatos": [],
+    "periodicidad_estado": "evidencia insuficiente: menos de dos bloques completos de 100 pasos",
+    "diferenciacion_estado": "d1 como sensibilidad por evidencia insuficiente/contradictoria",
+    "acf": [
+      1.0,
+      -0.03291185223786516,
+      -0.09298008265172811,
+      0.03344154793270977,
+      -0.11234318134344745,
+      -0.05208575777985481,
+      0.08849758629452807,
+      -0.1974311037737855,
+      0.07153701212213318,
+      -0.031237119915632133,
+      -0.03777028115532841,
+      0.13917450030636713,
+      -0.052156120424236486,
+      -0.11491021276640051,
+      -0.01963493121602738,
+      -0.1276878433294314,
+      0.14830547913860262,
+      0.0444755966973993,
+      -0.19692574275601657,
+      -0.003596669861765132,
+      0.050344136262393584,
+      0.05180309099137412,
+      0.028315629400404132,
+      -0.08848177964115449,
+      -0.16136006469674574
+    ],
+    "pacf": [
+      1.0,
+      -0.0329118522378652,
+      -0.09416527155161639,
+      0.027265122092181758,
+      -0.12027577950388783,
+      -0.05515924341586646,
+      0.06302099608996867,
+      -0.2030505029712818,
+      0.06989236085539158,
+      -0.09137357219234128,
+      -0.005020075564074893,
+      0.09706320802224722,
+      -0.07865420408062297,
+      -0.06517820176680268,
+      -0.10923770455182297,
+      -0.10415043032394708,
+      0.13105777488286838,
+      -0.03163455350427309,
+      -0.15546804201620118,
+      -0.07301728922271311,
+      0.006367167623648031,
+      0.0930297391490524,
+      -0.09092661119569513,
+      -0.06698946603696207,
+      -0.1895505705901979
+    ],
+    "regla": "d0 siempre; d1 si pruebas no estacionarias o evidencia insuficiente/contradictoria; periodicidad repetida en dos bloques",
+    "limitacion": "bloques sin faltantes pueden no representar todos los regimenes; solapamiento de horizontes genera dependencia"
+  },
+  "target_410": {
+    "lag": 4,
+    "entrenamiento_fin": 975,
+    "n_total": 976,
+    "n_finitas": 928,
+    "bloques_completos": [
+      {
+        "inicio": 427,
+        "fin": 508,
+        "n": 82
+      },
+      {
+        "inicio": 169,
+        "fin": 249,
+        "n": 81
+      },
+      {
+        "inicio": 691,
+        "fin": 769,
+        "n": 79
+      },
+      {
+        "inicio": 256,
+        "fin": 331,
+        "n": 76
+      },
+      {
+        "inicio": 515,
+        "fin": 584,
+        "n": 70
+      },
+      {
+        "inicio": 621,
+        "fin": 685,
+        "n": 65
+      },
+      {
+        "inicio": 776,
+        "fin": 838,
+        "n": 63
+      },
+      {
+        "inicio": 104,
+        "fin": 163,
+        "n": 60
+      },
+      {
+        "inicio": 362,
+        "fin": 421,
+        "n": 60
+      },
+      {
+        "inicio": 884,
+        "fin": 943,
+        "n": 60
+      },
+      {
+        "inicio": 0,
+        "fin": 57,
+        "n": 58
+      },
+      {
+        "inicio": 845,
+        "fin": 878,
+        "n": 34
+      },
+      {
+        "inicio": 949,
+        "fin": 975,
+        "n": 27
+      },
+      {
+        "inicio": 64,
+        "fin": 83,
+        "n": 20
+      },
+      {
+        "inicio": 338,
+        "fin": 356,
+        "n": 19
+      },
+      {
+        "inicio": 591,
+        "fin": 604,
+        "n": 14
+      },
+      {
+        "inicio": 89,
+        "fin": 98,
+        "n": 10
+      },
+      {
+        "inicio": 610,
+        "fin": 615,
+        "n": 6
+      },
+      {
+        "inicio": 85,
+        "fin": 87,
+        "n": 3
+      },
+      {
+        "inicio": 100,
+        "fin": 102,
+        "n": 3
+      },
+      {
+        "inicio": 165,
+        "fin": 167,
+        "n": 3
+      },
+      {
+        "inicio": 358,
+        "fin": 360,
+        "n": 3
+      },
+      {
+        "inicio": 423,
+        "fin": 425,
+        "n": 3
+      },
+      {
+        "inicio": 606,
+        "fin": 608,
+        "n": 3
+      },
+      {
+        "inicio": 617,
+        "fin": 619,
+        "n": 3
+      },
+      {
+        "inicio": 687,
+        "fin": 689,
+        "n": 3
+      },
+      {
+        "inicio": 880,
+        "fin": 882,
+        "n": 3
+      },
+      {
+        "inicio": 945,
+        "fin": 947,
+        "n": 3
+      },
+      {
+        "inicio": 60,
+        "fin": 61,
+        "n": 2
+      },
+      {
+        "inicio": 252,
+        "fin": 253,
+        "n": 2
+      },
+      {
+        "inicio": 334,
+        "fin": 335,
+        "n": 2
+      },
+      {
+        "inicio": 511,
+        "fin": 512,
+        "n": 2
+      },
+      {
+        "inicio": 587,
+        "fin": 588,
+        "n": 2
+      },
+      {
+        "inicio": 772,
+        "fin": 773,
+        "n": 2
+      },
+      {
+        "inicio": 841,
+        "fin": 842,
+        "n": 2
+      }
+    ],
+    "pruebas": [
+      {
+        "adf_p": 0.00011287479071068182,
+        "kpss_p": 0.1,
+        "n": 82,
+        "inicio": 427,
+        "fin": 508,
+        "avisos": [
+          "The test statistic is outside of the range of p-values available in the look-up table. The actual p-value is greater than the p-value returned.",
+          "adfuller currently returns a plain tuple whose length depends on the store and autolag arguments. In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning an ADFullerResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning.",
+          "kpss currently returns a plain tuple whose length and layout depends on the store argument (and which silently drops `lags` when store=True). In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning a KPSSResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning."
+        ]
+      },
+      {
+        "adf_p": 0.0018089412200003748,
+        "kpss_p": 0.1,
+        "n": 81,
+        "inicio": 169,
+        "fin": 249,
+        "avisos": [
+          "The test statistic is outside of the range of p-values available in the look-up table. The actual p-value is greater than the p-value returned.",
+          "adfuller currently returns a plain tuple whose length depends on the store and autolag arguments. In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning an ADFullerResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning.",
+          "kpss currently returns a plain tuple whose length and layout depends on the store argument (and which silently drops `lags` when store=True). In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning a KPSSResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning."
+        ]
+      },
+      {
+        "adf_p": 0.11587962333357604,
+        "kpss_p": 0.1,
+        "n": 79,
+        "inicio": 691,
+        "fin": 769,
+        "avisos": [
+          "The test statistic is outside of the range of p-values available in the look-up table. The actual p-value is greater than the p-value returned.",
+          "adfuller currently returns a plain tuple whose length depends on the store and autolag arguments. In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning an ADFullerResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning.",
+          "kpss currently returns a plain tuple whose length and layout depends on the store argument (and which silently drops `lags` when store=True). In release 0.16 or after July 2027, whichever is later, the default behavior will switch to always returning a KPSSResult. Set result_object=True to switch now, or result_object=False to keep the current behavior and silence this warning."
+        ]
+      }
+    ],
+    "d_candidatos": [
+      0,
+      1
+    ],
+    "periodos_candidatos": [],
+    "periodicidad_estado": "evidencia insuficiente: menos de dos bloques completos de 100 pasos",
+    "diferenciacion_estado": "d1 como sensibilidad por evidencia insuficiente/contradictoria",
+    "acf": [
+      1.0,
+      0.7599425324566171,
+      0.5394671162747381,
+      0.29945200457938137,
+      0.03263281785539995,
+      -0.009913352478483529,
+      -0.1213320541549375,
+      -0.2052964693909875,
+      -0.295122262295911,
+      -0.40237625372072217,
+      -0.3612041530225977,
+      -0.2911550986343225,
+      -0.20427981702718284,
+      -0.05175298021274091,
+      -0.016581550883672524,
+      -0.011917939124682888,
+      0.01733817775330106,
+      0.05914786115668059,
+      0.17536719371117282,
+      0.2170853006739575,
+      0.21680258324473894,
+      0.11651740531136252,
+      -0.06553561276406475,
+      -0.14771411976979693,
+      -0.2228217745143526
+    ],
+    "pacf": [
+      1.0,
+      0.7599425324566171,
+      -0.09005130354616675,
+      -0.1885069797419056,
+      -0.254222237066786,
+      0.3278768829626891,
+      -0.2655935424932686,
+      -0.13895342436329336,
+      -0.2529243370591916,
+      0.0587277882144786,
+      0.08464200147587816,
+      0.027246299171789105,
+      -0.18072481052454048,
+      0.19181342084326375,
+      -0.1259869239462733,
+      -0.09805183944132953,
+      -0.04603541481484083,
+      0.2993105864978937,
+      0.03987588477894972,
+      -0.19220948172214813,
+      -0.10491518086866795,
+      -0.040973354747876084,
+      -0.08569892097545084,
+      -0.03908938110407923,
+      -0.13664756116396168
+    ],
+    "regla": "d0 siempre; d1 si pruebas no estacionarias o evidencia insuficiente/contradictoria; periodicidad repetida en dos bloques",
+    "limitacion": "bloques sin faltantes pueden no representar todos los regimenes; solapamiento de horizontes genera dependencia"
+  }
+}

@@ -1,2 +1,8 @@
 # Ensure shell scripts always use LF line endings
 *.sh text eol=lf
+
+# Preserve frozen model weights and compressed inputs byte for byte.
+*.joblib binary
+*.pt binary
+*.npz binary
+*.gz binary

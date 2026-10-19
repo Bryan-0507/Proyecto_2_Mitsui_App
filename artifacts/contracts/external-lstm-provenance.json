@@ -1,0 +1,69 @@
+{
+  "autor": "Hayden1629",
+  "url": "https://github.com/Hayden1629/mitsui_commodity/tree/357e8352e7eff9ac10b54d992e61ac6564be8034/FINAL_LSTM",
+  "revision": "357e8352e7eff9ac10b54d992e61ac6564be8034",
+  "licencia": "No encontrada; no redistribuir",
+  "entrenado_por_equipo": false,
+  "archivos": [
+    {
+      "archivo": "LSTMOutputFixed.ipynb",
+      "bytes": 327951,
+      "sha256": "3a076a1563e8ab7fc8f52706c6711c2475875db2f9ce91d607c5180c1327dbba"
+    },
+    {
+      "archivo": "model_seed0.pt",
+      "bytes": 132336,
+      "sha256": "eaab30561f1d746ddfe5ec2ea7f906c3f3887a2316f7e8378fb40fb34a20db3f"
+    },
+    {
+      "archivo": "model_seed1.pt",
+      "bytes": 132336,
+      "sha256": "862ae83c0cf72260499cde844b87aec3cd5721c2de611ae307566578c4828de0"
+    },
+    {
+      "archivo": "model_seed2.pt",
+      "bytes": 132336,
+      "sha256": "4d0339a4e282d669ffea4c4f98aa5646203a4df88d35eca6b2aaa49b889d9c73"
+    },
+    {
+      "archivo": "model_seed3.pt",
+      "bytes": 132336,
+      "sha256": "25f768b2c0e9579e5e2aa847eb78779894503f43874b6aac1b6e93e06c48d899"
+    },
+    {
+      "archivo": "model_seed4.pt",
+      "bytes": 132336,
+      "sha256": "b6f5c0a107ac35c0c28b501e60d30f2061738f841c215f1103e05d4f8de7b357"
+    },
+    {
+      "archivo": "scaler.joblib",
+      "bytes": 112551,
+      "sha256": "ef4a44a857d4dc6d68ee25b359ffb02d914521d71fefaa5fe638418680099a42"
+    },
+    {
+      "archivo": "pca.joblib",
+      "bytes": 835978,
+      "sha256": "5e6673eed0bb2394f43c037ecd2ac39c4e4f7d08358f5464c8d1d76e012b593e"
+    },
+    {
+      "archivo": "config.json",
+      "bytes": 274,
+      "sha256": "2289743134e0d6ce019c3631599cb57bfcecf51782ef9beeaa3ca5611bdf0715"
+    },
+    {
+      "archivo": "eng_cols.json",
+      "bytes": 92095,
+      "sha256": "bc32a7bd2be515a1a7454f7fbce6e9b0f3bace1f8d845fa898e25bd3b0c67e96"
+    },
+    {
+      "archivo": "seeds.json",
+      "bytes": 40,
+      "sha256": "fdfcf135bffcc675015faa4753ed199fcc30c176cf836e45a8261503791b6298"
+    },
+    {
+      "archivo": "predictions_test.csv",
+      "bytes": 758805,
+      "sha256": "81da9c60a3f12bfccdb47fe54d620c1ebe196b3f4c4cff8332ea8e712e7168c3"
+    }
+  ]
+}

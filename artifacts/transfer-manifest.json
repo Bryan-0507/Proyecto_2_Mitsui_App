@@ -1,0 +1,516 @@
+{
+  "source_repository": "/Users/bryan/Documents/DataScience/Proyecto_2_EDA_Data_Science",
+  "retrained": false,
+  "backend_connected": false,
+  "models_count": 22,
+  "files": [
+    {
+      "source": "data/processed/modelado/modelos/target_225_ols.joblib",
+      "destination": "artifacts/models/linear/target_225.joblib",
+      "sha256": "534230a12c3a36c4cb64d030de3c6c851fcd7d006c162cdb18e11b4327c572da",
+      "bytes": 43334
+    },
+    {
+      "source": "data/processed/modelado/modelos/target_225_lightgbm.joblib",
+      "destination": "artifacts/models/lightgbm/target_225_lightgbm.joblib",
+      "sha256": "92c98027b47bdefc52a8c92deee3648f25174d7372d5adeff224e85229dc3b59",
+      "bytes": 207448
+    },
+    {
+      "source": "data/processed/modelado/modelos/target_225_temporal.joblib",
+      "destination": "artifacts/models/temporal/target_225_temporal.joblib",
+      "sha256": "356bc4c51baa35e1efa7b51ebd6d2ce8d6354e037df7a3029817dacafc2d831d",
+      "bytes": 2899012
+    },
+    {
+      "source": "data/processed/modelado/modelos/target_19_ols.joblib",
+      "destination": "artifacts/models/linear/target_19.joblib",
+      "sha256": "2624b40af22c6d08a5af35d63acd3968d2d574710bd49f93c41796d60b3022e2",
+      "bytes": 40694
+    },
+    {
+      "source": "data/processed/modelado/modelos/target_19_lightgbm.joblib",
+      "destination": "artifacts/models/lightgbm/target_19_lightgbm.joblib",
+      "sha256": "1213a0cadef7502d991b126624b2e4d620eed6356f5f26d0c5403ec22949c775",
+      "bytes": 209364
+    },
+    {
+      "source": "data/processed/modelado/modelos/target_19_temporal.joblib",
+      "destination": "artifacts/models/temporal/target_19_temporal.joblib",
+      "sha256": "ce7444157b681949cabfaf8aff600dd62e3e8eb64f51025379eddd937ae3fdb5",
+      "bytes": 6712183
+    },
+    {
+      "source": "data/processed/modelado/modelos/target_105_ols.joblib",
+      "destination": "artifacts/models/linear/target_105.joblib",
+      "sha256": "60c60da1fd65cfa932f55cf8337a0451eeae5c156765b7d70a774edbf53307d6",
+      "bytes": 41142
+    },
+    {
+      "source": "data/processed/modelado/modelos/target_105_lightgbm.joblib",
+      "destination": "artifacts/models/lightgbm/target_105_lightgbm.joblib",
+      "sha256": "fc02583c490e34e5d3375ac0521422e2d0d80255179b54d151548668db32abf2",
+      "bytes": 209898
+    },
+    {
+      "source": "data/processed/modelado/modelos/target_105_temporal.joblib",
+      "destination": "artifacts/models/temporal/target_105_temporal.joblib",
+      "sha256": "f57c70b76a965a324f6e2ba738dbcfd9195c49dd9931f5c7f6d61da3aa09ac52",
+      "bytes": 4749431
+    },
+    {
+      "source": "data/processed/modelado/modelos/target_410_ols.joblib",
+      "destination": "artifacts/models/linear/target_410.joblib",
+      "sha256": "ea97430b108a69a18711f1531be460d324102b6ba23913757515557a07e22013",
+      "bytes": 41142
+    },
+    {
+      "source": "data/processed/modelado/modelos/target_410_lightgbm.joblib",
+      "destination": "artifacts/models/lightgbm/target_410_lightgbm.joblib",
+      "sha256": "d0cb48cccf4bdce7483b3d63bedce5314c409eece0d3c0f4e9f259a242261602",
+      "bytes": 208374
+    },
+    {
+      "source": "data/processed/modelado/modelos/target_410_temporal.joblib",
+      "destination": "artifacts/models/temporal/target_410_temporal.joblib",
+      "sha256": "f3fb6060d7581116cfc712696273b5d08b217b1e57f99f49dbf7c3a4d3b1749f",
+      "bytes": 4741201
+    },
+    {
+      "source": "data/processed/modelado_compartido/modelos/compartido.joblib",
+      "destination": "artifacts/models/lightgbm/shared/shared.joblib",
+      "sha256": "056244c1325cfb99b520446b43f69ae3b56f9d721ed0d1a3ad78e7f6045f1e31",
+      "bytes": 98098
+    },
+    {
+      "source": "data/processed/modelado_compartido/modelos/target_225.joblib",
+      "destination": "artifacts/models/lightgbm/shared/target_225.joblib",
+      "sha256": "50ecf3d1255135693f962986cf53b98270b6fec3129ba3380887fa6955a02b9b",
+      "bytes": 85341
+    },
+    {
+      "source": "data/processed/modelado_compartido/modelos/target_19.joblib",
+      "destination": "artifacts/models/lightgbm/shared/target_19.joblib",
+      "sha256": "066ce3481f9d7cc2eab9b1f1321de808f8277534f961a597a9af304ed61b425f",
+      "bytes": 85713
+    },
+    {
+      "source": "data/processed/modelado_compartido/modelos/target_105.joblib",
+      "destination": "artifacts/models/lightgbm/shared/target_105.joblib",
+      "sha256": "5202b5359f838bda8431c5227872feaacc7ff1c19680fa4ca05e37a8da46ec1e",
+      "bytes": 85340
+    },
+    {
+      "source": "data/processed/modelado_compartido/modelos/target_410.joblib",
+      "destination": "artifacts/models/lightgbm/shared/target_410.joblib",
+      "sha256": "05759168dca8c796f9db0d952c1f5f93649272c6e2dac6861899d01f6218a158",
+      "bytes": 85849
+    },
+    {
+      "source": "data/processed/modelado_externo/fuente/model_seed0.pt",
+      "destination": "artifacts/models/external_lstm/model_seed0.pt",
+      "sha256": "eaab30561f1d746ddfe5ec2ea7f906c3f3887a2316f7e8378fb40fb34a20db3f",
+      "bytes": 132336
+    },
+    {
+      "source": "data/processed/modelado_externo/fuente/model_seed1.pt",
+      "destination": "artifacts/models/external_lstm/model_seed1.pt",
+      "sha256": "862ae83c0cf72260499cde844b87aec3cd5721c2de611ae307566578c4828de0",
+      "bytes": 132336
+    },
+    {
+      "source": "data/processed/modelado_externo/fuente/model_seed2.pt",
+      "destination": "artifacts/models/external_lstm/model_seed2.pt",
+      "sha256": "4d0339a4e282d669ffea4c4f98aa5646203a4df88d35eca6b2aaa49b889d9c73",
+      "bytes": 132336
+    },
+    {
+      "source": "data/processed/modelado_externo/fuente/model_seed3.pt",
+      "destination": "artifacts/models/external_lstm/model_seed3.pt",
+      "sha256": "25f768b2c0e9579e5e2aa847eb78779894503f43874b6aac1b6e93e06c48d899",
+      "bytes": 132336
+    },
+    {
+      "source": "data/processed/modelado_externo/fuente/model_seed4.pt",
+      "destination": "artifacts/models/external_lstm/model_seed4.pt",
+      "sha256": "b6f5c0a107ac35c0c28b501e60d30f2061738f841c215f1103e05d4f8de7b357",
+      "bytes": 132336
+    },
+    {
+      "source": "data/processed/modelado/03_contrato.json",
+      "destination": "artifacts/contracts/benchmark.json",
+      "sha256": "3267d908be87d896891e4ef23cc638ab27d8488eba77491ed829b2e7226f2290",
+      "bytes": 76604
+    },
+    {
+      "source": "data/processed/modelado/04_diagnosticos.json",
+      "destination": "artifacts/contracts/temporal-diagnostics.json",
+      "sha256": "eed92b0a444499cee05189b5a65135351f035d054bd03b974c46c1e1fd37d052",
+      "bytes": 37471
+    },
+    {
+      "source": "data/processed/modelado/06_seleccion_congelada.json",
+      "destination": "artifacts/contracts/benchmark-selection.json",
+      "sha256": "70b1719625e66ffbdcc779fc9a06b505de7632586516c305c6203d94bb97e31e",
+      "bytes": 37744
+    },
+    {
+      "source": "data/processed/modelado/07_manifiesto.json",
+      "destination": "artifacts/contracts/benchmark-manifest.json",
+      "sha256": "a2c49a137e580a1fd556eea61e06b5bf0e7b0325ba5c4867ae3cb7cc6712e669",
+      "bytes": 10316
+    },
+    {
+      "source": "data/processed/modelado/07_metricas_prueba.csv",
+      "destination": "artifacts/evaluation/benchmark/metrics.csv",
+      "sha256": "dd3900162080f986b969b78272235b690e1cdedcfb91af226852ddce33094fc3",
+      "bytes": 3036
+    },
+    {
+      "source": "data/processed/modelado/07_predicciones_prueba.csv",
+      "destination": "artifacts/evaluation/benchmark/predictions.csv",
+      "sha256": "d1c49a15e39ac1c2e47b87f1a050c751495ac2235eef0a83502cfb4b781d18dc",
+      "bytes": 424418
+    },
+    {
+      "source": "data/processed/modelado/08_tiempos_totales.csv",
+      "destination": "artifacts/evaluation/benchmark/training-totals.csv",
+      "sha256": "4d8f7d5312b428bb3dee883017a9b7d9d2f7d9998b34b33a57f99dd36b364d68",
+      "bytes": 325
+    },
+    {
+      "source": "data/processed/modelado_compartido/22_contrato.json",
+      "destination": "artifacts/contracts/lightgbm-roles.json",
+      "sha256": "1505a10e1248bc47e8d4960aac0ef9a9bf1cd20ded28be3dce22d29c69d04640",
+      "bytes": 47795
+    },
+    {
+      "source": "data/processed/modelado_compartido/23_freeze.json",
+      "destination": "artifacts/contracts/lightgbm-roles-selection.json",
+      "sha256": "45666c486459f1d9e7468d626f68534a509a48ccab20129092b0408c94e72921",
+      "bytes": 6733
+    },
+    {
+      "source": "data/processed/modelado_compartido/22_metricas.csv",
+      "destination": "artifacts/evaluation/lightgbm-roles/metrics.csv",
+      "sha256": "f096688f6b2dba377a745d81656e1845a79817aafdcf3f881ca63b49d85e9fa0",
+      "bytes": 5556
+    },
+    {
+      "source": "data/processed/modelado_externo/manifiesto_fuente.json",
+      "destination": "artifacts/contracts/external-lstm-provenance.json",
+      "sha256": "38347f93625b7015aeee342d01733c869d88379c37242c5feaf88fbce918e824",
+      "bytes": 2143
+    },
+    {
+      "source": "data/processed/modelado_externo/24_contrato.json",
+      "destination": "artifacts/contracts/external-lstm.json",
+      "sha256": "84b8d9547e7c307cc39c2e3e28b6e04b2b84023e145136d5bc6f055a786d1be5",
+      "bytes": 2543
+    },
+    {
+      "source": "data/processed/modelado_externo/parametros_seguros.npz",
+      "destination": "artifacts/models/external_lstm/safe-preprocessing.npz",
+      "sha256": "d21dcbdd1b69bd5652c27d5523743dc0625e719c80d1f1a01eef26e5a24f0d07",
+      "bytes": 867888
+    },
+    {
+      "source": "data/processed/modelado_externo/fuente/config.json",
+      "destination": "artifacts/models/external_lstm/config.json",
+      "sha256": "2289743134e0d6ce019c3631599cb57bfcecf51782ef9beeaa3ca5611bdf0715",
+      "bytes": 274
+    },
+    {
+      "source": "data/processed/modelado_externo/fuente/eng_cols.json",
+      "destination": "artifacts/models/external_lstm/feature-columns.json",
+      "sha256": "bc32a7bd2be515a1a7454f7fbce6e9b0f3bace1f8d845fa898e25bd3b0c67e96",
+      "bytes": 92095
+    },
+    {
+      "source": "data/processed/modelado_externo/fuente/seeds.json",
+      "destination": "artifacts/models/external_lstm/seeds.json",
+      "sha256": "fdfcf135bffcc675015faa4753ed199fcc30c176cf836e45a8261503791b6298",
+      "bytes": 40
+    },
+    {
+      "source": "data/processed/modelado_externo/final_comparison/metrics.csv",
+      "destination": "artifacts/evaluation/final-comparison/metrics.csv",
+      "sha256": "1ec73c47bbda4238166c7ab4159a4eae4b0e94f6fbd583860e0e1e10ba7eafbc",
+      "bytes": 8627
+    },
+    {
+      "source": "data/processed/modelado_externo/final_comparison/audit.json",
+      "destination": "artifacts/evaluation/final-comparison/audit.json",
+      "sha256": "f8ef209875ebbee94da1f4531899ee77447e4bbcc088ed965bcfb5eeb7d4146c",
+      "bytes": 3056
+    },
+    {
+      "source": "data/raw/target_pairs.csv",
+      "destination": "artifacts/contracts/target-pairs.csv",
+      "sha256": "06de5c4a9babcd0aef150e68d0a1b8e6ab1ddabf24406f7326f595ead84ad1e1",
+      "bytes": 22579
+    },
+    {
+      "source": "src/__init__.py",
+      "destination": "artifacts/python/src/__init__.py",
+      "sha256": "71b14900197444c409892d7db9608abc677dc524895cadb682e4fcb468899d96",
+      "bytes": 165
+    },
+    {
+      "source": "src/config.py",
+      "destination": "artifacts/python/src/config.py",
+      "sha256": "21a391633879cfdceb5a7e0273e13c8d1d6d74100b23b0d2a9c416991a9316d9",
+      "bytes": 13471
+    },
+    {
+      "source": "src/shared/compatibility.py",
+      "destination": "artifacts/python/src/shared/compatibility.py",
+      "sha256": "9bd44972d63cb011e94683399534761798f457107048487e7a6a86d6edda0163",
+      "bytes": 1502
+    },
+    {
+      "source": "src/shared/modeling.py",
+      "destination": "artifacts/python/src/shared/modeling.py",
+      "sha256": "0ee629fe45bd90cb689a4854c86906cf53a59f2057c575e47f1aff24ef917dec",
+      "bytes": 6720
+    },
+    {
+      "source": "src/models/linear/core.py",
+      "destination": "artifacts/python/src/models/linear/core.py",
+      "sha256": "01598bf6c54fdfe3f0215716ac37a68ed5b72fdf5a0640b0506a0dbd7d7eaacb",
+      "bytes": 172
+    },
+    {
+      "source": "src/models/lightgbm/core.py",
+      "destination": "artifacts/python/src/models/lightgbm/core.py",
+      "sha256": "ee9a0109ca969a167015f99f954c6c9459bd82772a714dd974de07c6fefbec9a",
+      "bytes": 357
+    },
+    {
+      "source": "src/models/lightgbm/shared_targets.py",
+      "destination": "artifacts/python/src/models/lightgbm/shared_targets.py",
+      "sha256": "0d0303914c278c8673da1b3587b932592e92b498642fc5215097eb3f0f61731d",
+      "bytes": 13219
+    },
+    {
+      "source": "src/models/temporal/core.py",
+      "destination": "artifacts/python/src/models/temporal/core.py",
+      "sha256": "0a6b3c5f0e6ff3a0087c17931a1f3e664853a441e2dd168dbb222e6bdc83eaeb",
+      "bytes": 2164
+    },
+    {
+      "source": "src/models/external_lstm/core.py",
+      "destination": "artifacts/python/src/models/external_lstm/core.py",
+      "sha256": "6b1ea2cb41e5c282769d7a47dcbbadb9e3b62801566555c575fb5e4ccee42345",
+      "bytes": 15548
+    },
+    {
+      "source": "data/processed/train_eda.csv",
+      "destination": "artifacts/data/train_eda.csv.gz",
+      "source_sha256": "67dc186b30466804385417a81d9a3f9a2019d4dccb8e7a2784bc364ef8873adf",
+      "sha256": "1fb09005d9ff0baeb83112a30f24131797736f7a71ae1be4699a60f059cc68a3",
+      "bytes": 3802665,
+      "transformation": "gzip only"
+    },
+    {
+      "source": "data/processed/test_eda.csv",
+      "destination": "artifacts/data/test_eda.csv.gz",
+      "source_sha256": "502b12417b2549b10696f822bdf7628fa7692e13e959ce709a71dbec53fa5ce1",
+      "sha256": "7eb7dd101b7cc5517883c9c51572c115097bdd5724955e8ef2d3c7de0bfa2657",
+      "bytes": 274319,
+      "transformation": "gzip only"
+    },
+    {
+      "source": "data/raw/train_labels.csv",
+      "destination": "artifacts/data/selected-target-labels.csv.gz",
+      "source_sha256": "65c89598c5d9a45ca7b6c1df2a0420aaf3cba05f46916aa66682977502b243b1",
+      "sha256": "a555c86b2c2ed148e1daeb14a8a7d6014464a00ff8052c76432d53dde74f76b5",
+      "bytes": 64506,
+      "transformation": "date_id and four target columns, gzip"
+    }
+  ],
+  "figures": [
+    {
+      "source": "docs/figuras/01_distribuciones_predictores_mercado.png",
+      "url": "/figures/eda/distributions.webp",
+      "width": 1390,
+      "height": 789,
+      "source_bytes": 64647,
+      "bytes": 22354,
+      "source_sha256": "31debb7ad46f5036f79f5ee4200b441c421addfa1ca8ae05c329f3dd12ec9288",
+      "sha256": "48eac0e1f6f72e84c4310a2cf5612d15401126bcaab0155ca15253b9b1176eaf",
+      "lossless": true,
+      "pixels_verified": true,
+      "accessibility_review": "pending before display"
+    },
+    {
+      "source": "docs/figuras/02_candidatos_atipicos_tiempo.png",
+      "url": "/figures/eda/outliers-by-id.webp",
+      "width": 1386,
+      "height": 789,
+      "source_bytes": 131729,
+      "bytes": 51200,
+      "source_sha256": "00b0bf8e46254ab7db8bb3ba2cad673af3e08654bed478cfed7580b1cf97787c",
+      "sha256": "52c8c253a9efdbb24fef839d2c2310ad0c3600717be9acb3831909da03af4cf6",
+      "lossless": true,
+      "pixels_verified": true,
+      "accessibility_review": "pending before display"
+    },
+    {
+      "source": "docs/figuras/03_distribucion_correlaciones_spearman.png",
+      "url": "/figures/eda/correlation-distribution.webp",
+      "width": 784,
+      "height": 384,
+      "source_bytes": 29770,
+      "bytes": 9850,
+      "source_sha256": "d66abcb8b3bbf5003a883e43ee8a84cd069d1dbb6902c1d8dccd8ef4e950aa17",
+      "sha256": "649b5fbececd339c828b6e3dc765a896942cecbb3b65bcedc5ab8243f0696e25",
+      "lossless": true,
+      "pixels_verified": true,
+      "accessibility_review": "pending before display"
+    },
+    {
+      "source": "docs/figuras/04_dispersion_pares_mayor_asociacion.png",
+      "url": "/figures/eda/associated-pairs.webp",
+      "width": 1984,
+      "height": 393,
+      "source_bytes": 238578,
+      "bytes": 104194,
+      "source_sha256": "3439be46d67b3d71b3e51f3a221e0f7ac69c41fcf8cc203c047689c6ed403567",
+      "sha256": "5b4dcc6e28a4cafa9ce659094fe205da51180f33d8fd30fffee470bff968c2da",
+      "lossless": true,
+      "pixels_verified": true,
+      "accessibility_review": "pending before display"
+    },
+    {
+      "source": "docs/figuras/05_correlacion_predictores_candidatos.png",
+      "url": "/figures/eda/candidate-correlations.webp",
+      "width": 877,
+      "height": 684,
+      "source_bytes": 175267,
+      "bytes": 82508,
+      "source_sha256": "e4c0969d852189388b8a635f1384bfe98f03e829d4bfac518e888a5999e3327e",
+      "sha256": "13068dfb349627fd68a95441a0fab737f7a370c450c25f0d7ee0528f6709ea93",
+      "lossless": true,
+      "pixels_verified": true,
+      "accessibility_review": "pending before display"
+    },
+    {
+      "source": "docs/figuras/06_correlacion_familia_oro.png",
+      "url": "/figures/eda/gold-correlations.webp",
+      "width": 689,
+      "height": 534,
+      "source_bytes": 61081,
+      "bytes": 25660,
+      "source_sha256": "53543679bda9f3e11187d2ad0fb5bce3f619cae92fc10647b7004e3887d6d98e",
+      "sha256": "f7e7033ee527fe2cf670c2ee477abc2480c893e7dc5dc3548f33c778142f4405",
+      "lossless": true,
+      "pixels_verified": true,
+      "accessibility_review": "pending before display"
+    },
+    {
+      "source": "docs/figuras/07_diagramas_caja_predictores_mercado.png",
+      "url": "/figures/eda/boxplots.webp",
+      "width": 2222,
+      "height": 1260,
+      "source_bytes": 97037,
+      "bytes": 29846,
+      "source_sha256": "38f7dcd820b36ac24c4d2c434dace5ce5d5e6826f2443e47df1663a3b1c439f8",
+      "sha256": "8129167c41fb8fd7edaccfbef10027692b25eb72b601aabb17d5605b9aa622de",
+      "lossless": true,
+      "pixels_verified": true,
+      "accessibility_review": "pending before display"
+    },
+    {
+      "source": "docs/figuras/08_composicion_categorica.png",
+      "url": "/figures/eda/categorical-composition.webp",
+      "width": 2542,
+      "height": 789,
+      "source_bytes": 87180,
+      "bytes": 28188,
+      "source_sha256": "899e5b4b0572397b47faa6a928899fce3c1600ccb9e20e0b14f4877e14cef9c6",
+      "sha256": "9bbde18c446ec122db63a880db625bc6b42816be68babde0a815fd944a2d33ce",
+      "lossless": true,
+      "pixels_verified": true,
+      "accessibility_review": "pending before display"
+    },
+    {
+      "source": "docs/graficos_modelado/08_comparacion_rmse.png",
+      "url": "/figures/modeling/rmse-comparison.webp",
+      "width": 2160,
+      "height": 1440,
+      "source_bytes": 235459,
+      "bytes": 91342,
+      "source_sha256": "b1a665abe3d3e08b461cd6f3e071dc2a6d17947151f290ddf45f322ccbb0d0af",
+      "sha256": "3561245509979aaef3dd49ccfd069c469a15e74d91e5a07bb571ef8f3e7df91a",
+      "lossless": true,
+      "pixels_verified": true,
+      "accessibility_review": "approved source figure"
+    },
+    {
+      "source": "data/processed/modelado/graficos/08_dispersion_informe.png",
+      "url": "/figures/modeling/prediction-scatter.webp",
+      "width": 1240,
+      "height": 1620,
+      "source_bytes": 193282,
+      "bytes": 75520,
+      "source_sha256": "315059cc0defc4eb2405012308f47e5a7418047cb136e4bca16b2feb4fa26f07",
+      "sha256": "22af71a8db258bb0cf6c7bd6ff1ed460ef64abb270f8629752f3a976e4382f50",
+      "lossless": true,
+      "pixels_verified": true,
+      "accessibility_review": "approved source figure"
+    },
+    {
+      "source": "docs/graficos_modelado/08_tiempo_error.png",
+      "url": "/figures/modeling/training-time-error.webp",
+      "width": 2160,
+      "height": 1440,
+      "source_bytes": 269975,
+      "bytes": 99066,
+      "source_sha256": "a6769819aef02bf2c863b93332741f8c7417cccb817a9d9793c48cd61ef2d1aa",
+      "sha256": "46f4165a280d8b4e0ee80b47406a3d2366ce1713ef7f5b17cef8612783c3827c",
+      "lossless": true,
+      "pixels_verified": true,
+      "accessibility_review": "approved source figure"
+    },
+    {
+      "source": "docs/graficos_modelado/08_trayectorias_prueba.png",
+      "url": "/figures/modeling/test-trajectories.webp",
+      "width": 2160,
+      "height": 2160,
+      "source_bytes": 639969,
+      "bytes": 317790,
+      "source_sha256": "76a6d6cc527a1db828005f653af2e4514a58419b2d61a0bd3574ad345aca386c",
+      "sha256": "fcf056084a715f7b39cad0242331267ebbe437da2996abaeb5335a16849eb8a0",
+      "lossless": true,
+      "pixels_verified": true,
+      "accessibility_review": "supporting figure; review before display"
+    },
+    {
+      "source": "data/processed/modelado/graficos/04_tendencia_informe.png",
+      "url": "/figures/modeling/trend-diagnostics.webp",
+      "width": 1240,
+      "height": 1500,
+      "source_bytes": 293600,
+      "bytes": 139070,
+      "source_sha256": "1fa3d6498ff213b83e76366a733b30c7290af60a8372b1075e6b7373e76144e0",
+      "sha256": "fa2389185f5a8a101c57e57a561370da223a54c38a558b155d349bb62f181833",
+      "lossless": true,
+      "pixels_verified": true,
+      "accessibility_review": "approved source figure"
+    },
+    {
+      "source": "data/processed/modelado/graficos/04_autocorrelacion_informe.png",
+      "url": "/figures/modeling/autocorrelation-diagnostics.webp",
+      "width": 1240,
+      "height": 1560,
+      "source_bytes": 186760,
+      "bytes": 70298,
+      "source_sha256": "25b3eec121a6fa28b6e156f09648a5d66b656df95ab3efaa59c99d32b2156171",
+      "sha256": "3c12149e6abe03cb19ce4dfe213fdd6e1ad58c7d7bf5a11c3725d7213ae3f7ff",
+      "lossless": true,
+      "pixels_verified": true,
+      "accessibility_review": "approved source figure"
+    }
+  ]
+}
